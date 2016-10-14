@@ -1,0 +1,15 @@
+<template name="congees">
+	{{> topNav}}
+	<section class="congee">
+		{{#if Template.subscriptionsReady}}
+		<div class="row" id="menurow">
+			{{#each congees}}
+			{{> congee}}
+			{{> congeeModal}}
+			{{/each}}
+		</div>
+		{{else}}
+		<p>Loading</p>
+		{{/if}}
+	</section>
+</template>

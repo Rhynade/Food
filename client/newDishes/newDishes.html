@@ -1,0 +1,40 @@
+<template name = "newDishes">
+	<p class="flow-text">Select Category</p>
+	<p>
+		<input class="with-gap" name="group1" type="radio" id="DimSum" />
+		<label for="DimSum">Dim Sum</label>
+	</p>
+	<p>
+		<input class="with-gap" name="group1" type="radio" id="Congee" />
+		<label for="Congee">Mongkok Congee</label>
+	</p>
+	<p>
+		<input class="with-gap" name="group1" type="radio" id="Sides"  />
+		<label for="Sides">Side Dishes</label>
+	</p>
+	<p>
+		<input class="with-gap" name="group1" type="radio" id="Drinks"  />
+		<label for="Drinks">Drinks</label>
+	</p>
+	<br>
+
+
+	{{#if dimsum}}
+	{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
+	{{/if}}
+
+	{{#if congee}}
+	{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
+	{{/if}}
+
+
+
+</template>
+
+<!-- <template name="dimSumform">
+	{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
+</template>
+
+<template name="congeeform">
+	{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
+</template> -->

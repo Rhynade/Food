@@ -1,0 +1,15 @@
+<template name="dimSums">
+	{{> topNav}}
+	<section class="dimSum">
+		{{#if Template.subscriptionsReady}}
+			<div class="row" id="menurow">
+			{{#each dimSums}}
+				{{> dimSum}}
+				{{> dimSumModal}}
+			{{/each}}
+			</div>
+		{{else}}
+			<p>Loading</p>
+		{{/if}}
+	</section>
+</template>

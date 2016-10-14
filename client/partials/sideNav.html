@@ -1,0 +1,14 @@
+<template name="sideNav">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<nav>
+		<ul id="slide-out" class="side-nav">
+			<li class="sidenav"><a href="/menu"><i class="material-icons">restaurant</i>Menu</a></li> 
+			<li class="sidenav"><a href="/currentOrders" ><i class="material-icons">local_grocery_store</i>Current Orders</a></li>
+			<li class="sidenav"><a href="/orderHistory"><i class="material-icons">map</i>Order History</a></li>
+			<li class="sidenav"><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
+			<li class="sidenav"><a href="/add_dishes"><i class="material-icons">library_add</i>Add Dishes</a></li>
+		</ul>
+		<a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons" id="menutag">menu</i></a>
+		<div class="loginarea">{{> loginButtons}}</div>
+	</nav>
+</template>

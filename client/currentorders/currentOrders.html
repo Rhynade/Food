@@ -1,0 +1,26 @@
+<template name="currentOrders">
+	{{#if Template.subscriptionsReady}}
+		<div class="row">
+			{{#each findOrder}}
+			<div class="col s12">
+				<div class="card horizontal">
+					<div class="card-stacked">
+						<div class="card-content">
+							<p>Name: {{findorderitem}}</p>
+							<p>Price: ${{findprice}}</p>
+							<p>Quantity: {{quantity}}</p>
+							<p>Special Request: {{specialRequest}}</p>
+						</div>
+						<div class="card-action">
+							<button>Order</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	{{else}}
+		<p>Loading</p>
+	{{/if}}
+</template>
+

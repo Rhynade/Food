@@ -1,0 +1,70 @@
+<template name="congee">
+	<div class="col s12 m6 l3">
+		<div class="card truncate hoverable">
+			<div class="card-image">
+				{{#each image}}
+
+				<img src="{{this.url store='thumbsCongee' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" />
+
+				{{/each}}
+			</div>
+			<div class="card-content">
+				<h6><b>{{name}}</b></h6>
+				<p>{{desc}}</p>
+				<p>${{price}}</p>
+			</div>
+			<div class="card-action">
+				<a class="btn-primary modal-trigger" href=#{{_id}}>Add To Order</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="congeeModal">
+  <!-- Modal Trigger -->
+  <!-- Modal Structure -->
+ 	<div id={{_id}} class="modal modal-fixed-footer">
+ 		{{#autoForm collection="OrderItems" id="insertOrderItemsForm" type="insert"}}
+ 			{{> afQuickField name='foodID' value=foodid type="hidden"}}
+ 			{{> afQuickField name='category' value=category type="hidden"}}
+	    	<div class="modal-content">
+	      	<h6 class="modalitem">Item: {{name}}</h6>
+	      	<p class="modalitem">Description: {{desc}}</p>
+	      	<p class="modalitem">Price: ${{price}}0</p>
+	      	<div class="row">
+	      		<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
+					<div class="input-field col s4 m6 13" id="modalquantity">
+					Quantity
+			    	{{> afFieldInput name='quantity' options=options}}
+		  			</div>
+		  		</div>
+		  	</div>
+		  	<div class="row">
+		    	<form class="col s12">
+		      	<div class="row">
+		      		<div class="input-group">
+			        	<div class="input-field col s12">
+			          	<label for="textarea1">Special Request</label>
+			          	{{> afFieldInput name='specialRequest'}}
+			        	</div>
+		        	</div>
+		        </div>
+		    	</form>
+		  	</div>
+	    	</div>
+				<!-- fieldset>
+					<legend>Order</legend>
+					<p><b>{{name}}</b></p>
+					<p>{{desc}}</p>
+					<p>${{price}}0</p>
+					{{> afQuickField name='foodID' value=foodid type="hidden"}}
+					{{> afQuickField name='quantity' options=options}}
+					{{> afQuickField name='specialRequest'}}
+				</fieldset>
+	    	</div> -->
+	    	<div class="modal-footer">
+	      		<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Order</button>
+	    	</div>
+    	{{/autoForm}}
+  	</div>
+</template>
