@@ -2,6 +2,13 @@ Template.dimSum.onRendered(function(){
 	this.$(".modal-trigger").leanModal();
 });
 
+Template.dimSumModal.onCreated(function(){
+	var self = this;
+	self.autorun(function(){
+		self.subscribe('order');
+	});
+});
+
 Template.dimSumModal.helpers({
 	foodid: function() {
 		return this._id;
@@ -9,6 +16,10 @@ Template.dimSumModal.helpers({
 
 	category: function(){
 		return 1;
+	},
+
+	orderid: function() {
+		return Session.get('currentorderid');
 	}
 });
 

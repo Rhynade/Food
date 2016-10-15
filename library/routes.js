@@ -29,6 +29,13 @@ FlowRouter.triggers.enter([function(context, redirect){
 	}
 }]);
 
+//createbasket route
+FlowRouter.route('/createbasket',{
+	name: 'createbasket',
+	action(){
+		BlazeLayout.render('createbasket')
+	}
+})
 //menu route
 FlowRouter.route('/menu',{
 	name: "menu",
@@ -49,6 +56,14 @@ FlowRouter.route('/currentOrders', {
 	name: 'currentOrders',
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'currentOrders'});
+	}
+});
+
+//orderhistory route
+FlowRouter.route('/orderhistory', {
+	name: 'orderhistory',
+	action(){
+		BlazeLayout.render('mainLayout');
 	}
 });
 

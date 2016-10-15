@@ -35,12 +35,6 @@ OrderItemSchema = new SimpleSchema({
 	orderID: {
 		type: String,
 		label: "OrderID",
-		autoform: {
-			type: "hidden"
-		},
-		autoValue: function(){
-			return "1";
-		}
 	},
 
 	quantity: {

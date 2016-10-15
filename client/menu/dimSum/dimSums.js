@@ -4,6 +4,7 @@ Template.dimSums.onCreated(function(){
 		self.subscribe('dimSums');
 		self.subscribe('imagesDimSum');
 		self.subscribe('orderItem');
+		self.subscribe('order');
 	});
 });
 

@@ -2,6 +2,13 @@ Template.congee.onRendered(function(){
 	this.$(".modal-trigger").leanModal();
 });
 
+Template.congee.onCreated(function(){
+	var self = this;
+	self.autorun(function(){
+		self.subscribe('order');
+	});
+})
+
 Template.congeeModal.helpers({
 	foodid: function() {
 		return this._id;
@@ -9,6 +16,10 @@ Template.congeeModal.helpers({
 
 	category: function(){
 		return 2;
+	},
+
+	orderid: function(){
+		return Session.get('currentorderid');
 	}
 });
 

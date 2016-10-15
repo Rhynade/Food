@@ -4,6 +4,7 @@ Template.congees.onCreated(function(){
 		self.subscribe('Congee');
 		self.subscribe('imagesCongee');
 		self.subscribe('orderItem');
+		self.subscribe('order');
 	});
 });
 

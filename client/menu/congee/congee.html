@@ -27,10 +27,11 @@
  		{{#autoForm collection="OrderItems" id="insertOrderItemsForm" type="insert"}}
  			{{> afQuickField name='foodID' value=foodid type="hidden"}}
  			{{> afQuickField name='category' value=category type="hidden"}}
+ 			{{> afQuickField name='orderID' value=orderid type="hidden"}}
 	    	<div class="modal-content">
 	      	<h6 class="modalitem">Item: {{name}}</h6>
 	      	<p class="modalitem">Description: {{desc}}</p>
-	      	<p class="modalitem">Price: ${{price}}0</p>
+	      	<p class="modalitem">Price: ${{price}}</p>
 	      	<div class="row">
 	      		<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
 					<div class="input-field col s4 m6 13" id="modalquantity">
