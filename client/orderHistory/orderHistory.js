@@ -40,7 +40,7 @@ Template.orderHistory.helpers({
 	},
 
 	Order:() =>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: true});
+		return Order.find({ custID: Meteor.user()._id, confirmed: true},{sort: {reservationDate: -1}});
 	},
 
 	totalPrice:() =>{
@@ -73,6 +73,6 @@ Template.orderHistory.helpers({
 	},
 
 	findDate:()=>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: true}).fetch()[0].reservationDate;
+		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate;
 	}
 });
