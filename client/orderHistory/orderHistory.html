@@ -1,0 +1,32 @@
+<template name="orderHistory">
+	{{#if Template.subscriptionsReady}}
+		<div class="row">
+			{{#each Order}}
+			<div class="col s12">
+				<div class="card horizontal">
+					<div class="card-stacked">
+					<div class="cardheader">
+						<p><b>Order Summary</b></p>
+						<p><b>Reservation Date: {{findDate}} </b></p>
+					</div>
+					{{#each findOrder}}
+						<div class="card-content">
+							<p>Name: {{findOrderitem}}</p>
+							<p>Price: ${{findPrice}}</p>
+							<p>Quantity: {{quantity}}</p>
+							<p>Special Request: {{specialRequest}}</p>
+						</div>
+					{{/each}}
+					<div class="card-action">
+						<p> Total price : ${{totalPrice}}</p>
+						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+					</div>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	{{else}}
+		<p>Loading</p>
+	{{/if}}
+</template>

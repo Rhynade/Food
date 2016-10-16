@@ -2,9 +2,9 @@
 FlowRouter.route('/',{
 	name: "home",
 	action(){
-		//if users are logged in they will be directed to recipe book
+		//if users are logged in they will be directed to create new basket page
 		if(Meteor.userId()){
-			FlowRouter.go('menu');
+			FlowRouter.go('createbasket');
 		}
 		BlazeLayout.render('HomeLayout');
 	}
@@ -14,7 +14,7 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-		FlowRouter.go('menu');
+		FlowRouter.go('createbasket');
 	});
 
 	Accounts.onLogout(function(){
@@ -36,14 +36,14 @@ FlowRouter.route('/createbasket',{
 		BlazeLayout.render('createbasket')
 	}
 })
-//menu route
+//menu route - dim sum
 FlowRouter.route('/menu',{
 	name: "menu",
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'dimSums'}); //main-> name of template
 	}
 });
-
+//menu route - congee
 FlowRouter.route('/mongkokCongee',{
 	name: "mongkokCongee",
 	action(){
@@ -63,7 +63,7 @@ FlowRouter.route('/currentOrders', {
 FlowRouter.route('/orderhistory', {
 	name: 'orderhistory',
 	action(){
-		BlazeLayout.render('mainLayout');
+		BlazeLayout.render('mainLayout', {main: 'orderHistory'});
 	}
 });
 

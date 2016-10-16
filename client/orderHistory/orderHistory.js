@@ -1,4 +1,4 @@
-Template.currentOrders.onCreated(function(){
+Template.orderHistory.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
 		self.subscribe('dimSums');
@@ -8,7 +8,7 @@ Template.currentOrders.onCreated(function(){
 	});
 });
 
-Template.currentOrders.helpers({
+Template.orderHistory.helpers({
 	findOrder:() =>{
 		//console.log(Template.currentData()._id)
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
@@ -40,7 +40,7 @@ Template.currentOrders.helpers({
 	},
 
 	Order:() =>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: false});
+		return Order.find({ custID: Meteor.user()._id, confirmed: true});
 	},
 
 	totalPrice:() =>{
@@ -64,7 +64,6 @@ Template.currentOrders.helpers({
 			}
 
 		}
-		Order.update({_id: this._id}, {$set:{totalPrice: total}});
 		return total;
 
 	},
@@ -74,17 +73,6 @@ Template.currentOrders.helpers({
 	},
 
 	findDate:()=>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0].reservationDate;
+		return Order.find({ custID: Meteor.user()._id, confirmed: true}).fetch()[0].reservationDate;
 	}
 });
-
-Template.currentOrders.events({
-	'click .btn'(event,instance){
-		Order.update({_id: this._id}, {$set:{confirmed: true}});
-		FlowRouter.go('orderhistory');
-		// var elem = document.getElementById(this._id);
-		// elem.innerHTML = "Order Placed";
-		// $('#' +this._id).prop('disabled',true);
-	}
-});
-
