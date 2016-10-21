@@ -10,4 +10,10 @@ Template.createbasket.events({
   	Session.set('currentorderid', currentorder);
    	FlowRouter.go('menu');
   },
+
+  'click .waves-effect': function(){
+  	var orderNo = document.getElementById("order_no").value;
+  	Session.set('currentorderid', orderNo);
+  	FlowRouter.go('menu');
+  }
 });
