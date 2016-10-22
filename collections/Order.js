@@ -24,7 +24,14 @@ OrderSchema = new SimpleSchema({
 
 	reservationDate: {
 		type: Date,
-		label: "Reservation Date"
+		label: "Reservation Date",
+		autoValue: function(){
+			return new Date()
+		},
+		//hidden field
+		autoform:{
+			type: "hidden"
+		}
 
 	},
 
