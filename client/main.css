@@ -36,3 +36,15 @@
 .cardheader {
 	padding: 20px;
 }
+
+
+#item, #qty, #price {
+	display: inline;
+	font-size: 115%;
+}
+
+#price {
+	float: right;
+}
+
+

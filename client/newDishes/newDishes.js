@@ -40,3 +40,20 @@ Template.newDishes.helpers({
 		return cat == "Mongkok Congee";
 	}
 });
+
+AutoForm.addHooks(["insertDimSumForm"], {
+	
+
+	    onSuccess: function(operation, result, template) {
+	        FlowRouter.go('menu');
+	    }
+	});
+	
+
+	AutoForm.addHooks(["insertCongeeForm"], {
+	
+
+	    onSuccess: function(operation, result, template) {
+	        FlowRouter.go('mongkokCongee');
+	    }
+	});

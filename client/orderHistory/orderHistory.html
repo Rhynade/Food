@@ -1,4 +1,4 @@
-<template name="orderHistory">
+<!-- <template name="orderHistory">
 	{{#if Template.subscriptionsReady}}
 		<div class="row">
 			{{#each Order}}
@@ -30,4 +30,41 @@
 	{{else}}
 		<p>Loading</p>
 	{{/if}}
+</template> -->
+
+<template name="orderHistory">
+	{{#if Template.subscriptionsReady}}
+		<div class="container">
+			{{#each Order}}
+			<div class="col s12">
+				<div class="card horizontal">
+					<div class="card-stacked">
+					<div class="cardheader" style="font-size:115%">
+						<p><b>Order Summary</b></p>
+						<p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
+						<p><b>Number of Pax: {{findPax}} </b></p>
+					</div>
+					{{#each findOrder}}
+						<div class="card-content">
+							<p id="item">{{findOrderitem}}</p>
+							<p id="qty"> x {{quantity}}</p>
+							<p id="price">${{findPrice}}</p>
+							<p>Special Request: {{specialRequest}}</p>
+						</div>
+					{{/each}}
+					<div class="card-action">
+						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
+						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+						<button class="btn waves-effect waves-light">Make Payment</button>
+					</div>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	{{else}}
+		<p>Loading</p>
+	{{/if}}
+
 </template>
+

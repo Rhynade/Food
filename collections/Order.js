@@ -24,7 +24,22 @@ OrderSchema = new SimpleSchema({
 
 	reservationDate: {
 		type: Date,
+		min: new Date(),
+		optional: false,
 		label: "Reservation Date",
+
+	},
+
+	reservationTime: {
+		type: Number,
+		optional: false,
+		label: "Time"
+	},
+
+	numPax: {
+		type: Number,
+		optional: false,
+		label: "Number of Pax"
 
 	},
 

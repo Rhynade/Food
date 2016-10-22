@@ -36,7 +36,7 @@ Template.orderHistory.helpers({
 			var food = Congee.find({ _id: Template.currentData().foodID });
 		}
 
-		return food.fetch()[0].price * quantity;
+		return (food.fetch()[0].price * quantity).toFixed(2);
 	},
 
 	Order:() =>{
@@ -64,7 +64,7 @@ Template.orderHistory.helpers({
 			}
 
 		}
-		return total;
+		return total.toFixed(2);
 
 	},
 
@@ -73,6 +73,14 @@ Template.orderHistory.helpers({
 	},
 
 	findDate:()=>{
-		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate;
+		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate.toDateString();
+	},
+
+	findTime: ()=> {
+		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
+	},
+
+	findPax: ()=>{
+		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
 	}
 });

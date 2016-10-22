@@ -1,25 +1,27 @@
 <template name="currentOrders">
 	{{#if Template.subscriptionsReady}}
-		<div class="row">
+		<div class="container">
 			{{#each Order}}
 			<div class="col s12">
 				<div class="card horizontal">
 					<div class="card-stacked">
-					<div class="cardheader">
+					<div class="cardheader" style="font-size:115%">
 						<p><b>Order Summary</b></p>
-						<p><b>Reservation Date: {{findDate}} </b></p>
+						<p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
+						<p><b>Number of Pax: {{findPax}} </b></p>
 					</div>
+
 					{{#each findOrder}}
 						<div class="card-content">
-							<p>Name: {{findOrderitem}}</p>
-							<p>Price: ${{findPrice}}</p>
-							<p>Quantity: {{quantity}}</p>
+							<p id="item">{{findOrderitem}}</p>
+							<p id="qty"> x {{quantity}}</p>
+							<p id="price">${{findPrice}}</p>
 							<p>Special Request: {{specialRequest}}</p>
 						</div>
 					{{/each}}
 					<div class="card-action">
-						<p> Total price : ${{totalPrice}}</p>
-						<button class="btn waves-effect waves-light" id="{{_id}}">Place Order</button>
+						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
+						<button  class="btn waves-effect waves-light" id="{{_id}}">Place Order</button>
 					</div>
 					</div>
 				</div>

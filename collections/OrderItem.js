@@ -39,8 +39,8 @@ OrderItemSchema = new SimpleSchema({
 
 	quantity: {
 		type: Number,
-		label: "Quantity",
-		allowedValues: [1,2,3,4,5,6,7,8]
+		label: "Quantity",	
+		optional: false
 	},
 
 	custID: {

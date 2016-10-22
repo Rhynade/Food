@@ -5,6 +5,7 @@ Template.currentOrders.onCreated(function(){
 		self.subscribe('orderItem');
 		self.subscribe('Congee');
 		self.subscribe('order');
+		self.subscribe('Accounts.users');
 	});
 });
 
@@ -14,6 +15,11 @@ Template.currentOrders.helpers({
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
 		return OrderItems.find({ orderID: Template.currentData()._id, custID : Meteor.user()._id , added: false});
 	},
+
+	findUser: () =>{
+		return Accounts.users.find({_id:this._id});
+	},
+
 	findOrderitem:() => {
  
 		var catID = Template.currentData().category;
@@ -36,7 +42,7 @@ Template.currentOrders.helpers({
 			var food = Congee.find({ _id: Template.currentData().foodID });
 		}
 
-		return food.fetch()[0].price * quantity;
+		return (food.fetch()[0].price * quantity).toFixed(2);
 	},
 
 	Order:() =>{
@@ -65,7 +71,7 @@ Template.currentOrders.helpers({
 
 		}
 		Order.update({_id: this._id}, {$set:{totalPrice: total}});
-		return total;
+		return total.toFixed(2);
 
 	},
 
@@ -74,7 +80,15 @@ Template.currentOrders.helpers({
 	},
 
 	findDate:()=>{
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate;
+		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate.toDateString();
+	},
+
+	findTime: ()=> {
+		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
+	},
+
+	findPax: ()=>{
+		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
 	}
 });
 
@@ -87,4 +101,3 @@ Template.currentOrders.events({
 		// $('#' +this._id).prop('disabled',true);
 	}
 });
-
