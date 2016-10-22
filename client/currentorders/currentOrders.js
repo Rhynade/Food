@@ -11,9 +11,8 @@ Template.currentOrders.onCreated(function(){
 
 Template.currentOrders.helpers({
 	findOrder:() =>{
-		//console.log(Template.currentData()._id)
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
-		return OrderItems.find({ orderID: Template.currentData()._id, custID : Meteor.user()._id , added: false});
+		return OrderItems.find({ orderID: Template.currentData()._id, added: false});
 	},
 
 	findUser: () =>{
@@ -51,7 +50,7 @@ Template.currentOrders.helpers({
 
 	totalPrice:() =>{
 		var orderid = Template.currentData()._id;
-		var items = OrderItems.find({ orderID: orderid, custID : Meteor.user()._id , added: false});
+		var items = OrderItems.find({ orderID: orderid, added: false});
 		var total = 0;
 		var catID = 0;
 		var quantity = 0;
@@ -70,7 +69,10 @@ Template.currentOrders.helpers({
 			}
 
 		}
-		Order.update({_id: this._id}, {$set:{totalPrice: total}});
+		// Order.update({_id: this._id}, {$set:{totalPrice: total}},function(error, result ){
+  //       	console.log(error);
+  //       	console.log(result);
+  //   	});
 		return total.toFixed(2);
 
 	},
@@ -95,6 +97,7 @@ Template.currentOrders.helpers({
 Template.currentOrders.events({
 	'click .btn'(event,instance){
 		Order.update({_id: this._id}, {$set:{confirmed: true}});
+		// Order.update({_id: this._id}, {$set:{totalPrice: total}});
 		FlowRouter.go('orderhistory');
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";

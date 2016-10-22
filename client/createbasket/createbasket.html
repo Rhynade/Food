@@ -6,7 +6,8 @@
 				{{> afQuickField name='reservationDate'}}
 				{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
 				{{> afQuickField name='numPax' placeholder= "Number of guests"}}
-				
+				{{> afQuickField name='custID' value=user type="hidden"}}
+				{{> afQuickField name='totalPrice' value=zero type="hidden"}}
 				<button type="submit" class="waves-effect waves-light btn center-align" id="create">Create new basket</button>
 				{{/autoForm}}
 			</div>

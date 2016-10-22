@@ -46,7 +46,6 @@ OrderSchema = new SimpleSchema({
 	totalPrice: {
 		type: Number,
 		label: "TotalPrice",
-		defaultValue: 0.0,
 		autoform:{
 			type: "hidden"
 		},
@@ -63,12 +62,9 @@ OrderSchema = new SimpleSchema({
 	},
 
 	custID: {
-		type: String,
+		type: [String],
 		label: "Customer",
 		//default value
-		autoValue: function() {
-			return this.userId
-		},
 		//hidden field
 		autoform:{
 			type: "hidden"

@@ -3,11 +3,11 @@ Meteor.publish('dimSums', function(){
 });
 
 Meteor.publish('imagesDimSum', function(){
-  return ImagesDimSum.find();
+	return ImagesDimSum.find();
 });
 
 Meteor.publish('orderItem', function(){
-	return OrderItems.find({ custID : this.userId});
+	return OrderItems.find({});
 });
 
 Meteor.publish('Congee', function(){
@@ -15,13 +15,13 @@ Meteor.publish('Congee', function(){
 });
 
 Meteor.publish('imagesCongee', function(){
-  return ImagesCongee.find();
+	return ImagesCongee.find();
 });
 
 Meteor.publish('order', function(){
-  return Order.find({ custID : this.userId });
+	return Order.find({ custID : this.userId });
 });
 
 Meteor.publish('users', function(){
-	  return Accounts.users.find({});
-	});
+	return Accounts.users.find({});
+});
