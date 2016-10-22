@@ -11,7 +11,7 @@ Template.createbasket.events({
    	FlowRouter.go('menu');
   },
 
-  'click .waves-effect': function(){
+  'click #add': function(){
   	var orderNo = document.getElementById("order_no").value;
   	Session.set('currentorderid', orderNo);
   	FlowRouter.go('menu');
