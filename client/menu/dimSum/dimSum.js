@@ -19,7 +19,7 @@ Template.dimSumModal.helpers({
 	},
 
 	orderid: function() {
-		return Session.get('currentorderid');
+		return UserSession.get('currentorderid');
 	}
 });
 

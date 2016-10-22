@@ -1,25 +1,25 @@
 Template.newDishes.events({
 	'click #DimSum' : ()=>{
 		var category = "Dim Sum";
-		Session.set('selectedCat', category);
+		UserSession.set('selectedCat', category);
 
 	},
 
 	'click #Congee' : ()=>{
 		var category = "Mongkok Congee";
-		Session.set('selectedCat', category);
+		UserSession.set('selectedCat', category);
 
 	},
 
 	'click #Sides' : ()=>{
 		var category = "Side Dishes";
-		Session.set('selectedCat', category);
+		UserSession.set('selectedCat', category);
 
 	},
 
 	'click #Drinks' : ()=>{
 		var category = "Drinks";
-		Session.set('selectedCat', category);
+		UserSession.set('selectedCat', category);
 
 	}
 
@@ -31,7 +31,7 @@ Template.newDishes.events({
 
 Template.newDishes.helpers({
 	dimsum:()=>{
-		var cat = Session.get('selectedCat');
+		var cat = UserSession.get('selectedCat');
 		return cat == "Dim Sum";
 	},
 	

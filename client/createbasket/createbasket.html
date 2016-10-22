@@ -4,8 +4,8 @@
 			<div class="col s12 m6 l3">
 				{{#autoForm collection="Order" id="insertOrderForm" type="insert" }}
 				{{> afQuickField name='reservationDate'}}
-				{{> afQuickField name='reservationTime'}}
-				{{> afQuickField name='numPax' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
+				{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
+				{{> afQuickField name='numPax' placeholder= "Number of guests"}}
 				
 				<button type="submit" class="waves-effect waves-light btn center-align" id="create">Create new basket</button>
 				{{/autoForm}}
