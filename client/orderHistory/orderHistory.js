@@ -79,10 +79,10 @@ Template.orderHistory.helpers({
 	},
 
 	findTime: ()=> {
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
+		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationTime;
 	},
 
 	findPax: ()=>{
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
+		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].numPax;
 	}
 });
