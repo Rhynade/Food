@@ -10,6 +10,12 @@
 						<p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
 						<p><b>Number of Pax: {{findPax}} </b></p>
 					</div>
+					{{#each findUser}}
+						{{#each emails}}
+						{{address}}
+						{{/each}}
+					{{/each}}
+
 
 					{{#each findOrder}}
 						<div class="card-content">
