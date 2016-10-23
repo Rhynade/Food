@@ -69,7 +69,8 @@ Template.currentOrders.helpers({
 			}
 
 		}
-		Order.update({_id: Template.currentData()._id}, {$set:{totalPrice: total}});
+		//Order.update({_id: Template.currentData()._id}, {$set:{totalPrice: total}});
+		Session.set(Template.currentData()._id, total);
 		return total.toFixed(2);
 
 	},
@@ -93,8 +94,8 @@ Template.currentOrders.helpers({
 
 Template.currentOrders.events({
 	'click .btn'(event,instance){
-		Order.update({_id: this._id}, {$set:{confirmed: true}});
-		// Order.update({_id: this._id}, {$set:{totalPrice: total}});
+		var total = Session.get(this._id);
+		Order.update({_id: this._id}, {$set:{confirmed: true, totalPrice: total}});
 		FlowRouter.go('orderhistory');
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";
