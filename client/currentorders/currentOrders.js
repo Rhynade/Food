@@ -69,10 +69,7 @@ Template.currentOrders.helpers({
 			}
 
 		}
-		// Order.update({_id: this._id}, {$set:{totalPrice: total}},function(error, result ){
-  //       	console.log(error);
-  //       	console.log(result);
-  //   	});
+		Order.update({_id: Template.currentData()._id}, {$set:{totalPrice: total}});
 		return total.toFixed(2);
 
 	},

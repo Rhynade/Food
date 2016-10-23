@@ -44,27 +44,29 @@ Template.orderHistory.helpers({
 	},
 
 	totalPrice:() =>{
-		var orderid = Template.currentData()._id;
-		var items = OrderItems.find({ orderID: orderid , added: false});
-		var total = 0;
-		var catID = 0;
-		var quantity = 0;
-		var price = 0;
-		for (i=0; i<items.fetch().length ; i++){
-			var item = items.fetch()[i];
-			catID = item.category;
-			quantity = item.quantity;
-			if (catID==1) {
-				price = DimSums.find({_id: item.foodID}).fetch()[0].price;
-				total += price * quantity;
-			}
-			else if(catID==2){
-				price = Congee.find({ _id: item.foodID }).fetch()[0].price;
-				total += price * quantity;
-			}
+		// var orderid = Template.currentData()._id;
+		// var items = OrderItems.find({ orderID: orderid , added: false});
+		// var total = 0;
+		// var catID = 0;
+		// var quantity = 0;
+		// var price = 0;
+		// for (i=0; i<items.fetch().length ; i++){
+		// 	var item = items.fetch()[i];
+		// 	catID = item.category;
+		// 	quantity = item.quantity;
+		// 	if (catID==1) {
+		// 		price = DimSums.find({_id: item.foodID}).fetch()[0].price;
+		// 		total += price * quantity;
+		// 	}
+		// 	else if(catID==2){
+		// 		price = Congee.find({ _id: item.foodID }).fetch()[0].price;
+		// 		total += price * quantity;
+		// 	}
 
-		}
-		return total.toFixed(2);
+		// }
+		// Order.update({_id: Template.currentData()._id}, {$set:{totalPrice: total}});
+		// return total.toFixed(2);
+		return Order.find({ _id: Template.currentData()._id}).fetch()[0].totalPrice;
 
 	},
 
