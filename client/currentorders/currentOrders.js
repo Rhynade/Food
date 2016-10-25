@@ -89,6 +89,10 @@ Template.currentOrders.helpers({
 
 	findPax: ()=>{
 		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
+	},
+
+	isUserOrderItem: ()=>{
+		return Template.currentData().custID == Meteor.user()._id;
 	}
 });
 

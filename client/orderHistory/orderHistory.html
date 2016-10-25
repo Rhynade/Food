@@ -45,12 +45,21 @@
 						<p><b>Number of Pax: {{findPax}} </b></p>
 					</div>
 					{{#each findOrder}}
-						<div class="card-content">
-							<p id="item">{{findOrderitem}}</p>
-							<p id="qty"> x {{quantity}}</p>
-							<p id="price">${{findPrice}}</p>
-							<p>Special Request: {{specialRequest}}</p>
-						</div>
+						{{#if isUserOrderItem}}
+							<div class="card-content orange lighten-5">
+								<p id="item">{{findOrderitem}}</p>
+								<p id="qty"> x {{quantity}}</p>
+								<p id="price">${{findPrice}}</p>
+								<p>Special Request: {{specialRequest}}</p>
+							</div>
+						{{else}}
+							<div class="card-content">
+								<p id="item">{{findOrderitem}}</p>
+								<p id="qty"> x {{quantity}}</p>
+								<p id="price">${{findPrice}}</p>
+								<p>Special Request: {{specialRequest}}</p>
+							</div>
+						{{/if}}
 					{{/each}}
 					<div class="card-action">
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
