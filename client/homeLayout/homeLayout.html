@@ -1,13 +1,14 @@
 <template name="HomeLayout">
-	<header>
-		<h1><img src="http://xinwang.com.sg/wp-content/uploads/2014/07/xw-logo.gif"></h1>
-	</header>
-	<main class="home-layout">
-		{{#if isClicked}}
-			{{> signup}}
-		{{else}}
-			{{> login}}
-		{{/if}}
-	</main>
+	<div class="home-background">
+		<div class="container-fluid header">
+			<img src="http://xinwang.com.sg/wp-content/uploads/2014/07/xw-logo.gif">
+		</div>
+		<main class="home-layout">
+			{{#if isClicked}}
+				{{> signup}}
+			{{else}}
+				{{> login}}
+			{{/if}}
+		</main>
+	</div>
 </template>
-
