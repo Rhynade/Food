@@ -9,6 +9,12 @@ Template.orderHistory.onCreated(function(){
 });
 
 Template.orderHistory.helpers({
+
+
+	Order:() =>{
+		return Order.find({ custID: Meteor.user()._id, confirmed: true},{sort: {reservationDate: -1}});
+	},
+
 	findOrder:() =>{
 		//console.log(Template.currentData()._id)
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
@@ -39,33 +45,8 @@ Template.orderHistory.helpers({
 		return (food.fetch()[0].price * quantity).toFixed(2);
 	},
 
-	Order:() =>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: true},{sort: {reservationDate: -1}});
-	},
-
 	totalPrice:() =>{
-		// var orderid = Template.currentData()._id;
-		// var items = OrderItems.find({ orderID: orderid , added: false});
-		// var total = 0;
-		// var catID = 0;
-		// var quantity = 0;
-		// var price = 0;
-		// for (i=0; i<items.fetch().length ; i++){
-		// 	var item = items.fetch()[i];
-		// 	catID = item.category;
-		// 	quantity = item.quantity;
-		// 	if (catID==1) {
-		// 		price = DimSums.find({_id: item.foodID}).fetch()[0].price;
-		// 		total += price * quantity;
-		// 	}
-		// 	else if(catID==2){
-		// 		price = Congee.find({ _id: item.foodID }).fetch()[0].price;
-		// 		total += price * quantity;
-		// 	}
-
-		// }
-		// Order.update({_id: Template.currentData()._id}, {$set:{totalPrice: total}});
-		// return total.toFixed(2);
+	
 		return Order.find({ _id: Template.currentData()._id}).fetch()[0].totalPrice;
 
 	},
@@ -89,3 +70,5 @@ Template.orderHistory.helpers({
 		return Template.currentData().custID == Meteor.user()._id;
 	}
 });
+
+

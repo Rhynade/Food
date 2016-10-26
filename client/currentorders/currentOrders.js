@@ -5,7 +5,7 @@ Template.currentOrders.onCreated(function(){
 		self.subscribe('orderItem');
 		self.subscribe('Congee');
 		self.subscribe('order');
-		self.subscribe('Accounts.users');
+		self.subscribe('users');
 	});
 });
 
@@ -15,8 +15,13 @@ Template.currentOrders.helpers({
 		return OrderItems.find({ orderID: Template.currentData()._id, added: false});
 	},
 
-	findUser: () =>{
-		return Accounts.users.find({_id:this._id});
+	findOrderUser: () =>{
+
+		var custID = Template.currentData().custID;
+ 
+		return Accounts.users.find({_id: custID}).fetch();
+
+		// return Accounts.users.find({_id: Meteor.user()._id}).fetch();
 	},
 
 	findOrderitem:() => {

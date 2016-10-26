@@ -3,8 +3,6 @@ Template.dimSums.onCreated(function(){
 	self.autorun(function(){
 		self.subscribe('dimSums');
 		self.subscribe('imagesDimSum');
-		self.subscribe('orderItem');
-		self.subscribe('order');
 	});
 });
 
