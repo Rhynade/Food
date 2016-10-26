@@ -1,0 +1,7 @@
+<template name="dashboard">
+	{{#if Template.subscriptionsReady}}
+		<div id="chart">{{createChart}}</div>
+	{{else}}
+		<p> Loading </p>
+	{{/if}}
+</template>

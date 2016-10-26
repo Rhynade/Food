@@ -75,3 +75,11 @@ FlowRouter.route('/add_dishes',{
 	}
 });
 
+//dashboard route
+FlowRouter.route('/dashboard',{
+	name: 'dashboard',
+	action(){
+		BlazeLayout.render('mainLayout',{main: 'dashboard'});
+	}
+});
+
