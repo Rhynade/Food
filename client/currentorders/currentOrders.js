@@ -102,12 +102,20 @@ Template.currentOrders.helpers({
 });
 
 Template.currentOrders.events({
-	'click .btn'(event,instance){
+	'click #place'(event,instance){
 		var total = Session.get(this._id);
 		Order.update({_id: this._id}, {$set:{confirmed: true, totalPrice: total}});
 		FlowRouter.go('orderhistory');
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";
 		// $('#' +this._id).prop('disabled',true);
+	},
+
+	'click #delete': function(){
+		Meteor.call('deleteOrder', this._id);
+	},
+
+	'click #bin': function() {
+		Meteor.call('deleteItem', this._id);
 	}
 });

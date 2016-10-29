@@ -11,13 +11,7 @@ ImagesCongee = new FS.Collection("imagesCongee", {
           extension: 'jpeg',
           type: 'image/jpeg'
         };
-      },
-      transformWrite: resizeImageStream({
-        width: 200,
-        height: 100,
-        format: 'image/jpeg',
-        quality: 50
-      })
+      }
     })
   ],
 });

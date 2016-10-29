@@ -79,7 +79,7 @@ Meteor.methods({
 		OrderItems.update(id);
 	},
 
-	deleteOrderItem: function(id) {
+	deleteItem: function(id) {
 		OrderItems.remove(id);
 	}
 });

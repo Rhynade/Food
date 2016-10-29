@@ -10,13 +10,13 @@ ImagesDimSum = new FS.Collection("imagesDimSum", {
           extension: 'jpeg',
           type: 'image/jpeg'
         };
-      },
-      transformWrite: resizeImageStream({
-        width: 200,
-        height: 100,
-        format: 'image/jpeg',
-        quality: 50
-      })
+      }
+      // transformWrite: resizeImageStream({
+      //   width: 300,
+      //   height: 200,
+      //   format: 'image/jpeg',
+      //   quality: 50
+      // })
     })
   ],
 });

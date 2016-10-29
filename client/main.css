@@ -28,6 +28,31 @@
   margin: 0 auto;
 }
 
+#form-group1 {
+	color: white;
+	font-weight: 500;
+  width: 600px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#createBasket{
+	margin-left: 100px;
+}
+
+#newBasket {
+	color: white;
+	font-weight: 500;
+  width: 600px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+/*.control-label{
+	color: white;
+	font-size: 20px
+}
+*/
 .sidenav a{
 	padding:20px;
 	height:auto;
@@ -35,6 +60,10 @@
 
 .side-nav{
 	width: 230px;
+}
+
+nav{
+	background-color: black;
 }
 
 #menutag{
@@ -68,11 +97,13 @@
 }
 
 
-#item, #qty, #price {
+#item, #qty, #price, #bin {
 	display: inline;
-	font-size: 115%;
+	/*font-size: 100%;*/
 }
-
+#bin {
+	font-size: 90%
+}
 #price {
 	float: right;
 }

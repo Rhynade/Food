@@ -1,22 +1,27 @@
 <template name="createbasket">
 	<main class="main-layout">
-		<div class="container" style="margin-top: 150px">
-			<div class="col s12 m6 l3">
-				{{#autoForm collection="Order" id="insertOrderForm" type="insert" }}
-				{{> afQuickField name='reservationDate'}}
-				{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
-				{{> afQuickField name='numPax' placeholder= "Number of guests"}}
-				{{> afQuickField name='custID' value=user type="hidden"}}
-				{{> afQuickField name='totalPrice' value=zero type="hidden"}}
-				<button type="submit" class="waves-effect waves-light btn center-align" id="create">Create new basket</button>
-				{{/autoForm}}
-			</div>
-			<div class="col s12 m6 l3" style="margin-top: 50px">
-				<div class="input-field col s12">
-					<input placeholder="Please input order number" id="order_no" type="text" class="validate">
+		<div class="container-fluid header">
+			<img src="http://xinwang.com.sg/wp-content/uploads/2014/07/xw-logo.gif">
+		</div>
+		<div class='home-background'>
+			<div class="container" style="margin-top:50px">
+				<div class="col s12 m6 l3" id="form-group1">
+					{{#autoForm collection="Order" id="insertOrderForm" type="insert" }}
+					{{> afQuickField name='reservationDate'}}
+					{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
+					{{> afQuickField name='numPax' placeholder= "Number of guests"}}
+					{{> afQuickField name='custID' value=user type="hidden"}}
+					{{> afQuickField name='totalPrice' value=zero type="hidden"}}
+					<button type="submit" class="waves-effect waves-light btn center-align" id="createBasket">Create new basket</button>
+					{{/autoForm}}
 				</div>
-				<button class="waves-effect waves-light btn center-align" id="add"> Add to existing basket</button>
+				<div class="col s12 m6 l3" style="margin-top: 30px" id="newBasket">
+					<div class="col s12 m6 l3">
+						<input placeholder="Please input order number" id="order_no" type="text" class="validate">
+					</div>
+					<button class="waves-effect waves-light btn center-align" id="add"> Add to existing basket</button>
 
+				</div>
 			</div>
 		</div>
 	</main>

@@ -1,21 +1,36 @@
 <template name="dimSum">
 	<div class="col s12 m6 l3">
-		<div class="card truncate hoverable">
+		<div class="card small truncate hoverable">
 			<div class="card-image">
 				{{#each image}}
 
-				<img src="{{this.url store='thumbsDimSum' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" />
+				<img src="{{this.url store='thumbsDimSum' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail, activator" />
 
 				{{/each}}
+
 			</div>
+<!-- 			<div class="card-content">
+				<span class="card-title activator grey-text text-darken-4">
+					<h6><b>{{name}}</b></h6>
+					<i class="material-icons right">more_vert</i>
+				</span>
+				<!<p>{{desc}}</p> -->
+				<!-- 			<p>${{price}}</p> -->
+			<!-- </div> --> 
+
 			<div class="card-content">
-				<h6><b>{{name}}</b></h6>
+			<span class="card-title grey-text text-darken-4">{{name}}</span>
+				<p><a class="btn-primary modal-trigger waves-effect waves-light btn" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p>
+			</div>
+
+<!-- 			<div class="card-reveal">
+				<span class="card-title grey-text text-darken-4"><center>{{name}}<i class="material-icons right">close</i></span>
 				<p>{{desc}}</p>
-				<p>${{price}}</p>
-			</div>
-			<div class="card-action">
+				<p>{{price}}</p>
+			</div> -->
+<!-- 			<div class="card-action">
 				<a class="btn-primary modal-trigger" href=#{{_id}}>Add To Basket</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
@@ -54,38 +69,38 @@
 </template> -->
 
 <template name="dimSumModal">
-  <!-- Modal Trigger -->
-  <!-- Modal Structure -->
- 	<div id={{_id}} class="modal modal-fixed-footer">
- 		{{#autoForm collection="OrderItems" id="insertOrderItemsForm" type="insert"}}
- 			{{> afQuickField name='foodID' value=foodid type="hidden"}}
- 			{{> afQuickField name='category' value=category type="hidden"}}
- 			{{> afQuickField name='orderID' value=orderid  type="hidden"}}
-	    	<div class="modal-content">
-	      	<h6 class="modalitem">Item: {{name}}</h6>
-	      	<p class="modalitem">Description: {{desc}}</p>
-	      	<p class="modalitem">Price: ${{price}}0</p>
-	      	<div class="row">
-	      		<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
+	<!-- Modal Trigger -->
+	<!-- Modal Structure -->
+	<div id={{_id}} class="modal modal-fixed-footer">
+		{{#autoForm collection="OrderItems" id="insertOrderItemsForm" type="insert"}}
+		{{> afQuickField name='foodID' value=foodid type="hidden"}}
+		{{> afQuickField name='category' value=category type="hidden"}}
+		{{> afQuickField name='orderID' value=orderid  type="hidden"}}
+		<div class="modal-content">
+			<h6 class="modalitem" style="font-size:30px; font-weight:350">{{name}}</h6>
+			<p class="modalitem" style="font-size: 16px"><i>{{desc}}</i></p>
+			<p class="modalitem">Price: ${{price}}0</p>
+			<div class="row">
+				<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
 					<div class="input-field col s4 m6 13" id="modalquantity">
-					Quantity
-			    	{{> afFieldInput name='quantity' options=options}}
-		  			</div>
-		  		</div>
-		  	</div>
-		  	<div class="row">
-		    	<form class="col s12">
-		      	<div class="row">
-		      		<div class="input-group">
-			        	<div class="input-field col s12">
-			          	<label for="textarea1">Special Request</label>
-			          	{{> afFieldInput name='specialRequest'}}
-			        	</div>
-		        	</div>
-		        </div>
-		    	</form>
-		  	</div>
-	    	</div>
+						Quantity
+						{{> afFieldInput name='quantity' options=options}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-group">
+							<div class="input-field col s12">
+								<label for="textarea1">Special Request</label>
+								{{> afFieldInput name='specialRequest'}}
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 				<!-- fieldset>
 					<legend>Order</legend>
 					<p><b>{{name}}</b></p>
@@ -95,11 +110,11 @@
 					{{> afQuickField name='quantity' options=options}}
 					{{> afQuickField name='specialRequest'}}
 				</fieldset>
-	    	</div> -->
-	    	<div class="modal-footer">
-	      		<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Basket</button>
-	    	</div>
-    	{{/autoForm}}
-  	</div>
-</template>
+			</div> -->
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Basket</button>
+			</div>
+			{{/autoForm}}
+		</div>
+	</template>
 

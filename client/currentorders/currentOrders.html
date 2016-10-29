@@ -21,6 +21,7 @@
 								{{/each}}
 							{{/each}}
 						</p>
+						<a href="" style="color:red"><i class="small material-icons" id="bin">delete</i></a>
 						<p id="item">{{findOrderitem}}</p>
 						<p id="qty"> x {{quantity}}</p>
 						<p id="price">${{findPrice}}</p>
@@ -44,7 +45,8 @@
 					{{/each}}
 					<div class="card-action">
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
-						<button  class="btn waves-effect waves-light" id="{{_id}}">Place Order</button>
+						<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
+						<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
 					</div>
 				</div>
 			</div>

@@ -8,14 +8,14 @@
 
 				{{/each}}
 			</div>
+
 			<div class="card-content">
-				<h6><b>{{name}}</b></h6>
-				<p>{{desc}}</p>
-				<p>${{price}}</p>
+			<span class="card-title grey-text text-darken-4">{{name}}</span>
+				<p><a class="btn-primary modal-trigger waves-effect waves-light btn" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p>
 			</div>
-			<div class="card-action">
+<!-- 			<div class="card-action">
 				<a class="btn-primary modal-trigger" href=#{{_id}}>Add To Basket</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
