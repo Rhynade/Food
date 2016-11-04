@@ -25,12 +25,5 @@ Meteor.methods({
     if ( userId ) {
       return Accounts.sendVerificationEmail(userId);
     }
-  },
-
-  sendEmail: function (userId, email) {
-    if (this.userId == userId) {
-      console.log("Sending");
-      Email.send(email);
-    };
   }
 });

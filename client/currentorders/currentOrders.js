@@ -9,7 +9,6 @@ Template.currentOrders.onCreated(function(){
 	});
 });
 
-
 Template.currentOrders.helpers({
 	findOrder:() =>{
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
@@ -118,20 +117,5 @@ Template.currentOrders.events({
 
 	'click #bin': function() {
 		Meteor.call('deleteItem', this._id);
-	},
-    'click #sendEmail': function(e, t) {
-		e.preventDefault();
-		//console.log("ERR");
-		//console.log(this._id);
-		var address = t.find( '[name="email"]' ).value;
-		t.find( '[name="email"]' ).value = "";
-		var orderid = this._id;
-		var email = {
-            to: address,
-            from: 'admin@XinWang.com',
-            subject: "Invitation to Dine",
-            text: "http://localhost:3000/" + orderid
-        };
-        Meteor.call('sendEmail', Meteor.userId(), email);
 	}
 });

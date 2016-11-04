@@ -14,12 +14,7 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-		var id = Session.get('currentorderid');
-		if (id) {
-			UserSession.set('currentorderid',id);
-			Meteor.subscribe('order');
-			console.log(Meteor.userId());
-			Order.update({_id: id},{$addToSet:{custID: Meteor.userId()}});
+		if (Session.get('currentorderid')){
 			FlowRouter.go('menu');
 		}
 		else{

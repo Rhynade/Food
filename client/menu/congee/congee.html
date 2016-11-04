@@ -53,7 +53,16 @@
 		    	</form>
 		  	</div>
 	    	</div>
-
+				<!-- fieldset>
+					<legend>Order</legend>
+					<p><b>{{name}}</b></p>
+					<p>{{desc}}</p>
+					<p>${{price}}0</p>
+					{{> afQuickField name='foodID' value=foodid type="hidden"}}
+					{{> afQuickField name='quantity' options=options}}
+					{{> afQuickField name='specialRequest'}}
+				</fieldset>
+	    	</div> -->
 	    	<div class="modal-footer">
 	      		<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Basket</button>
 	    	</div>

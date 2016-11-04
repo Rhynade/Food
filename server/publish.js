@@ -19,7 +19,7 @@ Meteor.publish('imagesCongee', function(){
 });
 
 Meteor.publish('order', function(){
-	return Order.find({});
+	return Order.find({ custID : this.userId });
 });
 
 Meteor.publish('users', function(){
