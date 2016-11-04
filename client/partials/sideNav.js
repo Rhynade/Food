@@ -3,3 +3,11 @@ Template.sideNav.onRendered(function(){
 		closeOnClick: true,
 	});
 });
+
+Template.sideNav.helpers({
+	isUser: function() {
+		//console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
+	}
+});

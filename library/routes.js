@@ -14,11 +14,16 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-		if (Session.get('currentorderid')){
-			FlowRouter.go('menu');
+		if( Meteor.users.findOne(Meteor.userId()).profile.role == 'User'){
+			if (Session.get('currentorderid')){
+				FlowRouter.go('menu');
+			}
+			else{
+				FlowRouter.go('createbasket');
+			}
 		}
 		else{
-			FlowRouter.go('createbasket');
+			FlowRouter.go('dashboard');
 		}
 	});
 
