@@ -1,5 +1,7 @@
 Template.congee.onRendered(function(){
-	this.$(".modal-trigger").leanModal();
+	if(UserSession.get("currentorderid")!=null){
+		this.$(".modal-trigger").leanModal();
+	}
 });
 
 Template.congee.onCreated(function(){
@@ -7,8 +9,16 @@ Template.congee.onCreated(function(){
 	self.autorun(function(){
 		self.subscribe('order');
 	});
-})
 
+});
+
+Template.congee.events({
+	'click #order': function(){
+		if(UserSession.get("currentorderid")==null){
+			alert("Please create a new basket!");
+		}
+	}
+});
 Template.congeeModal.helpers({
 	foodid: function() {
 		return this._id;

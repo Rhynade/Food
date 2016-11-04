@@ -1,5 +1,7 @@
 Template.dimSum.onRendered(function(){
-	this.$(".modal-trigger").leanModal();
+	if (UserSession.get("currentorderid")!=null){
+		this.$(".modal-trigger").leanModal();
+	}
 });
 
 Template.dimSumModal.onCreated(function(){
@@ -65,6 +67,12 @@ Template.dimSum.events({
 	'click #edit': function(event, template){
 
 		template.editMode.set(!template.editMode.get());
+	},
+	'click #order': function(){
+		if(UserSession.get("currentorderid")==null){
+			alert("Please create a new basket!");
+		}
 	}
 });
+
 

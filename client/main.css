@@ -57,6 +57,14 @@
 	padding: 20px;
 }	
 
+.basket form {
+	color: white;
+	width: 600px;
+	margin-top: 400px;
+	margin: 0 auto;
+	padding: 20px;
+}	
+
 #createBasket{
 	margin-left: 100px;
 }

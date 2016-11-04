@@ -105,7 +105,9 @@ Template.currentOrders.events({
 	'click #place'(event,instance){
 		var total = Session.get(this._id);
 		Order.update({_id: this._id}, {$set:{confirmed: true, totalPrice: total}});
+		UserSession.set("currentorderid", null);
 		FlowRouter.go('orderhistory');
+
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";
 		// $('#' +this._id).prop('disabled',true);
