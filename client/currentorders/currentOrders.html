@@ -47,6 +47,9 @@
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
 						<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
 						<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
+						<!-- <p><a class="btn-primary modal-trigger waves-effect waves-light btn" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add Friends</a></p> -->
+						<input type="text" class="form-control" name="email" placeholder="Enter the email you want to invite" required="">
+						<button id="sendEmail" type="click" class="btn btn-lg btn-primary btn-block">Send</button>
 					</div>
 				</div>
 			</div>
@@ -54,8 +57,18 @@
 		{{/each}}
 	</div>
 	{{else}}
-	<p>Loading</p>
+		<p>Loading</p>
 	{{/if}}
 
 </template>
+
+<!-- <template name="addFriendsModal">
+	<div id={{_id}} class="modal modal-fixed-footer">
+		<div class="modal-content">
+		</div>
+		<div class='modal-footer'>
+			<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Basket</button>
+		</div>
+	</div>
+</template> -->
 
