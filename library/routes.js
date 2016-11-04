@@ -14,7 +14,12 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-		FlowRouter.go('createbasket');
+		if (Session.get('currentorderid')){
+			FlowRouter.go('menu');
+		}
+		else{
+			FlowRouter.go('createbasket');
+		}
 	});
 
 	Accounts.onLogout(function(){
@@ -24,9 +29,9 @@ if(Meteor.isClient){
 
 FlowRouter.triggers.enter([function(context, redirect){
 	//if user does not exist
-	if(!Meteor.userId()){
-		FlowRouter.go('home');
-	}
+	// if(!Meteor.userId()){
+	// 	FlowRouter.go('home');
+	// }
 }]);
 
 //createbasket route
@@ -80,6 +85,23 @@ FlowRouter.route('/dashboard',{
 	name: 'dashboard',
 	action(){
 		BlazeLayout.render('mainLayout',{main: 'dashboard'});
+	}
+});
+
+FlowRouter.route('/profile',{
+	name: 'profile',
+	action(){
+		BlazeLayout.render('mainLayout',{main: 'profilepage'});
+	}
+});
+
+FlowRouter.route('/:_id',{
+	name: 'alternate',
+	action: function(params){
+		var id = params._id;
+		
+		Session.set('currentorderid',id);
+		FlowRouter.go('home');
 	}
 });
 

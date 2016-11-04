@@ -3,11 +3,39 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  min-height: 100%;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+
+.blur-wrapper{
+	opacity: 0.4;
+	background: black;
+ -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  position: fixed;
   height: 100%;
   width: 100%;
-  position: absolute;
-  z-index: -1;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.mtop50{
+	margin-top: 50px;
+}
+
 
 .header{
 	background: black;
@@ -19,22 +47,15 @@
 
 .wrapper{
 	margin-top: 20%;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 
 .home-layout form {
-	color:white;
-  width: 320px;
-  margin: 0 auto;
-}
-
-#form-group1 {
 	color: white;
-	font-weight: 500;
-  width: 600px;
-  margin: auto;
-  margin-top: 10px;
-}
+	width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+}	
 
 #createBasket{
 	margin-left: 100px;

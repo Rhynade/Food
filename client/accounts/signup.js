@@ -8,6 +8,9 @@ Template.signup.events({
       // roles: "Guest",
       email: email,
       password: password,
+      profile: {
+        role:"User",
+      }
     };
     Accounts.createUser( user, ( error ) => {
     });
@@ -16,8 +19,8 @@ Template.signup.events({
     // event.target.name.value = "";
     return false;
   },
-  'click #clicked': function() {
-    Session.set('isClicked',false);
+  'click #back': function() {
+    Session.set('signup',false);
   }
 
 });

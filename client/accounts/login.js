@@ -5,13 +5,19 @@ Template.login.events({
     var password = template.find( '[name="password"]' ).value;
     Meteor.loginWithPassword(email,password);
   },
-  'click #clicked': function() {
-    Session.set('isClicked',true);
-  }
+  'click #signup': function() {
+    Session.set('signup',true);
+  },
+  'click #forget': function() {
+    Session.set('forget',true);
+  },
 });
 
 Template.HomeLayout.helpers({
-	isClicked: function() {
-		return Session.get('isClicked');
-	}
+	signUpPage: function() {
+		return Session.get('signup');
+	},
+  forgetPage: function() {
+    return Session.get('forget');
+  }
 });
