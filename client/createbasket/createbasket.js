@@ -16,15 +16,15 @@ AutoForm.addHooks(["insertOrderForm"], {
   });
   
 
-  Template.createbasket.events({
-    'click #add': function(){
-    event.preventDefault();
-    var orderNo = document.getElementById("order_no").value;
-    Order.update( {_id: orderNo} , { $addToSet: { custID: Meteor.user()._id }});
-    UserSession.set('currentorderid', orderNo);
-    FlowRouter.go('menu');
-    }
-  });
+  // Template.createbasket.events({
+  //   'click #add': function(){
+  //   event.preventDefault();
+  //   var orderNo = document.getElementById("order_no").value;
+  //   Order.update( {_id: orderNo} , { $addToSet: { custID: Meteor.user()._id }});
+  //   UserSession.set('currentorderid', orderNo);
+  //   FlowRouter.go('menu');
+  //   }
+  // });
 
 // Template.createbasket.events({
 //   'submit form': function(event, t) {

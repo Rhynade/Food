@@ -12,8 +12,8 @@ Template.dashboard.helpers({
 	createChart: function() {
 		var Highcharts = require('highcharts');
 		require('highcharts/modules/drilldown')(Highcharts);
-		var cat1 = OrderItems.find({category:1}).fetch();
-		var cat2 = OrderItems.find({category:2}).fetch();
+		var cat1 = OrderItems.find({category:1, added:true}).fetch();
+		var cat2 = OrderItems.find({category:2, added:true}).fetch();
 
 		//dim sums
 		var siewmai = 0;

@@ -16,9 +16,13 @@ Template.orderHistory.helpers({
 	},
 
 	findOrder:() =>{
-		//console.log(Template.currentData()._id)
+		var items = OrderItems.find({ orderID: Template.currentData()._id }).fetch();
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
-		return OrderItems.find({ orderID: Template.currentData()._id, added: false});
+		items.forEach(function(x){
+			x.added = true;
+		});
+		//console.log(OrderItems.find({orderID: Template.currentData()._id}));
+		return OrderItems.find({ orderID: Template.currentData()._id});
 	},
 	findOrderitem:() => {
  
