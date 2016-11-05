@@ -7,12 +7,38 @@ Template.currentOrders.onCreated(function(){
 		self.subscribe('order');
 		self.subscribe('users');
 	});
+
+	UserSession.set('tab', 'unconfirmed');
 });
 
 Template.currentOrders.helpers({
+
 	findOrder:() =>{
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;
-		return OrderItems.find({ orderID: Template.currentData()._id, added: false});
+		var tab = UserSession.get('tab');
+
+		if (tab=="unconfirmed"){
+			return OrderItems.find({ orderID: Template.currentData()._id, added: false});
+		} else {
+			return OrderItems.find({ orderID: Template.currentData()._id, added: true});
+		}
+	},
+
+	notOver: ()=>{
+
+		var tab = UserSession.get('tab');
+
+		var currentDate = new Date();
+
+		if (tab=="unconfirmed"){
+
+			var reservationDate = Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate;
+ 
+		} else {
+			var reservationDate = Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate;
+		}
+		
+		return currentDate.getTime()<reservationDate.getTime();
 	},
 
 	findOrderUser: () =>{
@@ -50,7 +76,14 @@ Template.currentOrders.helpers({
 	},
 
 	Order:() =>{
-		return Order.find({ custID: Meteor.user()._id, confirmed: false}, {sort: {reservationDate: -1}});
+
+		var tab = UserSession.get('tab');
+
+		if (tab=="unconfirmed"){
+			return Order.find({ custID: Meteor.user()._id, confirmed: false}, {sort: {reservationDate: -1}});
+		} else {
+			return Order.find({ custID: Meteor.user()._id, confirmed: true}, {sort: {reservationDate: -1}});
+		}
 	},
 
 	totalPrice:() =>{
@@ -85,19 +118,44 @@ Template.currentOrders.helpers({
 	},
 
 	findDate:()=>{
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate.toDateString();
+
+		var tab = UserSession.get('tab');
+
+		if (tab=="unconfirmed"){
+			return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate.toDateString();
+		} else {
+			return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate.toDateString();
+		}
 	},
 
 	findTime: ()=> {
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
+
+		var tab = UserSession.get('tab');
+
+		if (tab=="unconfirmed"){	
+			return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
+		} else {
+			return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationTime;
+		}
 	},
 
 	findPax: ()=>{
-		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
+
+		var tab = UserSession.get('tab');
+
+		if (tab=="unconfirmed") {
+			return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].numPax;
+		} else {
+			return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].numPax;
+		}
 	},
 
 	isUserOrderItem: ()=>{
 		return Template.currentData().custID == Meteor.user()._id;
+	},
+
+	unconfirmed: ()=>{
+		return UserSession.get('tab')=="unconfirmed";
 	}
 });
 
@@ -114,11 +172,18 @@ Template.currentOrders.events({
 
 
 		UserSession.set("currentorderid", null);
-		FlowRouter.go('orderhistory');
-
+		UserSession.set("tab", "confirmed");
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";
 		// $('#' +this._id).prop('disabled',true);
+	},
+
+	'click #unconfirmed': function(){
+		UserSession.set('tab', 'unconfirmed');
+	},
+
+	'click #confirmed': function(){
+		UserSession.set('tab', 'confirmed');
 	},
 
 	'click #delete': function(){

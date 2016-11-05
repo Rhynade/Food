@@ -1,7 +1,15 @@
 <template name="currentOrders">
 	{{#if Template.subscriptionsReady}}
 	<div class="container">
+
+
+		<ul class="tabs">
+		<li class="tab col s3"><a href="" id="unconfirmed"  style="color:#003370; font-size:18px">Orders</a></li>
+			<li class="tab col s3"><a href="" id="confirmed" style="color:#003370; font-size: 18px">Confirmed Orders</a></li>
+		</ul>
+
 		{{#each Order}}
+		{{#if notOver}}
 		<div class="col s12">
 			<div class="card horizontal">
 				<div class="card-stacked">
@@ -16,12 +24,14 @@
 					<div class="card-content orange lighten-5">
 						<p>
 							{{#each findOrderUser}}
-								{{#each emails}}
-									{{address}}
-								{{/each}}
+							{{#each emails}}
+							{{address}}
+							{{/each}}
 							{{/each}}
 						</p>
+						{{#if unconfirmed}}
 						<a href="" style="color:red"><i class="small material-icons" id="bin">delete</i></a>
+						{{/if}}
 						<p id="item">{{findOrderitem}}</p>
 						<p id="qty"> x {{quantity}}</p>
 						<p id="price">${{findPrice}}</p>
@@ -31,9 +41,9 @@
 					<div class="card-content">
 						<p>
 							{{#each findOrderUser}}
-								{{#each emails}}
-									{{address}}
-								{{/each}}
+							{{#each emails}}
+							{{address}}
+							{{/each}}
 							{{/each}}
 						</p>
 						<p id="item">{{findOrderitem}}</p>
@@ -43,14 +53,23 @@
 					</div>
 					{{/if}}
 					{{/each}}
+
 					<div class="card-action">
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
+						
+						{{#if unconfirmed}}
 						<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
 						<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
+
+						{{else}}
+						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+						<button class="btn waves-effect waves-light">Make Payment</button>
+						{{/if}}
 					</div>
 				</div>
 			</div>
 		</div>
+		{{/if}}
 		{{/each}}
 	</div>
 	{{else}}

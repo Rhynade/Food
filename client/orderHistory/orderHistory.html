@@ -2,6 +2,7 @@
 	{{#if Template.subscriptionsReady}}
 	<div class="container">
 		{{#each Order}}
+		{{#if past}}
 		<div class="col s12">
 			<div class="card horizontal">
 				<div class="card-stacked">
@@ -13,6 +14,13 @@
 					{{#each findOrder}}
 					{{#if isUserOrderItem}}
 					<div class="card-content orange lighten-5">
+					<p>
+							{{#each findOrderUser}}
+							{{#each emails}}
+							{{address}}
+							{{/each}}
+							{{/each}}
+						</p>
 						<p id="item">{{findOrderitem}}</p>
 						<p id="qty"> x {{quantity}}</p>
 						<p id="price">${{findPrice}}</p>
@@ -27,14 +35,10 @@
 					</div>
 					{{/if}}
 					{{/each}}
-					<div class="card-action">
-						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
-						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
-						<button class="btn waves-effect waves-light">Make Payment</button>
-					</div>
 				</div>
 			</div>
 		</div>
+		{{/if}}
 		{{/each}}
 	</div>
 	

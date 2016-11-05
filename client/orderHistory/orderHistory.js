@@ -15,6 +15,23 @@ Template.orderHistory.helpers({
 		return Order.find({ custID: Meteor.user()._id, confirmed: true},{sort: {reservationDate: -1}});
 	},
 
+	past: () =>{
+		var currentDate = new Date();
+
+		var reservationDate = Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationDate;
+
+		return currentDate.getTime()>reservationDate.getTime();
+	},
+	findOrderUser: () =>{
+
+		var custID = Template.currentData().custID;
+ 
+		return Accounts.users.find({_id: custID}).fetch();
+
+		// return Accounts.users.find({_id: Meteor.user()._id}).fetch();
+	},
+
+
 	findOrder:() =>{
 		
 		//var orderid = Order.find({ custID: Meteor.user()._id, confirmed: false}).fetch()[0]._id;

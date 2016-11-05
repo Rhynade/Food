@@ -39,11 +39,6 @@ Template.congeeModal.helpers({
 
 	orderid: function(){
 		return UserSession.get('currentorderid');
-	},
-	isUser: function() {
-		//console.log(Meteor.userId());
-		var id = Meteor.userId();
-		return Meteor.users.findOne(id).profile.role == 'User';
 	}
 });
 
@@ -52,5 +47,11 @@ Template.congee.helpers({
 	image: ()=>{
 		var image = Template.currentData().images;
 		return ImagesCongee.find({_id: image});
+	},
+	
+	isUser: function() {
+		//console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
 	}
 });
