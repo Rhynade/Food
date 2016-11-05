@@ -1,0 +1,74 @@
+<template name="reservations">
+  {{#if Template.subscriptionsReady}}
+
+  <ul class="tabs">
+    <li class="tab col s3"><a href="" id="summary"  style="color:#003370">summary</a></li>
+    <li class="tab col s3"><a href="" id="details" style="color:#003370">details</a></li>
+  </ul>
+
+  {{#if summary}}
+  <table class="responsive table centred highlight">
+    <thead>
+      <tr>
+        <th data-field="date">Reservation Date</th>
+        <th data-field="time">Reservation Time</th>
+        <th data-field="numPax">Number of Pax</th>
+        <th data-field="name">Name</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each reservation}}
+      {{#if notOver}}
+      <tr>
+        <td>{{findDate}}</td>
+        <td>{{findTime}}</td>
+        <td>{{findPax}}</td>
+        <td>
+         {{#each findReservationUser}}
+         {{#each emails}}
+         {{address}}
+         {{/each}}
+         {{/each}}
+       </td>
+     </tr>
+     {{/if}}
+     {{/each}}
+   </tbody>
+ </table>
+ {{else}}
+    {{#each reservation}}
+      {{#if notOver}}
+          <div class="col s12">
+            <div class="card horizontal">
+             <div class="card-stacked">
+               <div class="cardheader" style="font-size:115%">
+                <p><b>Order No: {{_id}} </b></p>
+                <p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
+                <p><b>Number of Pax: {{findPax}} </b></p>
+              </div>
+
+              {{#each findReservation}}
+              <div class="card-content">
+                <p id="item">{{findOrderitem}}</p>
+                <p id="qty"> x {{quantity}}</p>
+                <p id="price">${{findPrice}}</p>
+                <p>Special Request: {{specialRequest}}</p>
+              </div>
+              {{/each}}
+
+              <div class="card-action">
+                <p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
+              </div>
+            </div>
+          </div>
+        </div>     
+        {{/if}}
+      {{/each}}
+{{/if}}
+{{else}}
+  <p>Loading</p>
+  {{/if}}
+
+</template>

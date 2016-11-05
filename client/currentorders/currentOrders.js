@@ -44,7 +44,7 @@ Template.currentOrders.helpers({
 	findOrderUser: () =>{
 
 		var custID = Template.currentData().custID;
- 
+ 	
 		return Accounts.users.find({_id: custID}).fetch();
 
 		// return Accounts.users.find({_id: Meteor.user()._id}).fetch();
@@ -87,8 +87,17 @@ Template.currentOrders.helpers({
 	},
 
 	totalPrice:() =>{
+
+		var tab = UserSession.get('tab');
+
 		var orderid = Template.currentData()._id;
-		var items = OrderItems.find({ orderID: orderid, added: false});
+
+		if (tab=="unconfirmed"){
+			var items = OrderItems.find({ orderID: orderid, added: false});
+		} else {
+			var items = OrderItems.find({ orderID: orderid, added: true});
+		}
+
 		var total = 0;
 		var catID = 0;
 		var quantity = 0;

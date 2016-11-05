@@ -93,10 +93,19 @@ FlowRouter.route('/dashboard',{
 	}
 });
 
+//profile route
 FlowRouter.route('/profile',{
 	name: 'profile',
 	action(){
 		BlazeLayout.render('mainLayout',{main: 'profilepage'});
+	}
+});
+
+//reservations route
+FlowRouter.route('/reservations',{
+	name: 'adminOrders',
+	action(){
+		BlazeLayout.render('mainLayout',{main: 'reservations'});
 	}
 });
 
@@ -109,4 +118,7 @@ FlowRouter.route('/:_id',{
 		FlowRouter.go('home');
 	}
 });
+
+
+
 
