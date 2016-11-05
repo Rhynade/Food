@@ -55,6 +55,12 @@ Template.dimSum.helpers({
 
 	editMode: function(){
 		return Template.instance().editMode.get();
+	},
+
+	isUser: function() {
+		//console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
 	}
 });
 

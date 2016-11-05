@@ -1,5 +1,6 @@
 <template name="topNav">
 <div class="container" style="width:80%">
+	{{#if isUser}}
 		<div class="input-field col s12">
 			<h6><b>Reservation Date</b></h6>
 			<select id="select">
@@ -12,6 +13,7 @@
 				{{/each}}
 			</select>
 		</div>
+	{{/if}}
 		<div class="col s12">
 			<ul class="tabs">
 				<li class="tab col s3"><a class="active" href="/menu" style="color:#003370">Dim Sum</a></li>

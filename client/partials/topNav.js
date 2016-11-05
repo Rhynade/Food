@@ -8,6 +8,12 @@ Template.topNav.onCreated(function(){
 
 Template.topNav.helpers({
 
+	isUser: function() {
+		//console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
+	},
+
 	findCurrentDate:()=>{
 		var curr = UserSession.get('currentorderid');
 		var order = Order.find({_id : curr}).fetch()[0];

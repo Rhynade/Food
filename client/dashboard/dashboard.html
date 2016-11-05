@@ -1,7 +1,10 @@
 <template name="dashboard">
+	<div class="container">
 	{{#if Template.subscriptionsReady}}
 		<div id="chart" class="mtop50">{{createChart}}</div>
+		<div id="linechart">{{createLineChart}}</div>
 	{{else}}
 		<p> Loading </p>
 	{{/if}}
+	</div>
 </template>

@@ -33,7 +33,23 @@ OrderSchema = new SimpleSchema({
 	reservationTime: {
 		type: Number,
 		optional: false,
-		label: "Time"
+		label: "Time",
+		autoform: {
+			options: {
+				"1000": "10:00",
+				"1100": "11:00",
+				"1200": "12:00",
+				"1300": "13:00",
+				"1400": "14:00",
+				"1500": "15:00",
+				"1600": "16:00",
+				"1700": "17:00",
+				"1800": "18:00",
+				"1900": "19:00",
+				"2000": "20:00",
+				"2100": "21:00",
+			}
+		}
 	},
 
 	numPax: {

@@ -17,7 +17,16 @@ Template.congee.events({
 		if(UserSession.get("currentorderid")==null){
 			alert("Please create a new basket!");
 		}
-	}
+	},
+
+	'click #delete': function(){
+		Meteor.call('deleteCongee', this._id, this.images);
+	},
+
+	'click #edit': function(event, template){
+
+		template.editMode.set(!template.editMode.get());
+	},
 });
 Template.congeeModal.helpers({
 	foodid: function() {
@@ -30,6 +39,11 @@ Template.congeeModal.helpers({
 
 	orderid: function(){
 		return UserSession.get('currentorderid');
+	},
+	isUser: function() {
+		//console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
 	}
 });
 

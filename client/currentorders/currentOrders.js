@@ -105,6 +105,14 @@ Template.currentOrders.events({
 	'click #place'(event,instance){
 		var total = Session.get(this._id);
 		Order.update({_id: this._id}, {$set:{confirmed: true, totalPrice: total}});
+
+		var items = OrderItems.find({orderID: this._id});
+
+		items.forEach(function(x){
+			OrderItems.update({_id:x._id}, {$set:{added: true}});
+		});
+
+
 		UserSession.set("currentorderid", null);
 		FlowRouter.go('orderhistory');
 
