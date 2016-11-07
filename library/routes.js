@@ -4,7 +4,12 @@ FlowRouter.route('/',{
 	action(){
 		//if users are logged in they will be directed to create new basket page
 		if(Meteor.userId()){
-			FlowRouter.go('createbasket');
+			if(UserSession.get('currentorderid')){
+				FlowRouter.go('menu');
+			}
+			else{
+				FlowRouter.go('createbasket');
+			}
 		}
 		BlazeLayout.render('HomeLayout');
 	}
@@ -14,21 +19,46 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-		if( Meteor.users.findOne(Meteor.userId()).profile.role == 'User'){
-			if(FlowRouter.current().path=='/currentOrders'){
-				FlowRouter.go(currentOrders);
-			}
-			else if(Session.get('currentorderid')){
-
-				UserSession.set('currentorderid', Session.get('currentorderid'));
-				FlowRouter.go('menu');
-			}
-			else if(UserSession.get('currentorderid')){
-				FlowRouter.go('menu');
-			}
-			// else{
-			// 	FlowRouter.go('createbasket');
+		if( Meteor.user().profile.role == 'User'){
+			// if(FlowRouter.current().path=='/currentOrders'){
+			// 	console.log(123);
+			// 	FlowRouter.go('currentOrders');
 			// }
+			// else if(Session.get('currentorderid')){
+
+			// 	UserSession.set('currentorderid', Session.get('currentorderid'));
+			// 	console.log(2);
+			// 	FlowRouter.go('menu');
+			// }
+			// // else if(UserSession.get('currentorderid')){
+			// // 	console.log(1);
+			// // 	FlowRouter.go('menu');
+			// // }
+			// else{
+			// 	console.log(4);
+			// 	if(UserSession.get('currentorderid')){
+			// 		FlowRouter.go('menu');
+			// 	}
+			// 	else{
+			// 		FlowRouter.go('createbasket');
+			// 	}				
+			// }
+			if(FlowRouter.current().path!='/'){
+				FlowRouter.route(FlowRouter.current().path);
+			}
+			else if(Session.get('currentorderid') || UserSession.get('currentorderid')){
+				// console.log("HI")
+				// console.log(Session.get('currentorderid'))
+				UserSession.set('currentorderid', Session.get('currentorderid'));
+
+				// console.log(Meteor.userId().toString())
+				Order.update({_id: Session.get('currentorderid')}, {$addToSet:{custID: Meteor.userId().toString()}});
+
+				FlowRouter.go('menu');
+			}
+			else{
+				FlowRouter.go('createbasket');
+			}
 		}
 		else{
 			FlowRouter.go('dashboard');
@@ -43,9 +73,17 @@ if(Meteor.isClient){
 
 FlowRouter.triggers.enter([function(context, redirect){
 	// if user does not exist
-	if(!Meteor.userId() && !Session.get('currentorderid')){
+
+	var orderID = context.path.split('/')[1]
+
+	if(!Meteor.userId() && orderID>15){
+		Session.set('currentorderid', orderID);
 		FlowRouter.go('home');
 	}
+
+	// if(!Meteor.userId() && !Session.get('currentorderid')){
+	// 	FlowRouter.go('home');
+	// }
 }]);
 
 //createbasket route
@@ -122,12 +160,7 @@ FlowRouter.route('/:_id',{
 	name: 'alternate',
 	action: function(params){
 		var id = params._id;
-		
 		Session.set('currentorderid',id);
 		FlowRouter.go('home');
 	}
 });
-
-
-
-

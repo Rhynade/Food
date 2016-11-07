@@ -186,22 +186,33 @@ Template.currentOrders.events({
 		// elem.innerHTML = "Order Placed";
 		// $('#' +this._id).prop('disabled',true);
 	},
-	'click #sendEmail': function(e, t) {
+	'click #sendEmail': function(e,t) {
 		e.preventDefault();
+
+		var arr = [];
+		
 		var address = document.getElementById(this._id).value;
-		//console.log("ERR");
-		//console.log(this._id);
+
+		var split = address.split(',');
+		
+		for(i=0; i<split.length; i++){
+			arr.push(split[i])
+		}
+
+ 		//console.log("ERR");
+ 		//console.log(this._id);
 		//var address = t.find( '[name="email"]' ).value;
 		//t.find( '[name="email"]' ).value = "";
-		document.getElementById(this._id).value = "";
+ 		document.getElementById(this._id).value = "";
 		var orderid = this._id;
 		var email = {
-            to: address,
+            to: arr,
             from: 'admin@XinWang.com',
             subject: "Invitation to Dine",
             text: "http://localhost:3000/" + orderid
         };
         Meteor.call('sendEmail', Meteor.userId(), email);
+
 	},
 
 	'click #unconfirmed': function(){
