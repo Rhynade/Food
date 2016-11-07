@@ -15,7 +15,15 @@ if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
 		if( Meteor.users.findOne(Meteor.userId()).profile.role == 'User'){
-			if (Session.get('currentorderid')){
+			if(FlowRouter.current().path=='/currentOrders'){
+				FlowRouter.go(currentOrders);
+			}
+			else if(Session.get('currentorderid')){
+
+				UserSession.set('currentorderid', Session.get('currentorderid'));
+				FlowRouter.go('menu');
+			}
+			else if(UserSession.get('currentorderid')){
 				FlowRouter.go('menu');
 			}
 			else{
