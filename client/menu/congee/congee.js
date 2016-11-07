@@ -53,5 +53,9 @@ Template.congee.helpers({
 		//console.log(Meteor.userId());
 		var id = Meteor.userId();
 		return Meteor.users.findOne(id).profile.role == 'User';
+	},
+
+	hasBasket:function(){
+		return UserSession.get('currentorderid');
 	}
 });
