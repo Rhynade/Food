@@ -26,9 +26,9 @@ if(Meteor.isClient){
 			else if(UserSession.get('currentorderid')){
 				FlowRouter.go('menu');
 			}
-			else{
-				FlowRouter.go('createbasket');
-			}
+			// else{
+			// 	FlowRouter.go('createbasket');
+			// }
 		}
 		else{
 			FlowRouter.go('dashboard');
