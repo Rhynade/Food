@@ -45,7 +45,7 @@ FlowRouter.triggers.enter([function(context, redirect){
 FlowRouter.route('/createbasket',{
 	name: 'createbasket',
 	action(){
-		BlazeLayout.render('createbasket')
+		BlazeLayout.render('mainLayout',{main:'createbasket'});
 	}
 })
 //menu route - dim sum
