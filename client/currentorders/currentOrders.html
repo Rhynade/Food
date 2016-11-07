@@ -58,12 +58,16 @@
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
 						
 						{{#if unconfirmed}}
-						<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
-						<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
+							<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
+							<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
+							<input type="text" class="form-control" name="email" placeholder="Enter the email you want to invite" required="">
+							<button id="sendEmail" type="click" class="btn btn-lg btn-primary btn-block">Send</button>
+
+
 
 						{{else}}
-						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
-						<button class="btn waves-effect waves-light">Make Payment</button>
+							<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+							<button class="btn waves-effect waves-light">Make Payment</button>
 						{{/if}}
 					</div>
 				</div>

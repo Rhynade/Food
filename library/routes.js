@@ -14,7 +14,6 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
-	FlowRouter.go('menu')
 		if( Meteor.users.findOne(Meteor.userId()).profile.role == 'User'){
 			if (Session.get('currentorderid')){
 				FlowRouter.go('menu');
