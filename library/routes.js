@@ -43,7 +43,7 @@ if(Meteor.isClient){
 
 FlowRouter.triggers.enter([function(context, redirect){
 	// if user does not exist
-	if(!Meteor.userId()){
+	if(!Meteor.userId() && !Session.get('currentorderid')){
 		FlowRouter.go('home');
 	}
 }]);
