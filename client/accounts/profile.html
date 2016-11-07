@@ -1,57 +1,54 @@
 <template name="profilepage">
-
-<div class="container mtop50">
 	<div class="row">
-		<h5 class="center">Update User Profile</h5>
-		
-		<div class="col s8 offset-s2" >
-		<hr>
-			<form class="profileform mtop50 center" style="border:thin solid #b8b8b8; padding: 50px">
+		<div class="col s12">
+			<ul class="tabs">
+				<li class="tab col s3"><a class="active" href="#profile">Update Profile Details</a></li>
+				<li class="tab col s3"><a href="#resetpw">Reset Password</a></li>
+			</ul>
+		</div>
+		<div id="profile" class="col s12">
+			<div class="container mtop50">
 				<div class="row">
-					<div class="col s6">
-						<input class="" placeholder="First Name">
-					</div>
-					<div class="col s6">
-						<input placeholder="Last Name">
+					<div class="col s8 offset-s2" >
+						<form class="profileform center" style="padding: 50px">
+							<div class="row">
+								<div class="col s6">
+									<input placeholder="First Name" name="FN">
+								</div>
+								<div class="col s6">
+									<input placeholder="Last Name" name="LN">
+								</div>
+							</div>
+							<div class="row" style="text-align:left">
+								<input type="radio" id="Male" name="gendergrp">
+								<label for="Male">Male</label>
+								<input type="radio" id="Female" name="gendergrp">
+								<label for="Female">Female</label>
+							</div>
+							<div class="row">
+								<div class="col s4">
+									<input placeholder="Block Number" name="Blk">
+								</div>
+								<div class="col s4">
+									<input placeholder="Unit Number" name="UN">
+								</div>
+								<div class="col s4">
+									<input placeholder="Postal Code" name="PC">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s12">
+									<input placeholder="Street Name" name="SN">
+								</div>
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary btn-block" id="updateProfile">Update</button>
+						</form>
 					</div>
 				</div>
-				<div class="row"><label style="font-size:1rem !important; ">Gender:</label>
-					<input type="radio" id="test1" name="gender-grp">
-					<label for="test1">Female</label>
-					<input type="radio" id="test2" name="gender-grp">
-					<label for="test2">Male</label>
-				</div>
-				<div class="row">
-					<div class="col s4">
-						<input class="" placeholder="Block Number">
-					</div>
-					<div class="col s4">
-						<input class="" placeholder="Unit Number">
-					</div>
-					<div class="col s4">
-						<input class="" placeholder="Postal Code">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s12">
-						<input class="" placeholder="Street Name">
-					</div>
-				</div>
-
-				<a class="waves-effect waves-light-btn" action="submit">Update profile</a>
-			</form>
-
-			<button type="submit" class="btn btn-lg btn-primary btn-block" id="sendEmail">Send Email</button>
+			</div>
+		</div>
+		<div class="row">
+			<div id="resetpw" class="col s4 mtop50" style="left:25%; right:25%">{{> ResetPassword}}</div>
 		</div>
 	</div>
-
-</div>
-
-
 </template>
-
-<!--
-	{{> ResetPassword}}
-	<br/>
-	<button type="submit" class="btn btn-lg btn-primary btn-block" id="sendEmail">Send Email</button>
--->

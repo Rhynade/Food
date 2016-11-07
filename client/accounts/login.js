@@ -1,9 +1,13 @@
 Template.login.events({
-  'click form' ( event, template ) {
+  'click #login' ( event, template ) {
     event.preventDefault();
     var email = template.find( '[name="emailAddress"]' ).value;
     var password = template.find( '[name="password"]' ).value;
-    Meteor.loginWithPassword(email,password);
+    Meteor.loginWithPassword(email,password,error => {
+      if (error) {
+        alert(error);
+      }
+    });
   },
   'click #signup': function() {
     Session.set('signup',true);

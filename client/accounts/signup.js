@@ -13,6 +13,9 @@ Template.signup.events({
       }
     };
     Accounts.createUser( user, ( error ) => {
+      if(error) {
+        alert(error);
+      }
     });
     event.target.emailAddress.value = "";
     event.target.password.value = "";

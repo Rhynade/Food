@@ -14,6 +14,7 @@ FlowRouter.route('/',{
 if(Meteor.isClient){
 	Accounts.onLogin(function(){
 		//upon login
+	FlowRouter.go('menu')
 		if( Meteor.users.findOne(Meteor.userId()).profile.role == 'User'){
 			if (Session.get('currentorderid')){
 				FlowRouter.go('menu');
@@ -30,13 +31,14 @@ if(Meteor.isClient){
 	Accounts.onLogout(function(){
 		FlowRouter.go('home');
 	});
+
 }
 
 FlowRouter.triggers.enter([function(context, redirect){
-	//if user does not exist
-	// if(!Meteor.userId()){
-	// 	FlowRouter.go('home');
-	// }
+	// if user does not exist
+	if(!Meteor.userId()){
+		FlowRouter.go('home');
+	}
 }]);
 
 //createbasket route
@@ -103,7 +105,7 @@ FlowRouter.route('/profile',{
 
 //reservations route
 FlowRouter.route('/reservations',{
-	name: 'adminOrders',
+	name: 'reservations',
 	action(){
 		BlazeLayout.render('mainLayout',{main: 'reservations'});
 	}
