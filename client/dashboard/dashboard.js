@@ -5,6 +5,9 @@ Template.dashboard.onCreated(function(){
 		self.subscribe('orderItem');
 		self.subscribe('dimSums');
 		self.subscribe('Congee');
+		self.subscribe('Sushi');
+		self.subscribe('Drink');
+
 	});
 });
 
@@ -14,6 +17,9 @@ Template.dashboard.helpers({
 		require('highcharts/modules/drilldown')(Highcharts);
 		var cat1 = OrderItems.find({category:1, added:true}).fetch();
 		var cat2 = OrderItems.find({category:2, added:true}).fetch();
+		var cat3 = OrderItems.find({category:3, added:true}).fetch();
+		var cat4 = OrderItems.find({category:4, added:true}).fetch();
+
 
 		//dim sums
 		var siewmai = 0;
@@ -21,10 +27,9 @@ Template.dashboard.helpers({
 		var eggtart = 0;
 		var shrimpdumplings = 0;
 		var porkribs = 0;
-
-
-		//congee
-		var chickenCongee = 0;
+		var sesame = 0;
+		var rice = 0;
+		var turnip = 0;
 
 		var sum1 = 0;
 
@@ -32,57 +37,175 @@ Template.dashboard.helpers({
 			var food= DimSums.find({ _id: cat1[i].foodID}).fetch()[0];
 			if (food.name == "Siew mai"){
 				siewmai += cat1[i].quantity;
-			} else if (food.name == "Char Siew Bao"){
+			} 
+			else if (food.name == "Char Siew Bao"){
 				charsiewbao += cat1[i].quantity;
-			} else if (food.name == "Egg Tart"){
-				porkribs +=cat1[i].quantity;
-			} else {
-				others+=cat1[i].quantity;
+			} 
+			else if (food.name == "Egg Tart"){
+				eggtart +=cat1[i].quantity;
+			} 
+			else if (food.name == "Shrimp Dumplings"){
+				shrimpdumplings +=cat1[i].quantity;
 			}
-
+			else if (food.name == "Steamed Pork Ribs"){
+				porkribs +=cat1[i].quantity;
+			}
+			else if (food.name == "Fried Sesame Balls"){
+				sesame +=cat1[i].quantity;
+			}
+			else if (food.name == "Glutinous Rice"){
+				rice +=cat1[i].quantity;
+			} 
+			else if (food.name == "Fried Turnip Cake"){
+				turnip +=cat1[i].quantity;
+			}
 			sum1 += cat1[i].quantity;
 		}
+
+		//congee
+		var porkCongee = 0;
+		var fishCongee = 0;
+
 
 		var sum2 = 0;
 
 		for (i=0; i<cat2.length ; i++){
 			var food= Congee.find({ _id: cat2[i].foodID}).fetch()[0];
-			if (food.name == "Shredded chicken porridge"){
-				chickenCongee += cat2[i].quantity;
+			if (food.name == "Pork Congee"){
+				porkCongee += cat2[i].quantity;
+			} 
+			else if (food.name == "Fish Congee"){
+				fishCongee +=cat2[i].quantity;
 			}
 
 			sum2 += cat2[i].quantity;
 		}
+
+		var salmon = 0;
+		var avocado = 0;
+		var chicken = 0;
+		var cheese = 0;
+		var tempura = 0;
+		var california = 0;
+		var unagi = 0;
+		var mango = 0;
+
+		var sum3 = 0;
+
+
+		for (i=0; i<cat3.length ; i++){
+			var food= Sushi.find({ _id: cat3[i].foodID}).fetch()[0];
+			if (food.name == "Spicy Salmon Roll"){
+				salmon += cat3[i].quantity;
+			} 
+			else if (food.name == "Avocado Sushi Roll"){
+				avocado +=cat3[i].quantity;
+			}
+			else if (food.name == "Cheese Chicken Roll"){
+				cheese +=cat3[i].quantity;
+			}
+			else if (food.name == "Mango Roll"){
+				mango +=cat3[i].quantity;
+			}
+			else if (food.name == "Chicken Katsu Roll"){
+				chicken +=cat3[i].quantity;
+			}
+			else if (food.name == "Crispy Tempura Roll"){
+				tempura +=cat3[i].quantity;
+			}
+			else if (food.name == "California Roll"){
+				california +=cat3[i].quantity;
+			}
+			else if (food.name == "Unagi Roll"){
+				unagi +=cat3[i].quantity;
+			}
+
+			sum3 += cat3[i].quantity;
+
+		}
+
+
 		//var allOrders = Order.find().count();
 		var ordersData = [{
-				y: sum1*100/(sum1+sum2),
+				y: sum1*100/(sum1+sum2+sum3),
 				name: "Dim Sum",
 				drilldown: "dimsums"
 			},{
-				y: sum2*100/(sum1+sum2),
+				y: sum2*100/(sum1+sum2+sum3),
 				name: "Congee",
 				drilldown: "congees"
+			},{
+				y: sum3*100/(sum1+sum2+sum3),
+				name: "Sushi",
+				drilldown: "sushis"
 			}];
 
 		var dimsums = [{
 				name: "Siew Mai",
 				y: siewmai*100/sum1
 			},{
-				name: "Pork Ribs",
+				name: "Char Siew Bao",
+				y: charsiewbao*100/sum1
+			}, {
+				name: "Egg Tart",
+				y: eggtart*100/sum1
+			}, {
+				name: "Shrimp Dumplings",
+				y: shrimpdumplings*100/sum1	
+			},{
+				name: "Stemed Porked Rib",
 				y: porkribs*100/sum1
-			}, {
-				name: "Har Kow",
-				y: harkow*100/sum1
-			}, {
-				name: "Others",
-				y: others*100/sum1	
-
+			},
+			{
+				name: "Fried Sesame Balls",
+				y: sesame*100/sum1
+			},
+			{
+				name: "Glutinous Rice",
+				y: rice*100/sum1
+			},
+			{
+				name: "Fried Turnip Cake",
+				y: turnip*100/sum1
 			}];
 
 		var congees = [{
-				name:"Chicken Congee",
-				y:chickenCongee
-		}];
+				name:"Pork Congee",
+				y:porkCongee*100/sum2
+			}, {
+				name: "Fish Congee",
+				y: fishCongee*100/sum2
+			}
+		];
+
+		var sushis = [{
+				name: "Spicy Salmon Roll",
+				y: salmon*100/sum3
+			},{
+				name: "Avocado Roll",
+				y: avocado*100/sum3
+			}, {
+				name: "Cheese Chicken Roll",
+				y: cheese*100/sum3
+			}, {
+				name: "Chicken Katsu Roll",
+				y: chicken*100/sum3	
+			},{
+				name: "Crispy Tempura Roll",
+				y: tempura*100/sum3
+			},
+			{
+				name: "California Roll",
+				y: california*100/sum3
+			},
+			{
+				name: "Unagi Roll",
+				y: unagi*100/sum3
+			},
+			{
+				name: "Mango Roll",
+				y: mango*100/sum3
+			},];
 
 		Meteor.defer(function(){
 			Highcharts.chart('chart',{
@@ -112,6 +235,11 @@ Template.dashboard.helpers({
 						name:"Congees",
 						type:'pie',
 						data: congees
+					}, {
+						name: "Sushi",
+						id: "sushis",
+						type: 'pie',
+						data: sushis
 					}]
 				}
 			});
