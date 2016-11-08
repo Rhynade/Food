@@ -1,0 +1,11 @@
+<template name="sushis">
+	{{> topNav}}
+	<section class="sushi">
+			<div class="row" id="menurow">
+			{{#each sushis}}
+				{{> sushi}}
+				{{> sushiModal}}
+			{{/each}}
+			</div>
+	</section>
+</template>

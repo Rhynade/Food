@@ -6,6 +6,8 @@ Template.confirmedOrders.onCreated(function(){
 		self.subscribe('Congee');
 		self.subscribe('order');
 		self.subscribe('users');
+		self.subscribe('Sushi');
+		self.subscribe('Drink');
 	});
 
 });
@@ -46,6 +48,16 @@ Template.confirmedOrders.helpers({
 		else if (catID==2){
 			var food = Congee.find({ _id: Template.currentData().foodID });
 		}
+
+		else if (catID==3){
+			var food = Sushi.find({ _id: Template.currentData().foodID });
+		}
+
+
+		else if (catID==4){
+			var food = Drink.find({ _id: Template.currentData().foodID });
+		}
+
 		return food.fetch()[0].name;
 	},
 	findPrice:() => {
@@ -57,6 +69,14 @@ Template.confirmedOrders.helpers({
 		else if (catID==2){
 			var food = Congee.find({ _id: Template.currentData().foodID });
 		}
+
+		else if (catID==3){
+			var food = Sushi.find({ _id: Template.currentData().foodID });
+		}
+		else if (catID==4){
+			var food = Drink.find({ _id: Template.currentData().foodID });
+		}
+
 
 		return (food.fetch()[0].price * quantity).toFixed(2);
 	},
@@ -88,6 +108,14 @@ Template.confirmedOrders.helpers({
 			}
 			else if(catID==2){
 				price = Congee.find({ _id: item.foodID }).fetch()[0].price;
+				total += price * quantity;
+			}
+			else if(catID==3){
+				price = Sushi.find({ _id: item.foodID }).fetch()[0].price;
+				total += price * quantity;
+			}
+			else if(catID==4){
+				price = Drink.find({ _id: item.foodID }).fetch()[0].price;
 				total += price * quantity;
 			}
 

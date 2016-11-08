@@ -7,13 +7,13 @@ Template.newDishes.events({
 
 	'click #Congee' : ()=>{
 		var category = "Mongkok Congee";
-		console.log("CONGEE")
+		
 		UserSession.set('selectedCat', category);
 
 	},
 
-	'click #Sides' : ()=>{
-		var category = "Side Dishes";
+	'click #Sushi' : ()=>{
+		var category = "Sushi";
 		UserSession.set('selectedCat', category);
 
 	},
@@ -39,6 +39,16 @@ Template.newDishes.helpers({
 	congee:()=>{
 		var cat = UserSession.get('selectedCat');
 		return cat == "Mongkok Congee";
+	},
+
+	sushi:()=>{
+		var cat = UserSession.get('selectedCat');
+		return cat == "Sushi";
+	},
+
+	drink:()=>{
+		var cat = UserSession.get('selectedCat');
+		return cat == "Drinks";
 	}
 });
 
@@ -58,3 +68,20 @@ AutoForm.addHooks(["insertCongeeForm"], {
 		FlowRouter.go('mongkokCongee');
 	}
 });
+
+AutoForm.addHooks(["insertSushiForm"], {
+	
+
+	onSuccess: function(operation, result, template) {
+		FlowRouter.go('sushi');
+	}
+});
+
+AutoForm.addHooks(["insertDrinkForm"], {
+	
+
+	onSuccess: function(operation, result, template) {
+		FlowRouter.go('drinks');
+	}
+});
+

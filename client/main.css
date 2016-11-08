@@ -145,13 +145,34 @@ nav{
 	display: inline;
 }
 
-/*#select2 {
-	display: inline;
-	color: black;
-}*/
-
 .form-control{
 	display: inline;
-	color: black
+	color:white;
 }
 
+
+input[name=reservationDate] {
+    color:black;
+}
+
+ input[name=numPax] {
+ 	color: white;
+ }
+
+
+select[name=reservationTime] {
+ 	color: black;
+ }
+
+ .control-label{
+ 	color: grey;
+ }
+
+ #form-group1{
+ 	margin-top: 10px;
+ }
+
+
+ input[name=price], input[name=name],input[name=desc], input[name=images], input[name=quantity], input[name=specialRequest] {
+ 	color: black;
+ }

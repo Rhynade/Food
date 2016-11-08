@@ -28,7 +28,7 @@
 					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
 				{{/if}}	
 			{{else}} 
-				<p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p>
+				<center><p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p></center>
 			{{/if}}
 			</div>
 
@@ -88,7 +88,7 @@
 		<div class="modal-content">
 			<h6 class="modalitem" style="font-size:30px; font-weight:350">{{name}}</h6>
 			<p class="modalitem" style="font-size: 16px"><i>{{desc}}</i></p>
-			<p class="modalitem">Price: ${{price}}0</p>
+			<p class="modalitem">Price: ${{price}}</p>
 			<div class="row">
 				<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
 					<div class="input-field col s4 m6 13" id="modalquantity">
@@ -110,18 +110,9 @@
 				</form>
 			</div>
 		</div>
-				<!-- fieldset>
-					<legend>Order</legend>
-					<p><b>{{name}}</b></p>
-					<p>{{desc}}</p>
-					<p>${{price}}0</p>
-					{{> afQuickField name='foodID' value=foodid type="hidden"}}
-					{{> afQuickField name='quantity' options=options}}
-					{{> afQuickField name='specialRequest'}}
-				</fieldset>
-			</div> -->
+
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Basket</button>
+				<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Order</button>
 			</div>
 			{{/autoForm}}
 		</div>

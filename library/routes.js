@@ -117,6 +117,20 @@ FlowRouter.route('/mongkokCongee',{
 	}
 });
 
+FlowRouter.route('/sushi',{
+	name: "sushi",
+	action(){
+		BlazeLayout.render('mainLayout', {main: 'sushis'}); //main-> name of template
+	}
+});
+
+FlowRouter.route('/drinks',{
+	name: "drinks",
+	action(){
+		BlazeLayout.render('mainLayout', {main: 'drinks'}); //main-> name of template
+	}
+});
+
 //orders route
 FlowRouter.route('/currentOrders', {
 	name: 'currentOrders',

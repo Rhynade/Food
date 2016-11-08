@@ -1,0 +1,70 @@
+<template name="drink">
+	<div class="col s12 m6 l3">
+		<div class="card small truncate hoverable">
+			<div class="card-image">
+				{{#each image}}
+
+				<img src="{{this.url store='thumbsDrink' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail, activator" />
+
+				{{/each}}
+
+			</div>
+
+			<div class="card-content">
+				<span class="card-title grey-text text-darken-4"><center>{{name}}</center></span>
+
+				{{#if isUser}}
+				{{#if hasBasket}}
+				<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
+				{{else}}
+				<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
+				{{/if}}	
+				{{else}} 
+				<center><p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p></center>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="drinkModal">
+	<!-- Modal Trigger -->
+	<!-- Modal Structure -->
+	<div id={{_id}} class="modal modal-fixed-footer">
+		{{#autoForm collection="OrderItems" id="insertOrderItemsForm" type="insert"}}
+		{{> afQuickField name='foodID' value=foodid type="hidden"}}
+		{{> afQuickField name='category' value=category type="hidden"}}
+		{{> afQuickField name='orderID' value=orderid  type="hidden"}}
+		<div class="modal-content">
+			<h6 class="modalitem" style="font-size:30px; font-weight:350">{{name}}</h6>
+			<p class="modalitem" style="font-size: 16px"><i>{{desc}}</i></p>
+			<p class="modalitem">Price: ${{price}}</p>
+			<div class="row">
+				<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
+					<div class="input-field col s4 m6 13" id="modalquantity">
+						Quantity
+						{{> afFieldInput name='quantity' options=options}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-group">
+							<div class="input-field col s12">
+								<label for="textarea1">Special Request</label>
+								{{> afFieldInput name='specialRequest'}}
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Order</button>
+			</div>
+			{{/autoForm}}
+		</div>
+	</template>
+

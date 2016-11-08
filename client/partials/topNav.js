@@ -58,6 +58,5 @@ Template.topNav.events({
       'change select': function(event){
          var selectValue = event.target.value;
          UserSession.set('currentorderid', selectValue);
-         console.log(UserSession.get('currentorderid'))
       }
    });

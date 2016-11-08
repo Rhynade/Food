@@ -10,8 +10,8 @@
 		<label for="Congee">Mongkok Congee</label>
 	</p>
 	<p>
-		<input class="with-gap" name="group1" type="radio" id="Sides"  />
-		<label for="Sides">Side Dishes</label>
+		<input class="with-gap" name="group1" type="radio" id="Sushi"  />
+		<label for="Sushi">Sushi</label>
 	</p>
 	<p>
 		<input class="with-gap" name="group1" type="radio" id="Drinks"  />
@@ -28,14 +28,15 @@
 	{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
 	{{/if}}
 
+	{{#if sushi}}
+	{{> quickForm collection="Sushi" id="insertSushiForm" type="insert" class="new-sushi-form"}}
+	{{/if}}
+
+	{{#if drink}}
+	{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
+	{{/if}}
+
+
 </div>
 
 </template>
-
-<!-- <template name="dimSumform">
-	{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
-</template>
-
-<template name="congeeform">
-	{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
-</template> -->
