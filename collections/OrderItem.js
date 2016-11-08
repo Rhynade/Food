@@ -48,7 +48,9 @@ OrderItemSchema = new SimpleSchema({
 		label: "Customer",
 		//default value
 		autoValue: function() {
-			return this.userId
+			if (this.isInsert) {
+				return this.userId	
+			}
 		},
 		//hidden field
 		autoform:{

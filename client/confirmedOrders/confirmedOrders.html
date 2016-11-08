@@ -1,8 +1,7 @@
-<template name="currentOrders">
+<template name="confirmedOrders">
 	<div class="container">
 
-
-		<div class="col s12">
+	<div class="col s12">
 			<ul class="tabs">
 				<li class="tab col s3"><a class="active" href="/currentOrders" style="color:#003370">Orders</a></li>
 				<li class="tab col s3"><a href="/confirmedOrders" style="color:#003370">Confirmed Orders</a></li>
@@ -17,7 +16,7 @@
 				<div class="card-stacked">
 					<div class="cardheader" style="font-size:115%">
 						<p><b>Order No: {{_id}} </b></p>
-						<p><b>Reservation Date: {{findDate}}, {{reservationTime}} </b></p>
+						<p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
 						<p><b>Number of Pax: {{findPax}} </b></p>
 					</div>
 
@@ -31,9 +30,6 @@
 									{{/each}}
 								{{/each}}
 							</p>
-							
-							<a href="" style="color:red"><i class="small material-icons" id="bin">delete</i></a>
-							
 							<p id="item">{{findOrderitem}}</p>
 							<p id="qty"> x {{quantity}}</p>
 							<p id="price">${{findPrice}}</p>
@@ -43,7 +39,6 @@
 						<div class="card-content">
 							<p>
 								{{#each findOrderUser}}
-									{{_id}}
 									{{#each emails}}
 										{{address}}
 									{{/each}}
@@ -59,10 +54,9 @@
 
 					<div class="card-action">
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
-							<button  class="btn waves-effect waves-light" id="place" style="background-color:#4DE210">Place Order</button>
-							<button  class="btn waves-effect waves-light red" id="delete">Cancel Order</button>
-							<input type="text" id={{_id}} class="form-control" name="email" placeholder="Enter the email you want to invite" required="">
-							<button id="sendEmail" type="click" class="btn btn-lg btn-primary btn-block">Send</button>
+							<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+							<button class="btn waves-effect waves-light">Make Payment</button>
+						
 					</div>
 				</div>
 			</div>

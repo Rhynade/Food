@@ -52,6 +52,7 @@ if(Meteor.isClient){
 				UserSession.set('currentorderid', Session.get('currentorderid'));
 
 				// console.log(Meteor.userId().toString())
+				
 				Order.update({_id: Session.get('currentorderid')}, {$addToSet:{custID: Meteor.userId().toString()}});
 
 				FlowRouter.go('menu');
@@ -61,7 +62,12 @@ if(Meteor.isClient){
 			}
 		}
 		else{
-			FlowRouter.go('dashboard');
+			if(FlowRouter.current().path!='/'){
+				FlowRouter.route(FlowRouter.current().path);
+			}
+			else{
+				FlowRouter.go('dashboard');
+			}
 		}
 	});
 
@@ -80,6 +86,9 @@ FlowRouter.triggers.enter([function(context, redirect){
 		Session.set('currentorderid', orderID);
 		FlowRouter.go('home');
 	}
+	// } else if (!Meteor.userId()){
+	// 		FlowRouter.go('home');
+	// }
 
 	// if(!Meteor.userId() && !Session.get('currentorderid')){
 	// 	FlowRouter.go('home');
@@ -113,6 +122,13 @@ FlowRouter.route('/currentOrders', {
 	name: 'currentOrders',
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'currentOrders'});
+	}
+});
+
+FlowRouter.route('/confirmedOrders', {
+	name: 'confirmedOrders',
+	action(){
+		BlazeLayout.render('mainLayout', {main: 'confirmedOrders'});
 	}
 });
 
