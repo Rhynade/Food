@@ -79,7 +79,7 @@ DrinkSchema = new SimpleSchema({
 		autoform: {
 			afFieldInput: {
 				type: "cfs-file",
-				collection: "imagesSushi"
+				collection: "imageDrink"
 			}
 		}
 	},

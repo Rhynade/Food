@@ -17,9 +17,11 @@ Template.dashboard.helpers({
 
 		//dim sums
 		var siewmai = 0;
-		var harkow = 0;
+		var charsiewbao = 0;
+		var eggtart = 0;
+		var shrimpdumplings = 0;
 		var porkribs = 0;
-		var others = 0;
+
 
 		//congee
 		var chickenCongee = 0;
@@ -28,11 +30,11 @@ Template.dashboard.helpers({
 
 		for (i=0; i<cat1.length ; i++){
 			var food= DimSums.find({ _id: cat1[i].foodID}).fetch()[0];
-			if (food.name == "siew mai"){
+			if (food.name == "Siew mai"){
 				siewmai += cat1[i].quantity;
-			} else if (food.name == "har kow"){
-				harkow += cat1[i].quantity;
-			} else if (food.name == "Pork Ribs"){
+			} else if (food.name == "Char Siew Bao"){
+				charsiewbao += cat1[i].quantity;
+			} else if (food.name == "Egg Tart"){
 				porkribs +=cat1[i].quantity;
 			} else {
 				others+=cat1[i].quantity;
