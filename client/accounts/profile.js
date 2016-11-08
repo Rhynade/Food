@@ -6,9 +6,9 @@ Template.profilepage.events({
 		var orderid = "wntKmcbvwnaPWb5wJ";
 		var email = {
 			to: 'tanqyang@gmail.com',
-			from: 'admin@XinWang.com',
+			from: 'admin@openjio.com',
 			subject: "Invitation to Dine",
-			text: "http://localhost:3000/" + orderid
+			text: "https://openjio.herokuapp.com/" + orderid
 		};
 		Meteor.call('sendEmail', Meteor.userId(), email);
 	},
