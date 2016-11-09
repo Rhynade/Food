@@ -71,9 +71,9 @@ if(Meteor.isClient){
 		}
 	});
 
-	Accounts.onLogout(function(){
-		FlowRouter.go('home');
-	});
+Accounts.onLogout(function(){
+	FlowRouter.go('home');
+});
 
 }
 

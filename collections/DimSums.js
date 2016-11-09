@@ -1,24 +1,24 @@
 DimSums = new Mongo.Collection('dimSums');
 
 ImagesDimSum = new FS.Collection("imagesDimSum", {
-  stores: [
-    new FS.Store.GridFS("imagesDimSum"),
-    new FS.Store.GridFS("thumbsDimSum", {
-      beforeWrite: function(fileObj) {
+	stores: [
+	new FS.Store.GridFS("imagesDimSum"),
+	new FS.Store.GridFS("thumbsDimSum", {
+		beforeWrite: function(fileObj) {
 
-        return {
-          extension: 'jpeg',
-          type: 'image/jpeg'
-        };
-      }
+			return {
+				extension: 'jpeg',
+				type: 'image/jpeg'
+			};
+		}
       // transformWrite: resizeImageStream({
       //   width: 300,
       //   height: 200,
       //   format: 'image/jpeg',
       //   quality: 50
       // })
-    })
-  ],
+})
+	],
 });
 
 

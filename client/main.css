@@ -1,56 +1,59 @@
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:#424242;
+	color:#424242;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:#424242;
-   opacity:1;
+	color:#424242;
+	opacity:1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:#424242;
-   opacity:1;
+	color:#424242;
+	opacity:1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:#424242;
+	color:#424242;
 }
 
 .home-background{ 
-  background: url('http://s.iamafoodblog.com/wp-content/uploads/2015/03/broccoli-soba-bowl-6w.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  min-height: 100%;
-  max-width: 100%;
-  left: 0;
-  right: 0;
-  position: fixed;
+	background: url('http://www.wallisme.com/wp-content/uploads/2016/02/white-wallpaper-for-ipad-W20-680x425.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	min-height: 100%;
+	max-width: 100%;
+	left: 0;
+	right: 0;
+	position: fixed;
 }
 
 .blur-wrapper{
-	opacity: 0.4;
+	opacity: 0.01;
 	background: black;
- -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 0px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .content {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 9999;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 1;
 }
 
 .mtop50{
 	margin-top: 50px;
 }
 
+.mtop100{
+	margin-top: 100px;
+}
 
 .header{
 	background: black;
@@ -66,7 +69,7 @@
 }
 
 .home-layout form {
-	color: white;
+	color: black;
 	width: 400px;
 	margin: 0 auto;
 	padding: 20px;
@@ -74,10 +77,9 @@
 
 .basket form {
 	color: white;
-	width: 600px;
-	margin-top: 400px;
+	width: 500px;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 10px;
 }	
 
 #createBasket{
@@ -87,9 +89,9 @@
 #newBasket {
 	color: white;
 	font-weight: 500;
-  width: 600px;
-  margin: auto;
-  margin-top: 10px;
+	width: 600px;
+	margin: auto;
+	margin-top: 10px;
 }
 
 /*.control-label{
@@ -99,11 +101,20 @@
 */
 .sidenav a{
 	padding:20px;
-	height:auto;
+	height:95px;
 }
 
 .side-nav{
 	width: 230px;
+}
+
+#logout{
+	color:black;
+	height:63px;
+	padding:5px;
+	width: 115px;
+	text-align:center;
+	background-color: #37474f;
 }
 
 nav{
@@ -165,29 +176,38 @@ nav{
 	color:white;
 }
 
-
-input[name=reservationDate] {
-    color:black;
+input[type=email] {
+	color: black;
 }
 
- input[name=numPax] {
- 	color: white;
- }
+input[type=password] {
+	color: black;
+}
 
+input[type=text] {
+	color: black;
+}
+
+input[type=number] {
+	color: black;
+}
+
+input[name=reservationDate] {
+	color:black;
+}
+
+input[name=numPax] {
+	color: black;
+}
 
 select[name=reservationTime] {
- 	color: black;
- }
+	color: black;
+}
 
- .control-label{
- 	color: grey;
- }
+.control-label{
+	color: #9e9e9e ;
+}
 
- #form-group1{
- 	margin-top: 10px;
- }
-
-
- input[name=price], input[name=name],input[name=desc], input[name=images], input[name=quantity], input[name=specialRequest], input[name=email] {
- 	color: black;
- }
+input[name=price], input[name=name],input[name=desc], input[name=images], input[name=quantity], input[name=specialRequest], input[name=email] {
+	color: black;
+}

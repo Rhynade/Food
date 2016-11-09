@@ -1,42 +1,42 @@
 <template name = "newDishes">
 	<div class="container">
-	<p class="flow-text">Select Category</p>
-	<p>
-		<input class="with-gap" name="group1" type="radio" id="DimSum" />
-		<label for="DimSum">Dim Sum</label>
-	</p>
-	<p>
-		<input class="with-gap" name="group1" type="radio" id="Congee" />
-		<label for="Congee">Mongkok Congee</label>
-	</p>
-	<p>
-		<input class="with-gap" name="group1" type="radio" id="Sushi"  />
-		<label for="Sushi">Sushi</label>
-	</p>
-	<p>
-		<input class="with-gap" name="group1" type="radio" id="Drinks"  />
-		<label for="Drinks">Drinks</label>
-	</p>
-	<br>
+		<p class="flow-text">Select Category</p>
+		<p>
+			<input class="with-gap" name="group1" type="radio" id="DimSum" />
+			<label for="DimSum">Dim Sum</label>
+		</p>
+		<p>
+			<input class="with-gap" name="group1" type="radio" id="Congee" />
+			<label for="Congee">Mongkok Congee</label>
+		</p>
+		<p>
+			<input class="with-gap" name="group1" type="radio" id="Sushi"  />
+			<label for="Sushi">Sushi</label>
+		</p>
+		<p>
+			<input class="with-gap" name="group1" type="radio" id="Drinks"  />
+			<label for="Drinks">Drinks</label>
+		</p>
+		<br>
 
 
-	{{#if dimsum}}
-	{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
-	{{/if}}
+		{{#if dimsum}}
+		{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
+		{{/if}}
 
-	{{#if congee}}
-	{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
-	{{/if}}
+		{{#if congee}}
+		{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
+		{{/if}}
 
-	{{#if sushi}}
-	{{> quickForm collection="Sushi" id="insertSushiForm" type="insert" class="new-sushi-form"}}
-	{{/if}}
+		{{#if sushi}}
+		{{> quickForm collection="Sushi" id="insertSushiForm" type="insert" class="new-sushi-form"}}
+		{{/if}}
 
-	{{#if drink}}
-	{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
-	{{/if}}
+		{{#if drink}}
+		{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
+		{{/if}}
 
 
-</div>
+	</div>
 
 </template>

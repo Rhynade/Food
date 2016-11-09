@@ -16,21 +16,21 @@
 				</span>
 				<!<p>{{desc}}</p> -->
 				<!-- 			<p>${{price}}</p> -->
-			<!-- </div> --> 
+				<!-- </div> --> 
 
-			<div class="card-content">
-			<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
+				<div class="card-content">
+					<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
 
-			{{#if isUser}}
-				{{#if hasBasket}}
+					{{#if isUser}}
+					{{#if hasBasket}}
 					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
-				{{else}}
+					{{else}}
 					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
-				{{/if}}	
-			{{else}} 
-				<center><p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p></center>
-			{{/if}}
-			</div>
+					{{/if}}	
+					{{else}} 
+					<center><p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p></center>
+					{{/if}}
+				</div>
 
 <!-- 			<div class="card-reveal">
 				<span class="card-title grey-text text-darken-4"><center>{{name}}<i class="material-icons right">close</i></span>
@@ -111,10 +111,10 @@
 			</div>
 		</div>
 
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Order</button>
-			</div>
-			{{/autoForm}}
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add To Order</button>
 		</div>
-	</template>
+		{{/autoForm}}
+	</div>
+</template>
 

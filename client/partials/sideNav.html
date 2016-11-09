@@ -2,20 +2,45 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<nav>	
 		<ul id="slide-out" class="side-nav">
+			<li>
+				<div class="userView">
+					<div class="background">
+						<img src="http://static2.crated.com/8R3ZpBi_Iz336khuVM3wAaWrFJ8=/fit-in/960x960/filters:quality(90)/crated/thumbs/art/2014/05/24/5f44869f8d2e08428e0701f3198fadaa/960.jpg">
+					</div>
+					<a href="#!user"><img class="circle center" src="https://tracker.moodle.org/secure/attachment/30912/f3.png"></a>
+					{{#if isUser}}
+					<a href="#!name"><span class="white-text name">{{name}}</span></a>
+					<a href="#!email"><span class="white-text email">{{email}}</span></a>
+					{{else}}
+					<a href="#!name"><span class="white-text name">Administrator</span></a>
+					<br>
+					{{/if}}
+				</div>
+			</li>
 			{{#if isUser}}
-				<li class="sidenav"><a href="/createbasket"><i class="material-icons">library_add</i>Create New Order</a></li> 
-				<li class="sidenav"><a href="/menu"><i class="material-icons">restaurant</i>Menu</a></li> 
-				<li class="sidenav"><a href="/currentOrders" ><i class="material-icons">local_grocery_store</i>Orders</a></li>
-				<li class="sidenav"><a href="/orderHistory"><i class="material-icons">map</i>Order History</a></li>
-				<li class="sidenav"><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
+			<li class="sidenav"><a href="/createbasket"><i class="material-icons">library_add</i>Create New Order</a></li> 
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/menu"><i class="material-icons">restaurant</i>Menu</a></li> 
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/currentOrders" ><i class="material-icons">local_grocery_store</i>Orders</a></li>
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/orderHistory"><i class="material-icons">map</i>Order History</a></li>
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
+			<li><div class="divider"></div></li>
 			{{else}}
-				<li class="sidenav"><a href="/menu"><i class="material-icons">restaurant</i>Menu</a></li>
-				<li class="sidenav"><a href="/reservations"><i class="material-icons">map</i>Reservations</a></li>
-				<li class="sidenav"><a href="/add_dishes"><i class="material-icons">library_add</i>Add Dishes</a></li>
-				<li class="sidenav"><a href="/dashboard"><i class="material-icons">equalizer</i>Dashboard</a></li>
+			<li class="sidenav"><a href="/menu"><i class="material-icons">restaurant</i>Menu</a></li>
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/reservations"><i class="material-icons">map</i>Reservations</a></li>
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/add_dishes"><i class="material-icons">library_add</i>Add Dishes</a></li>
+			<li><div class="divider"></div></li>
+			<li class="sidenav"><a href="/dashboard"><i class="material-icons">equalizer</i>Dashboard</a></li>
+			<li><div class="divider"></div></li>
 			{{/if}}
 		</ul>
 		<a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons" id="menutag">menu</i></a>
-		<div class="loginarea">{{> loginButtons}}</div>
+		<!-- <div class="loginarea">{{> loginButtons}}</div> -->
+		<a id="logout" class="right btn-large">Logout</a>
 	</nav>
 </template>

@@ -1,19 +1,19 @@
 Congee = new Mongo.Collection('Congee');
 
 ImagesCongee = new FS.Collection("imagesCongee", {
-  stores: [
-    new FS.Store.GridFS("imagesCongee"),
-    new FS.Store.GridFS("thumbsCongee", {
-      beforeWrite: function(fileObj) {
+	stores: [
+	new FS.Store.GridFS("imagesCongee"),
+	new FS.Store.GridFS("thumbsCongee", {
+		beforeWrite: function(fileObj) {
         // We return an object, which will change the
         // filename extension and type for this store only.
         return {
-          extension: 'jpeg',
-          type: 'image/jpeg'
+        	extension: 'jpeg',
+        	type: 'image/jpeg'
         };
-      }
-    })
-  ],
+    }
+})
+	],
 });
 
 

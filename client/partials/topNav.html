@@ -1,28 +1,29 @@
 <template name="topNav">
 <div class="container" style="width:80%">
 	{{#if isUser}}
-		<div class="input-field col s12">
-			<h6><b>Reservation Date</b></h6>
-			<select id="select">
-				{{#each findOrder}}
-					{{#if match}}
-						<option value = "{{_id}}" selected="selected">{{findCurrentDate}}, {{findCurrentTime}}</option>
-					{{else}}
-						<option value = "{{_id}}">{{findDate}}, {{findTime}}</option>
-					{{/if}}
-				{{/each}}
-			</select>
-		</div>
-	{{/if}}
-		<div class="col s12">
-			<ul class="tabs">
-				<li class="tab col s3"><a class="active" href="/menu" style="color:#003370">Dim Sum</a></li>
-				<li class="tab col s3"><a href="/mongkokCongee" style="color:#003370">Mongkok Congee</a></li>
-				<li class="tab col s3"><a href="/sushi" style="color:#003370">Sushi</a></li>
-				<li class="tab col s3"><a href="/drinks" style="color:#003370">Drinks</a></li>
-			</ul>
-
-		</div>
+	<div class="input-field col s10 offset-s1">
+		<h6><b>Reservation</b></h6>
+		<select id="select">
+			{{#each findOrder}}
+			{{#if match}}
+			<option value = "{{_id}}" selected="selected">Date: {{findCurrentDate}} | Time: {{findCurrentTime}}</option>
+			{{else}}
+			<option value = "{{_id}}">Date: {{findDate}} | Time: {{findTime}}</option>
+			{{/if}}
+			{{/each}}
+		</select>
 	</div>
+	{{/if}}
+	<div class="col s10 offset-s1">
+		<br>
+		<ul class="tabs">
+			<li class="tab col s3"><a class="active" href="/menu" style="color:#003370">Dim Sum</a></li>
+			<li class="tab col s3"><a href="/mongkokCongee" style="color:#003370">Mongkok Congee</a></li>
+			<li class="tab col s3"><a href="/sushi" style="color:#003370">Sushi</a></li>
+			<li class="tab col s3"><a href="/drinks" style="color:#003370">Drinks</a></li>
+		</ul>
+
+	</div>
+</div>
 </template>
 

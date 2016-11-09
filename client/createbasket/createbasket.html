@@ -2,28 +2,30 @@
 	<main class="main-layout">
 		<div class='home-background basket'>
 			<div class="container">
-				<div class="col s12 m6 l3" id="form-group1">
+				<div class="wrapper">
 					{{#autoForm collection="Order" id="insertOrderForm" type="insert" }}
 					{{> afQuickField name='reservationDate'}}
-					{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}
+					{{> afQuickField name='reservationTime' placeholder = "Insert time in 24 hour format (eg. 1800)"}}<br>
+
 					<select id="select2">
-						<option>1000</option>
-						<option>1100</option>
-						<option>1200</option>
-						<option>1300</option>
-						<option>1400</option>
-						<option>1500</option>
-						<option>1600</option>
-						<option>1700</option>
-						<option>1800</option>
-						<option>1900</option>
-						<option>2000</option>
-						<option>2100</option>
+						<option>10:00</option>
+						<option>11:00</option>
+						<option>12:00</option>
+						<option>13:00</option>
+						<option>14:00</option>
+						<option>15:00</option>
+						<option>16:00</option>
+						<option>17:00</option>
+						<option>18:00</option>
+						<option>19:00</option>
+						<option>20:00</option>
+						<option>21:00</option>
 					</select>
+
 					{{> afQuickField name='numPax'}}
 					{{> afQuickField name='custID' value=user type="hidden"}}
 					{{> afQuickField name='totalPrice' value=zero type="hidden"}}
-					<button type="submit" class="waves-effect waves-light btn center-align" id="createBasket">Create new basket</button>
+					<button type="submit" class="waves-effect waves-light btn">Create new basket</button>
 					{{/autoForm}}
 				</div>
 			</div>

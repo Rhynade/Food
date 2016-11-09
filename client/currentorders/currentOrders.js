@@ -26,7 +26,7 @@ Template.currentOrders.helpers({
 
 
 		var reservationDate = Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate;
- 
+		
 		
 		return currentDate.getTime()<reservationDate.getTime();
 	},
@@ -41,7 +41,7 @@ Template.currentOrders.helpers({
 	},
 
 	findOrderitem:() => {
- 
+		
 		var catID = Template.currentData().category;
 		
 		if (catID == 1) {
@@ -130,11 +130,11 @@ Template.currentOrders.helpers({
 	findDate:()=>{
 
 		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationDate.toDateString();
-	
+		
 	},
 
 	findTime: ()=> {
-	
+		
 		return Order.find({ _id: Template.currentData()._id, confirmed: false}).fetch()[0].reservationTime;
 	},
 
@@ -183,15 +183,15 @@ Template.currentOrders.events({
  		//console.log(this._id);
 		//var address = t.find( '[name="email"]' ).value;
 		//t.find( '[name="email"]' ).value = "";
- 		document.getElementById(this._id).value = "";
+		document.getElementById(this._id).value = "";
 		var orderid = this._id;
 		var email = {
-            to: arr,
-            from: 'admin@openjio.com',
-            subject: "Invitation to Dine",
-            text: "https://openjio.herokuapp.com/" + orderid
-        };
-        Meteor.call('sendEmail', Meteor.userId(), email);
+			to: arr,
+			from: 'admin@openjio.com',
+			subject: "Invitation to Dine",
+			text: "https://openjio.herokuapp.com/" + orderid
+		};
+		Meteor.call('sendEmail', Meteor.userId(), email);
 
 	},
 

@@ -44,7 +44,7 @@ Template.reservations.helpers({
 
 	findReservationUser:()=>{
 		var custID = Template.currentData().custID[0];
-	
+		
 		return Accounts.users.find({_id: custID}).fetch();
 	},
 
@@ -53,7 +53,7 @@ Template.reservations.helpers({
 	},
 
 	findOrderitem:() => {
- 
+		
 		var catID = Template.currentData().category;
 		
 		if (catID == 1) {

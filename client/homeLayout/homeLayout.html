@@ -2,17 +2,17 @@
 	<div class="content blur-wrapper"></div>
 	<div class="home-background"></div>
 	<div class="content">
-	<main class="home-layout">
-		{{#if signUpPage}}
+		<main class="home-layout">
+			{{#if signUpPage}}
 			{{> signup}}
-		{{else}}
-			{{#if forgetPage}}
-				{{> ForgotPassword}}
 			{{else}}
-				{{> login}}
+			{{#if forgetPage}}
+			{{> ForgotPassword}}
+			{{else}}
+			{{> login}}
 			{{/if}}
-		{{/if}}
-	</main>
+			{{/if}}
+		</main>
 	</div>
 </template>
 

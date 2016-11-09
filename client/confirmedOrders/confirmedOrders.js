@@ -39,7 +39,7 @@ Template.confirmedOrders.helpers({
 	},
 
 	findOrderitem:() => {
- 
+		
 		var catID = Template.currentData().category;
 		
 		if (catID == 1) {
@@ -139,7 +139,7 @@ Template.confirmedOrders.helpers({
 	findTime: ()=> {
 		
 		return Order.find({ _id: Template.currentData()._id, confirmed: true}).fetch()[0].reservationTime;
-	
+		
 	},
 
 	findPax: ()=>{

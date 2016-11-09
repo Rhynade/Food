@@ -1,18 +1,18 @@
 Sushi = new Mongo.Collection('Sushi');
 
 ImagesSushi = new FS.Collection("imagesSushi", {
-  stores: [
-    new FS.Store.GridFS("imagesSushi"),
-    new FS.Store.GridFS("thumbsSushi", {
-      beforeWrite: function(fileObj) {
+	stores: [
+	new FS.Store.GridFS("imagesSushi"),
+	new FS.Store.GridFS("thumbsSushi", {
+		beforeWrite: function(fileObj) {
 
-        return {
-          extension: 'jpeg',
-          type: 'image/jpeg'
-        };
-      }
-    })
-  ],
+			return {
+				extension: 'jpeg',
+				type: 'image/jpeg'
+			};
+		}
+	})
+	],
 });
 
 

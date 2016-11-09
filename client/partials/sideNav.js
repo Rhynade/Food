@@ -9,5 +9,19 @@ Template.sideNav.helpers({
 		//console.log(Meteor.userId());
 		var id = Meteor.userId();
 		return Meteor.users.findOne(id).profile.role == 'User';
+	},
+	name: function() {
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.name;
+	},
+	email: function() {
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).emails[0].address;
+	}
+});
+
+Template.sideNav.events({
+	'click #logout': function() {
+		return Meteor.logout();
 	}
 });

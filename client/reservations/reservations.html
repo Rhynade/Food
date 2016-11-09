@@ -38,37 +38,37 @@
    </tbody>
  </table>
  {{else}}
-    {{#each reservation}}
-      {{#if notOver}}
-          <div class="col s12">
-            <div class="card horizontal">
-             <div class="card-stacked">
-               <div class="cardheader" style="font-size:115%">
-                <!-- <p><b>Order No: {{_id}} </b></p> -->
-                <p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
-                <p><b>Number of Pax: {{findPax}} </b></p>
-              </div>
+ {{#each reservation}}
+ {{#if notOver}}
+ <div class="col s12">
+  <div class="card horizontal">
+   <div class="card-stacked">
+     <div class="cardheader" style="font-size:115%">
+      <!-- <p><b>Order No: {{_id}} </b></p> -->
+      <p><b>Reservation Date: {{findDate}}, {{findTime}} </b></p>
+      <p><b>Number of Pax: {{findPax}} </b></p>
+    </div>
 
-              {{#each findReservation}}
-              <div class="card-content">
-                <p id="item">{{findOrderitem}}</p>
-                <p id="qty"> x {{quantity}}</p>
-                <p id="price">${{findPrice}}</p>
-                <p>Special Request: {{specialRequest}}</p>
-              </div>
-              {{/each}}
+    {{#each findReservation}}
+    <div class="card-content">
+      <p id="item">{{findOrderitem}}</p>
+      <p id="qty"> x {{quantity}}</p>
+      <p id="price">${{findPrice}}</p>
+      <p>Special Request: {{specialRequest}}</p>
+    </div>
+    {{/each}}
 
-              <div class="card-action">
-                <p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
-              </div>
-            </div>
-          </div>
-        </div>     
-        {{/if}}
-      {{/each}}
+    <div class="card-action">
+      <p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
+    </div>
+  </div>
+</div>
+</div>     
+{{/if}}
+{{/each}}
 {{/if}}
 {{else}}
-  <p>Loading</p>
-  {{/if}}
+<p>Loading</p>
+{{/if}}
 
 </template>

@@ -6,15 +6,15 @@ Template.createbasket.onCreated(function(){
 AutoForm.addHooks(["insertOrderForm"], {
   
 
-    onSuccess: function(operation, result, template) {
-      event.preventDefault();
-      var length = Order.find({custID: Meteor.user()._id, confirmed: false}).fetch().length;
-      var currentorder = Order.find({custID: Meteor.user()._id, confirmed: false}).fetch()[length-1]._id;
-      UserSession.set('currentorderid', currentorder);
-      FlowRouter.go('menu');
-    }
-  });
-  
+  onSuccess: function(operation, result, template) {
+    event.preventDefault();
+    var length = Order.find({custID: Meteor.user()._id, confirmed: false}).fetch().length;
+    var currentorder = Order.find({custID: Meteor.user()._id, confirmed: false}).fetch()[length-1]._id;
+    UserSession.set('currentorderid', currentorder);
+    FlowRouter.go('menu');
+  }
+});
+
 
   // Template.createbasket.events({
   //   'click #add': function(){

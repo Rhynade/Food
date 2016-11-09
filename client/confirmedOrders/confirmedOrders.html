@@ -1,7 +1,7 @@
 <template name="confirmedOrders">
 	<div class="container">
 
-	<div class="col s12">
+		<div class="col s12">
 			<ul class="tabs">
 				<li class="tab col s3"><a class="active" href="/currentOrders" style="color:#003370">Orders</a></li>
 				<li class="tab col s3"><a href="/confirmedOrders" style="color:#003370">Confirmed Orders</a></li>
@@ -21,41 +21,41 @@
 					</div>
 
 					{{#each findOrder}}
-						{{#if isUserOrderItem}}
-						<div class="card-content orange lighten-5">
-							<p>
-								{{#each findOrderUser}}
-									{{#each emails}}
-										{{address}}
-									{{/each}}
-								{{/each}}
-							</p>
-							<p id="item">{{findOrderitem}}</p>
-							<p id="qty"> x {{quantity}}</p>
-							<p id="price">${{findPrice}}</p>
-							<p>Special Request: {{specialRequest}}</p>
-						</div>
-						{{else}}
-						<div class="card-content">
-							<p>
-								{{#each findOrderUser}}
-									{{#each emails}}
-										{{address}}
-									{{/each}}
-								{{/each}}
-							</p>
-							<p id="item">{{findOrderitem}}</p>
-							<p id="qty"> x {{quantity}}</p>
-							<p id="price">${{findPrice}}</p>
-							<p>Special Request: {{specialRequest}}</p>
-						</div>
-						{{/if}}
+					{{#if isUserOrderItem}}
+					<div class="card-content orange lighten-5">
+						<p>
+							{{#each findOrderUser}}
+							{{#each emails}}
+							{{address}}
+							{{/each}}
+							{{/each}}
+						</p>
+						<p id="item">{{findOrderitem}}</p>
+						<p id="qty"> x {{quantity}}</p>
+						<p id="price">${{findPrice}}</p>
+						<p>Special Request: {{specialRequest}}</p>
+					</div>
+					{{else}}
+					<div class="card-content">
+						<p>
+							{{#each findOrderUser}}
+							{{#each emails}}
+							{{address}}
+							{{/each}}
+							{{/each}}
+						</p>
+						<p id="item">{{findOrderitem}}</p>
+						<p id="qty"> x {{quantity}}</p>
+						<p id="price">${{findPrice}}</p>
+						<p>Special Request: {{specialRequest}}</p>
+					</div>
+					{{/if}}
 					{{/each}}
 
 					<div class="card-action">
 						<p style="float: right; font-size: 120%"> Total: ${{totalPrice}}</p>
-							<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
-							<button class="btn waves-effect waves-light">Make Payment</button>
+						<button class="btn waves-effect waves-light" disabled="true">Order Confirmed</button>
+						<button class="btn waves-effect waves-light">Make Payment</button>
 						
 					</div>
 				</div>

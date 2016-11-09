@@ -25,7 +25,7 @@ Template.orderHistory.helpers({
 	findOrderUser: () =>{
 
 		var custID = Template.currentData().custID;
- 
+		
 		return Accounts.users.find({_id: custID}).fetch();
 
 		// return Accounts.users.find({_id: Meteor.user()._id}).fetch();
@@ -39,7 +39,7 @@ Template.orderHistory.helpers({
 		return OrderItems.find({ orderID: Template.currentData()._id});
 	},
 	findOrderitem:() => {
- 
+		
 		var catID = Template.currentData().category;
 		
 		if (catID == 1) {
@@ -64,7 +64,7 @@ Template.orderHistory.helpers({
 	},
 
 	totalPrice:() =>{
-	
+		
 		return Order.find({ _id: Template.currentData()._id}).fetch()[0].totalPrice;
 
 	},

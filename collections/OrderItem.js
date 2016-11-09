@@ -66,12 +66,12 @@ OrderItemSchema = new SimpleSchema({
 	},
 
 	added: {
-	 	type: Boolean,
-	 	label: "Confirmation",
-	 	defaultValue: false,
-	 	autoform: {
-	 		type:"hidden"
-	 	}
+		type: Boolean,
+		label: "Confirmation",
+		defaultValue: false,
+		autoform: {
+			type:"hidden"
+		}
 	}
 
 });

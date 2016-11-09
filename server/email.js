@@ -12,7 +12,7 @@ Meteor.startup(function() {
     },
     text( user, url ) {
       let emailAddress   = user.emails[0].address,
-          emailBody      = `To verify your email address (${emailAddress}) visit the following link:\n\n${url}`;
+      emailBody      = `To verify your email address (${emailAddress}) visit the following link:\n\n${url}`;
 
       return emailBody;
     }
