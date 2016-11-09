@@ -1,3 +1,18 @@
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:#424242;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:#424242;
+   opacity:1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:#424242;
+   opacity:1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:#424242;
+}
+
 .home-background{ 
   background: url('http://s.iamafoodblog.com/wp-content/uploads/2015/03/broccoli-soba-bowl-6w.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
