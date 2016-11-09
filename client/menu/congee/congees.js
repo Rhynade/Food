@@ -1,9 +1,9 @@
 Template.congees.onCreated(function(){
 	var self = this;
-	self.autorun(function(){
-		self.subscribe('Congee');
-		self.subscribe('imagesCongee');
-	});
+	// self.autorun(function(){
+	// 	self.subscribe('Congee');
+	// 	self.subscribe('imagesCongee');
+	// });
 });
 
 Template.congees.helpers({
