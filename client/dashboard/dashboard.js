@@ -124,20 +124,49 @@ Template.dashboard.helpers({
 
 		}
 
+		var orange = 0;
+		var jasmine = 0;
+		var green = 0;
+		var barley = 0;
+
+		var sum4 = 0;
+
+		for (i=0; i<cat4.length ; i++){
+			var food= Drink.find({ _id: cat4[i].foodID}).fetch()[0];
+			if (food.name == "Orange Juice"){
+				orange += cat4[i].quantity;
+			} 
+			else if (food.name == "Jasmine Tea"){
+				jasmine +=cat4[i].quantity;
+			}
+			else if (food.name == "Green Tea"){
+				green +=cat4[i].quantity;
+			}
+			else if (food.name == "Barley"){
+				barley +=cat4[i].quantity;
+			}
+
+			sum4 += cat4[i].quantity;
+		}
+
 
 		//var allOrders = Order.find().count();
 		var ordersData = [{
-				y: sum1*100/(sum1+sum2+sum3),
+				y: sum1*100/(sum1+sum2+sum3+sum4),
 				name: "Dim Sum",
 				drilldown: "dimsums"
 			},{
-				y: sum2*100/(sum1+sum2+sum3),
+				y: sum2*100/(sum1+sum2+sum3+sum4),
 				name: "Congee",
 				drilldown: "congees"
 			},{
-				y: sum3*100/(sum1+sum2+sum3),
+				y: sum3*100/(sum1+sum2+sum3+sum4),
 				name: "Sushi",
 				drilldown: "sushis"
+			},{
+				y: sum4*100/(sum1+sum2+sum3+sum4),
+				name: "Drink",
+				drilldown: "drinks"
 			}];
 
 		var dimsums = [{
@@ -207,6 +236,21 @@ Template.dashboard.helpers({
 				y: mango*100/sum3
 			},];
 
+		var drinks = [{
+				name:"Orange Juice",
+				y:orange*100/sum4
+			}, {
+				name: "Jasmine Tea",
+				y: jasmine*100/sum4
+			}, {
+				name: "Green Tea",
+				y: jasmine*100/sum4
+			}, {
+				name: "Barley",
+				y: barley*100/sum4
+			}
+		];
+
 		Meteor.defer(function(){
 			Highcharts.chart('chart',{
 				title:{
@@ -240,6 +284,11 @@ Template.dashboard.helpers({
 						id: "sushis",
 						type: 'pie',
 						data: sushis
+					},{
+						name: "Drink",
+						id: "drinks",
+						type: 'pie',
+						data: drinks
 					}]
 				}
 			});
