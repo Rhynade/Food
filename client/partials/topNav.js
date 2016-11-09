@@ -56,7 +56,17 @@ Template.topNav.helpers({
 
 Template.topNav.events({
       'change select': function(event){
-         var selectValue = event.target.value;
+         // var selectValue = event.target.value;
+         var selectValue = document.getElementById('select').value;
+         
          UserSession.set('currentorderid', selectValue);
+      },
+
+      'click #select': function(event){
+      		var x = document.getElementById("select").length;
+      		if(x==1){
+      			var selectValue = document.getElementById('select').value;
+      			UserSession.set('currentorderid', selectValue)
+      		}
       }
-   });
+ });

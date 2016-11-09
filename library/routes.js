@@ -82,12 +82,16 @@ FlowRouter.triggers.enter([function(context, redirect){
 
 	var orderID = context.path.split('/')[1]
 
-	if(!Meteor.userId() && orderID>15){
+	if(!Meteor.userId() && orderID.length>15){
+	
 		Session.set('currentorderid', orderID);
+		FlowRouter.go('home'); 
+	} else if (!Meteor.userId()){
+	
 		FlowRouter.go('home');
 	}
-	// } else if (!Meteor.userId()){
-	// 		FlowRouter.go('home');
+	// else{
+	// 	FlowRouter.go('home');
 	// }
 
 	// if(!Meteor.userId() && !Session.get('currentorderid')){
@@ -190,7 +194,8 @@ FlowRouter.route('/:_id',{
 	name: 'alternate',
 	action: function(params){
 		var id = params._id;
-		Session.set('currentorderid',id);
+		UserSession.set('currentorderid',id);
+		Order.update({_id: UserSession.get('currentorderid')}, {$addToSet:{custID: Meteor.userId().toString()}});
 		FlowRouter.go('home');
 	}
 });
