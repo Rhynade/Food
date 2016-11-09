@@ -49,6 +49,10 @@ Template.newDishes.helpers({
 	drink:()=>{
 		var cat = UserSession.get('selectedCat');
 		return cat == "Drinks";
+	},
+
+	isAdmin:()=>{
+		return Meteor.user().profile.role == 'Admin';
 	}
 });
 

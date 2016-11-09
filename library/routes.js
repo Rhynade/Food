@@ -143,7 +143,7 @@ FlowRouter.route('/sushi',{
 FlowRouter.route('/drinks',{
 	subscriptions: function(params){
 		this.register('drinks', Meteor.subscribe('Drink'));
-		this.register('image', Meteor.subscribe('imagesDrink'));
+		this.register('image', Meteor.subscribe('imageDrink'));
 	},
 	name: "drinks",
 	action(){

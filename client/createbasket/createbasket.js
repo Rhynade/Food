@@ -52,5 +52,9 @@ Template.createbasket.helpers({
 
   zero: ()=>{
     return 0.0;
+  },
+
+  isUser:() =>{
+    return Meteor.user().profile.role == 'User';
   }
 });

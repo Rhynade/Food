@@ -146,6 +146,10 @@ Template.currentOrders.helpers({
 
 	isUserOrderItem: ()=>{
 		return Template.currentData().custID == Meteor.user()._id;
+	},
+
+	isUser:() =>{
+		return Meteor.user().profile.role == 'User';
 	}
 });
 

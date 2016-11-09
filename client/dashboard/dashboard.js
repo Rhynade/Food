@@ -562,5 +562,9 @@ Template.dashboard.helpers({
         }]
     });
     });
+    },
+
+    isAdmin:() =>{
+    	return Meteor.user().profile.role == 'Admin';
     } 
 });

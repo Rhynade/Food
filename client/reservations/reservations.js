@@ -136,7 +136,11 @@ Template.reservations.helpers({
 
 	'summary': ()=>{
 		return UserSession.get('view')=='summary';
-	}
+	},
+
+    isAdmin:() =>{
+    	return Meteor.user().profile.role == 'Admin';
+    } 
 
 	
 });

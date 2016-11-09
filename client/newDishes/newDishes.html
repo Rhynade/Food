@@ -1,37 +1,55 @@
 <template name = "newDishes">
-	<div class="container newdish">
-		<p class="flow-text">Select Category</p>
-		<p>
-			<input class="with-gap" name="group1" type="radio" id="DimSum" />
-			<label for="DimSum">Dim Sum</label>
-		</p>
-		<p>
-			<input class="with-gap" name="group1" type="radio" id="Congee" />
-			<label for="Congee">Mongkok Congee</label>
-		</p>
-		<p>
-			<input class="with-gap" name="group1" type="radio" id="Sushi"  />
-			<label for="Sushi">Sushi</label>
-		</p>
-		<p>
-			<input class="with-gap" name="group1" type="radio" id="Drinks"  />
-			<label for="Drinks">Drinks</label>
-		</p>
-		
-		{{#if dimsum}}
-		{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
-		{{/if}}
+	{{#if isAdmin}}
+		<div class="container newdish">
+			<p class="flow-text">Select Category</p>
+			<p>
+				<input class="with-gap" name="group1" type="radio" id="DimSum" />
+				<label for="DimSum">Dim Sum</label>
+			</p>
+			<p>
+				<input class="with-gap" name="group1" type="radio" id="Congee" />
+				<label for="Congee">Mongkok Congee</label>
+			</p>
+			<p>
+				<input class="with-gap" name="group1" type="radio" id="Sushi"  />
+				<label for="Sushi">Sushi</label>
+			</p>
+			<p>
+				<input class="with-gap" name="group1" type="radio" id="Drinks"  />
+				<label for="Drinks">Drinks</label>
+			</p>
+			
+			{{#if dimsum}}
+			{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
+			{{/if}}
 
-		{{#if congee}}
-		{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
-		{{/if}}
+			{{#if congee}}
+			{{> quickForm collection="Congee" id="insertCongeeForm" type="insert" class="new-congee-form"}}
+			{{/if}}
 
-		{{#if sushi}}
-		{{> quickForm collection="Sushi" id="insertSushiForm" type="insert" class="new-sushi-form"}}
-		{{/if}}
+			{{#if sushi}}
+			{{> quickForm collection="Sushi" id="insertSushiForm" type="insert" class="new-sushi-form"}}
+			{{/if}}
 
-		{{#if drink}}
-		{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
-		{{/if}}
-	</div>
+			{{#if drink}}
+			{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
+			{{/if}}
+		</div>
+	{{else}}
+		<body>
+			<div class="container">
+				<div class="row">
+			    	<div class="span12">
+			    		<div class="hero-unit center">
+				          <h1>Page Not Found <small><font face="Tahoma" color="red">Error 404</font></small></h1>
+				          <br />
+				          <p>The page you requested could not be found, either contact your webmaster or try again. Use your browsers <b>Back</b> button to navigate to the page you have prevously come from</p>
+				          <p><b>Or you could just press this neat little button:</b></p>
+				          <a href="/menu" class="btn btn-large btn-info"><i class="icon-home icon-white"></i> Take Me Home</a>
+			    		</div>
+			    	</div>
+				</div>
+			</div>
+		</body>
+	{{/if}}
 </template>

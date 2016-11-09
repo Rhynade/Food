@@ -227,3 +227,11 @@ select[name=reservationTime] {
 input[name=price], input[name=name],input[name=desc], input[name=images], input[name=quantity], input[name=specialRequest], input[name=email] {
 	color: black;
 }
+
+.center {
+	text-align: center; 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-bottom: auto; 
+	margin-top: auto;
+}
