@@ -13,6 +13,18 @@
 	color:#424242;
 }
 
+.login-background{ 
+  background: url("login-wallpaper.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-height: 100%;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+
 .home-background{ 
 	background: url('background.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
@@ -26,7 +38,7 @@
 }
 
 .blur-wrapper{
-	opacity: 0.01;
+	opacity: 0.3;
 	background: black;
 	-webkit-filter: blur(2px);
 	-moz-filter: blur(2px);
@@ -69,7 +81,7 @@
 }
 
 .home-layout form {
-	color: black;
+	color: white;
 	width: 400px;
 	margin: 0 auto;
 	padding: 20px;
