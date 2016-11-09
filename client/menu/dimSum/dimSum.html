@@ -1,5 +1,8 @@
 <template name="dimSum">
 	<div class="col s12 m6 l3">
+		{{#if editMode}}
+			{{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true}}
+		{{/if}}	
 		<div class="card small truncate hoverable">
 			<div class="card-image">
 				{{#each image}}
@@ -9,18 +12,8 @@
 				{{/each}}
 
 			</div>
-<!-- 			<div class="card-content">
-				<span class="card-title activator grey-text text-darken-4">
-					<h6><b>{{name}}</b></h6>
-					<i class="material-icons right">more_vert</i>
-				</span>
-				<!<p>{{desc}}</p> -->
-				<!-- 			<p>${{price}}</p> -->
-				<!-- </div> --> 
-
 				<div class="card-content">
 					<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
-
 					{{#if isUser}}
 					{{#if hasBasket}}
 					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
@@ -28,7 +21,12 @@
 					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
 					{{/if}}	
 					{{else}} 
-					<center><p><a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:18px">Delete</a></p></center>
+					<span>
+					<center>
+					<a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:12px">Delete</a>
+					<a class="btn-primary waves-effect waves-light btn" id="edit" style="background-color:orange; font-size:12px">Edit</a>
+					</center>
+					</span>
 					{{/if}}
 				</div>
 

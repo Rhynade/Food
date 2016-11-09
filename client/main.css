@@ -228,6 +228,7 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
 	color: black;
 }
 
+
 .center {
 	text-align: center; 
 	margin-left: auto; 
@@ -235,3 +236,4 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
 	margin-bottom: auto; 
 	margin-top: auto;
 }
+

@@ -58,7 +58,7 @@ Template.dimSum.helpers({
 	},
 
 	isUser: function() {
-		//console.log(Meteor.userId());
+		// console.log(Meteor.userId());
 		var id = Meteor.userId();
 		return Meteor.users.findOne(id).profile.role == 'User';
 	},
@@ -74,7 +74,6 @@ Template.dimSum.events({
 	},
 
 	'click #edit': function(event, template){
-
 		template.editMode.set(!template.editMode.get());
 	},
 	'click #order': function(){
