@@ -1,5 +1,5 @@
 <template name = "newDishes">
-	<div class="container">
+	<div class="container newdish">
 		<p class="flow-text">Select Category</p>
 		<p>
 			<input class="with-gap" name="group1" type="radio" id="DimSum" />
@@ -17,9 +17,7 @@
 			<input class="with-gap" name="group1" type="radio" id="Drinks"  />
 			<label for="Drinks">Drinks</label>
 		</p>
-		<br>
-
-
+		
 		{{#if dimsum}}
 		{{> quickForm collection="DimSums" id="insertDimSumForm" type="insert" class="new-dimsum-form"}}
 		{{/if}}
@@ -35,8 +33,5 @@
 		{{#if drink}}
 		{{> quickForm collection="Drink" id="insertDrinkForm" type="insert" class="new-drink-form"}}
 		{{/if}}
-
-
 	</div>
-
 </template>

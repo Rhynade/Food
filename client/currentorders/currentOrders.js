@@ -189,7 +189,7 @@ Template.currentOrders.events({
 			to: arr,
 			from: 'admin@openjio.com',
 			subject: "Invitation to Dine",
-			text: "https://openjio.herokuapp.com/" + orderid
+			text: "Click here: https://openjio.herokuapp.com/" + orderid + " to join us in building our menu."
 		};
 		Meteor.call('sendEmail', Meteor.userId(), email);
 

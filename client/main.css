@@ -14,7 +14,7 @@
 }
 
 .home-background{ 
-	background: url('http://www.wallisme.com/wp-content/uploads/2016/02/white-wallpaper-for-ipad-W20-680x425.jpg') no-repeat center center fixed; 
+	background: url('background.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -22,7 +22,7 @@
 	max-width: 100%;
 	left: 0;
 	right: 0;
-	position: fixed;
+	position: absolute;
 }
 
 .blur-wrapper{
@@ -76,11 +76,15 @@
 }	
 
 .basket form {
-	color: white;
+	color: black;
 	width: 500px;
 	margin: 0 auto;
 	padding: 10px;
 }	
+
+.newdish form {
+	width: 400px;
+}
 
 #createBasket{
 	margin-left: 100px;
