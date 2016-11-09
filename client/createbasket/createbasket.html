@@ -1,6 +1,6 @@
 <template name="createbasket">
 	<main class="main-layout">
-		<div class='home-background basket'>
+		<div class='login-background basket'>
 			<div class="container">
 				<div class="wrapper">
 					{{#autoForm collection="Order" id="insertOrderForm" type="insert" }}
@@ -25,7 +25,7 @@
 					{{> afQuickField name='numPax'}}
 					{{> afQuickField name='custID' value=user type="hidden"}}
 					{{> afQuickField name='totalPrice' value=zero type="hidden"}}
-					<button type="submit" class="waves-effect waves-light btn">Create new basket</button>
+					<button type="submit" class="waves-effect waves-light btn">Create new Order</button>
 					{{/autoForm}}
 				</div>
 			</div>
