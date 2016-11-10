@@ -191,6 +191,11 @@ Template.currentOrders.events({
 			arr.push(split[i])
 		}
 
+		var order = Order.find({_id: this._id}).fetch()[0];
+		var date = order.reservationDate.toDateString();
+		var time = order.reservationTime;
+
+		console.log(date + " " + time);
  		//console.log("ERR");
  		//console.log(this._id);
 		//var address = t.find( '[name="email"]' ).value;
