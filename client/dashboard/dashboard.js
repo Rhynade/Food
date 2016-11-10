@@ -30,55 +30,64 @@ Template.dashboard.helpers({
 		var sesame = 0;
 		var rice = 0;
 		var turnip = 0;
-
+		var cat1others = 0;
 		var sum1 = 0;
 
 		for (i=0; i<cat1.length ; i++){
 			var food= DimSums.find({ _id: cat1[i].foodID}).fetch()[0];
-			if (food.name == "Siew mai"){
-				siewmai += cat1[i].quantity;
-			} 
-			else if (food.name == "Char Siew Bao"){
-				charsiewbao += cat1[i].quantity;
-			} 
-			else if (food.name == "Egg Tart"){
-				eggtart +=cat1[i].quantity;
-			} 
-			else if (food.name == "Shrimp Dumplings"){
-				shrimpdumplings +=cat1[i].quantity;
+			if(food){
+				if (food.name == "Siew mai"){
+					siewmai += cat1[i].quantity;
+				} 
+				else if (food.name == "Char Siew Bao"){
+					charsiewbao += cat1[i].quantity;
+				} 
+				else if (food.name == "Egg Tart"){
+					eggtart +=cat1[i].quantity;
+				} 
+				else if (food.name == "Shrimp Dumplings"){
+					shrimpdumplings +=cat1[i].quantity;
+				}
+				else if (food.name == "Steamed Pork Ribs"){
+					porkribs +=cat1[i].quantity;
+				}
+				else if (food.name == "Fried Sesame Balls"){
+					sesame +=cat1[i].quantity;
+				}
+				else if (food.name == "Glutinous Rice"){
+					rice +=cat1[i].quantity;
+				} 
+				else if (food.name == "Fried Turnip Cake"){
+					turnip +=cat1[i].quantity;
+				}
+				else{
+					cat1others += cat1[i].quantity;
+				}
+				sum1 += cat1[i].quantity;
 			}
-			else if (food.name == "Steamed Pork Ribs"){
-				porkribs +=cat1[i].quantity;
-			}
-			else if (food.name == "Fried Sesame Balls"){
-				sesame +=cat1[i].quantity;
-			}
-			else if (food.name == "Glutinous Rice"){
-				rice +=cat1[i].quantity;
-			} 
-			else if (food.name == "Fried Turnip Cake"){
-				turnip +=cat1[i].quantity;
-			}
-			sum1 += cat1[i].quantity;
 		}
 
 		//congee
 		var porkCongee = 0;
 		var fishCongee = 0;
-
+		var cat2others = 0;
 
 		var sum2 = 0;
 
 		for (i=0; i<cat2.length ; i++){
 			var food= Congee.find({ _id: cat2[i].foodID}).fetch()[0];
-			if (food.name == "Pork Congee"){
-				porkCongee += cat2[i].quantity;
-			} 
-			else if (food.name == "Fish Congee"){
-				fishCongee +=cat2[i].quantity;
+			if(food){
+				if (food.name == "Pork Congee"){
+					porkCongee += cat2[i].quantity;
+				} 
+				else if (food.name == "Fish Congee"){
+					fishCongee +=cat2[i].quantity;
+				}
+				else{
+					cat2others += cat2[i].quantity;
+				}
+				sum2 += cat2[i].quantity;
 			}
-
-			sum2 += cat2[i].quantity;
 		}
 
 		var salmon = 0;
@@ -89,38 +98,43 @@ Template.dashboard.helpers({
 		var california = 0;
 		var unagi = 0;
 		var mango = 0;
-
+		var cat3others = 0;
 		var sum3 = 0;
 
 
 		for (i=0; i<cat3.length ; i++){
 			var food= Sushi.find({ _id: cat3[i].foodID}).fetch()[0];
-			if (food.name == "Spicy Salmon Roll"){
-				salmon += cat3[i].quantity;
-			} 
-			else if (food.name == "Avocado Sushi Roll"){
-				avocado +=cat3[i].quantity;
-			}
-			else if (food.name == "Cheese Chicken Roll"){
-				cheese +=cat3[i].quantity;
-			}
-			else if (food.name == "Mango Roll"){
-				mango +=cat3[i].quantity;
-			}
-			else if (food.name == "Chicken Katsu Roll"){
-				chicken +=cat3[i].quantity;
-			}
-			else if (food.name == "Crispy Tempura Roll"){
-				tempura +=cat3[i].quantity;
-			}
-			else if (food.name == "California Roll"){
-				california +=cat3[i].quantity;
-			}
-			else if (food.name == "Unagi Roll"){
-				unagi +=cat3[i].quantity;
-			}
+			if (food){
+				if (food.name == "Spicy Salmon Roll"){
+					salmon += cat3[i].quantity;
+				} 
+				else if (food.name == "Avocado Sushi Roll"){
+					avocado +=cat3[i].quantity;
+				}
+				else if (food.name == "Cheese Chicken Roll"){
+					cheese +=cat3[i].quantity;
+				}
+				else if (food.name == "Mango Roll"){
+					mango +=cat3[i].quantity;
+				}
+				else if (food.name == "Chicken Katsu Roll"){
+					chicken +=cat3[i].quantity;
+				}
+				else if (food.name == "Crispy Tempura Roll"){
+					tempura +=cat3[i].quantity;
+				}
+				else if (food.name == "California Roll"){
+					california +=cat3[i].quantity;
+				}
+				else if (food.name == "Unagi Roll"){
+					unagi +=cat3[i].quantity;
+				}
+				else{
+					cat3others += cat3[i].quantity;
+				}
 
-			sum3 += cat3[i].quantity;
+				sum3 += cat3[i].quantity;
+			}
 
 		}
 
@@ -128,25 +142,29 @@ Template.dashboard.helpers({
 		var jasmine = 0;
 		var green = 0;
 		var barley = 0;
-
+		var cat4others = 0;
 		var sum4 = 0;
 
 		for (i=0; i<cat4.length ; i++){
 			var food= Drink.find({ _id: cat4[i].foodID}).fetch()[0];
-			if (food.name == "Orange Juice"){
-				orange += cat4[i].quantity;
-			} 
-			else if (food.name == "Jasmine Tea"){
-				jasmine +=cat4[i].quantity;
+			if(food){
+				if (food.name == "Orange Juice"){
+					orange += cat4[i].quantity;
+				} 
+				else if (food.name == "Jasmine Tea"){
+					jasmine +=cat4[i].quantity;
+				}
+				else if (food.name == "Green Tea"){
+					green +=cat4[i].quantity;
+				}
+				else if (food.name == "Barley"){
+					barley +=cat4[i].quantity;
+				}
+				else{
+					cat4others += cat4[i].quantity;
+				}
+				sum4 += cat4[i].quantity;
 			}
-			else if (food.name == "Green Tea"){
-				green +=cat4[i].quantity;
-			}
-			else if (food.name == "Barley"){
-				barley +=cat4[i].quantity;
-			}
-
-			sum4 += cat4[i].quantity;
 		}
 
 
@@ -196,6 +214,10 @@ Template.dashboard.helpers({
 			{
 				name: "Fried Turnip Cake",
 				y: turnip*100/sum1
+			},
+			{
+				name: "Others",
+				y: cat1others*100/sum1
 			}];
 
 		var congees = [{
@@ -204,6 +226,9 @@ Template.dashboard.helpers({
 			}, {
 				name: "Fish Congee",
 				y: fishCongee*100/sum2
+			},{
+				naem:"Others",
+				y: cat2others*100/sum2
 			}
 		];
 
@@ -234,7 +259,11 @@ Template.dashboard.helpers({
 			{
 				name: "Mango Roll",
 				y: mango*100/sum3
-			},];
+			},
+			{
+				name: "Others",
+				y: cat3others*100/sum3
+			}];
 
 		var drinks = [{
 				name:"Orange Juice",
@@ -248,6 +277,9 @@ Template.dashboard.helpers({
 			}, {
 				name: "Barley",
 				y: barley*100/sum4
+			}, {
+				name: "Others",
+				y: cat4others*100/sum4
 			}
 		];
 
