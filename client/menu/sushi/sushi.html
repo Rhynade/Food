@@ -12,7 +12,7 @@
 
 			{{#if isUser}}
 			<div class="card-content">
-				<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
+				<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} &nbsp; ${{price}}0</center></span>
 				<!-- {{#if isUser}} -->
 					{{#if hasBasket}}
 						<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
@@ -22,7 +22,7 @@
 			</div>
 			{{else}} 
 				<div class="card-content">
-				 <span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
+				 <span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} &nbsp; ${{price}}0</center></span>
 
 				 <center>
 						<a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:12px">Delete</a>
