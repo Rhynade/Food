@@ -63,10 +63,11 @@ Template.dimSum.helpers({
 		return Meteor.users.findOne(id).profile.role == 'User';
 	},
 	hasBasket: function(){
-		// console.log("hi")
-		// var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
-		// return order.length>0;
-		return UserSession.get('currentorderid');
+		
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		return order.length>0;
+		
+		// return UserSession.get('currentorderid');
 	}
 });
 

@@ -60,9 +60,9 @@ Template.congee.helpers({
 	},
 
 	hasBasket:function(){
-		// var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
-		// return order.length>0;
-		return UserSession.get('currentorderid');
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		return order.length>0;
+		// return UserSession.get('currentorderid');
 	},
 
 	updateCongeeId: function(){
