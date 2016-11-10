@@ -37,9 +37,9 @@ Template.dimSumModal.helpers({
 // 	}
 // });
 
-Template.dimSum.onCreated(function(){
-	this.editMode = new ReactiveVar(false);
-});
+// Template.dimSum.onCreated(function(){
+// 	this.editMode = new ReactiveVar(false);
+// });
 
 Template.dimSum.helpers({
 
@@ -53,9 +53,9 @@ Template.dimSum.helpers({
 
 	},
 
-	editMode: function(){
-		return Template.instance().editMode.get();
-	},
+	// editMode: function(){
+	// 	return Template.instance().editMode.get();
+	// },
 
 	isUser: function() {
 		// console.log(Meteor.userId());
@@ -73,9 +73,9 @@ Template.dimSum.events({
 		Meteor.call('deleteDimSum', this._id, this.images);
 	},
 
-	'click #edit': function(event, template){
-		template.editMode.set(!template.editMode.get());
-	},
+	// 'click #edit': function(event, template){
+	// 	template.editMode.set(!template.editMode.get());
+	// },
 	'click #order': function(){
 		if(UserSession.get("currentorderid")==null){
 			alert("Please create a new basket!");

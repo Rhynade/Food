@@ -1,35 +1,55 @@
 <template name="dimSum">
 	<div class="col s12 m6 l3">
-		{{#if editMode}}
-			{{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true}}
-		{{/if}}	
+
 		<div class="card small truncate hoverable">
+<!-- 			{{#if editMode}}
+
+				{{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true }}
+			{{/if}}	 -->
 			<div class="card-image">
 				{{#each image}}
 
-				<img src="{{this.url store='thumbsDimSum' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail, activator" />
+				<img src="{{this.url store='thumbsDimSum' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail activator" />
 
 				{{/each}}
 
 			</div>
-				<div class="card-content">
-					<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
-					{{#if isUser}}
+			{{#if isUser}}
+			<div class="card-content">
+				<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
+				<!-- {{#if isUser}} -->
 					{{#if hasBasket}}
-					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
+						<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
 					{{else}}
-					<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
+						<center><p><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:18px">Add To Order</a></p></center>
 					{{/if}}	
-					{{else}} 
-					<span>
-					<center>
-					<a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:12px">Delete</a>
-					<a class="btn-primary waves-effect waves-light btn" id="edit" style="background-color:orange; font-size:12px">Edit</a>
-					</center>
-					</span>
-					{{/if}}
+			</div>
+			{{else}} 
+				<div class="card-content">
+				 <span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} | ${{price}}</center></span>
+
+				 <center>
+						<a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:12px">Delete</a>
+						<a class="btn-primary waves-effect waves-light btn activator" id="edit" style="background-color:orange; font-size:12px">Edit</a>
+				</center>
+				</div>
+				<div class="card-reveal">
+				      <span class="card-title grey-text text-darken-4">Edit<i class="material-icons right">done</i></span>
+				      {{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true }}
 				</div>
 
+				<!-- <span>
+					<center>
+						<a class="btn-primary waves-effect waves-light btn" id="delete" style="background-color:red; font-size:12px">Delete</a>
+						<a class="btn-primary waves-effect waves-light btn" id="edit" style="background-color:orange; font-size:12px">Edit</a>
+					</center>
+				</span> -->
+				
+			
+			{{/if}}
+		</div>
+	</div>
+</template>
 <!-- 			<div class="card-reveal">
 				<span class="card-title grey-text text-darken-4"><center>{{name}}<i class="material-icons right">close</i></span>
 				<p>{{desc}}</p>
@@ -38,9 +58,9 @@
 <!-- 			<div class="card-action">
 				<a class="btn-primary modal-trigger" href=#{{_id}}>Add To Basket</a>
 			</div> -->
-		</div>
+<!-- 		</div>
 	</div>
-</template>
+</template> -->
 
 <!-- <template name="dimSum">
 

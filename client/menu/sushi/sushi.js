@@ -41,10 +41,6 @@ Template.sushi.helpers({
 
 	},
 
-	editMode: function(){
-		return Template.instance().editMode.get();
-	},
-
 	isUser: function() {
 		//console.log(Meteor.userId());
 		var id = Meteor.userId();
@@ -61,10 +57,6 @@ Template.sushi.events({
 		Meteor.call('deleteSushi', this._id, this.images);
 	},
 
-	// 'click #edit': function(event, template){
-
-	// 	template.editMode.set(!template.editMode.get());
-	// },
 	'click #order': function(){
 		if(UserSession.get("currentorderid")==null){
 			alert("Please create a new basket!");

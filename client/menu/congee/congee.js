@@ -12,6 +12,10 @@ Template.congee.onCreated(function(){
 
 });
 
+// Template.congee.onCreated(function(){
+// 	this.editMode = new ReactiveVar(false);
+// });
+
 Template.congee.events({
 	'click #order': function(){
 		if(UserSession.get("currentorderid")==null){
@@ -21,12 +25,12 @@ Template.congee.events({
 
 	'click #delete': function(){
 		Meteor.call('deleteCongee', this._id, this.images);
-	},
+	}
 
-	'click #edit': function(event, template){
+	// 'click #edit': function(event, template){
 
-		template.editMode.set(!template.editMode.get());
-	},
+	// 	template.editMode.set(!template.editMode.get());
+	// },
 });
 Template.congeeModal.helpers({
 	foodid: function() {
@@ -57,5 +61,15 @@ Template.congee.helpers({
 
 	hasBasket:function(){
 		return UserSession.get('currentorderid');
+	},
+
+	updateCongeeId: function(){
+		return this._id;
+
 	}
+
+	// editMode: function(){
+	// 	return Template.instance().editMode.get();
+	// },
+
 });

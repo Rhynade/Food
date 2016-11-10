@@ -25,9 +25,6 @@ Template.drinkModal.helpers({
 	}
 });
 
-// Template.sushi.onCreated(function(){
-// 	this.editMode = new ReactiveVar(false);
-// });
 
 Template.drink.helpers({
 
@@ -40,10 +37,6 @@ Template.drink.helpers({
 		return this._id;
 
 	},
-
-	// editMode: function(){
-	// 	return Template.instance().editMode.get();
-	// },
 
 	isUser: function() {
 		//console.log(Meteor.userId());
@@ -61,10 +54,6 @@ Template.drink.events({
 		Meteor.call('deleteDrink', this._id, this.images);
 	},
 
-	// 'click #edit': function(event, template){
-
-	// 	template.editMode.set(!template.editMode.get());
-	// },
 	'click #order': function(){
 		if(UserSession.get("currentorderid")==null){
 			alert("Please create a new basket!");
