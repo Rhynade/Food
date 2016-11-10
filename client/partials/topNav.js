@@ -64,6 +64,7 @@ Template.topNav.helpers({
 	},
 
 	hasOrder: ()=>{
+		console.log("WHAT")
 		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
 		return order.length>0;
 	},
