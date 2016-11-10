@@ -9,7 +9,23 @@ Template.currentOrders.onCreated(function(){
 		self.subscribe('Sushi');
 		self.subscribe('Drink');
 	});
+});
 
+Template.currentOrders.onRendered(function(){
+	this.$('.chips').material_chip();
+	this.$('.chips-initial').material_chip({
+		data: [{
+			tag: 'Apple',
+		}, {
+			tag: 'Microsoft',
+		}, {
+			tag: 'Google',
+		}],
+	});
+	this.$('.chips-placeholder').material_chip({
+		placeholder: 'Enter a tag',
+		secondaryPlaceholder: '+Tag',
+	});
 });
 
 Template.currentOrders.helpers({
@@ -165,7 +181,7 @@ Template.currentOrders.events({
 		});
 
 		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
-		 
+
 		if (order.length>0){
 			var NextOrderId = order[0]._id
 			UserSession.set("currentorderid", NextOrderId);
@@ -190,13 +206,20 @@ Template.currentOrders.events({
 		for(i=0; i<split.length; i++){
 			arr.push(split[i])
 		}
-
+		var id = Meteor.userId();
+		var email = Meteor.users.findOne(id).emails[0].address;
+		var name = Meteor.users.findOne(id).profile.name;
 		var order = Order.find({_id: this._id}).fetch()[0];
 		var date = order.reservationDate.toDateString();
 		var time = order.reservationTime;
-
-		console.log(date + " " + time);
- 		//console.log("ERR");
+		var sender;
+		
+		if (name) {
+			sender = name;
+		}
+		else {
+			sender = email;
+		}
  		//console.log(this._id);
 		//var address = t.find( '[name="email"]' ).value;
 		//t.find( '[name="email"]' ).value = "";
@@ -204,9 +227,9 @@ Template.currentOrders.events({
 		var orderid = this._id;
 		var email = {
 			to: arr,
-			from: 'admin@openjio.com',
-			subject: "Invitation to Dine",
-			text: "Click here: https://openjio.herokuapp.com/" + orderid + " to join us in building our menu."
+			from: "admin@openjio.com",
+			subject: "Invitation to dine",
+			text: sender + " is jio-ing you!" + "\n\n" + "Date: " + date + "\n" + "Time: " + time + "\n\n" + "Click here: (https://openjio.herokuapp.com/" + orderid + ") to join us in building our menu."
 		};
 		Meteor.call('sendEmail', Meteor.userId(), email);
 
@@ -216,7 +239,7 @@ Template.currentOrders.events({
 		Meteor.call('deleteOrder', this._id);
 
 		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
-		 
+
 		if (order.length>0){
 			var NextOrderId = order[0]._id
 			UserSession.set("currentorderid", NextOrderId);
