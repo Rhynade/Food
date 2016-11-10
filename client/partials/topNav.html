@@ -1,9 +1,10 @@
 <template name="topNav">
-<div class="container" style="width:80%">
+<div class="container">
 	{{#if isUser}}
-	<div class="input-field col s10 offset-s1">
-		<h6><b>Reservation</b></h6>
-		<select id="select">
+	<div class="input-field col s10 offset-s1" style="display: inline-block; float:right">
+		<h6><b>Reservation Timings</b></h6>
+		<div class="form-group">
+		<select id="select" style="width:60%">
 			{{#each findOrder}}
 			{{#if match}}
 			<option value = "{{_id}}" selected="selected">Date: {{findCurrentDate}} | Time: {{findCurrentTime}}</option>
@@ -12,13 +13,23 @@
 			{{/if}}
 			{{/each}}
 		</select>
+		{{#if hasOrderId}}
+  		<span class="btn-group tooltip">
+			<button id="copyBtn" class="btn tooltip" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}" style="background-color:white">
+    		 	<i class="large material-icons" style="color:black">group add</i>
+			</button>
+			<span class="tooltiptext">Click and share the link with your friends!</span>
+		</span>
+		{{/if}}
+		</div>
 	</div>
 	{{/if}}
+
 	<div class="col s10 offset-s1">
 		<br>
 		<ul class="tabs">
 			<li class="tab col s3"><a class="active" href="/menu" style="color:#003370">Dim Sum</a></li>
-			<li class="tab col s3"><a href="/mongkokCongee" style="color:#003370">Mongkok Congee</a></li>
+			<li class="tab col s3"><a href="/mongkokCongee" style="color:#003370">Congee</a></li>
 			<li class="tab col s3"><a href="/sushi" style="color:#003370">Sushi</a></li>
 			<li class="tab col s3"><a href="/drinks" style="color:#003370">Drinks</a></li>
 		</ul>

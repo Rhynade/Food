@@ -4,6 +4,16 @@ Template.topNav.onCreated(function(){
 		self.subscribe('orderItem');
 		self.subscribe('order');
 	});
+	// var clipboard = new Clipboard('.btn');
+
+	// clipboard.on('success', function(e) {
+	//     console.info('Action:', e.action);
+	//     console.info('Text:', e.text);
+	//     console.info('Trigger:', e.trigger);
+	//     // alert("copied!")
+	//    	e.clearSelection();
+
+	// });
 });
 
 Template.topNav.helpers({
@@ -51,22 +61,42 @@ Template.topNav.helpers({
 		var currentTime = Template.topNav.__helpers.get('findCurrentTime').call();
 		return date == currentDate & time==currentTime;
 		
+	},
+
+	hasOrderId: ()=>{
+		return (UserSession.get('currentorderid')!=null);
+	},
+	orderId: ()=>{
+		return UserSession.get('currentorderid');
 	}
 });
 
 Template.topNav.events({
-      'change select': function(event){
+	'change select': function(event){
          // var selectValue = event.target.value;
          var selectValue = document.getElementById('select').value;
          
          UserSession.set('currentorderid', selectValue);
-      },
+     },
 
-      'click #select': function(event){
-      		var x = document.getElementById("select").length;
-      		if(x==1){
-      			var selectValue = document.getElementById('select').value;
-      			UserSession.set('currentorderid', selectValue)
-      		}
-      }
+     'click #select': function(event){
+     	var x = document.getElementById("select").length;
+     	if(x==1){
+     		var selectValue = document.getElementById('select').value;
+     		UserSession.set('currentorderid', selectValue)
+     	}
+     },
+
+     'click #copyBtn': function(event){
+     	var clipboard = new Clipboard('.btn');
+     	clipboard.on('success', function(e) {
+     		alert("Copied to clipboard")
+     		e.clearSelection();
+     		clipboard.destroy();
+
+     	});
+     }
+
  });
+
+
