@@ -63,8 +63,9 @@ Template.topNav.helpers({
 		
 	},
 
-	hasOrderId: ()=>{
-		return (UserSession.get('currentorderid')!=null);
+	hasOrder: ()=>{
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		return order.length>0;
 	},
 	orderId: ()=>{
 		return UserSession.get('currentorderid');

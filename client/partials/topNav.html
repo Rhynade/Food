@@ -1,7 +1,7 @@
 <template name="topNav">
 	<div class="container">
 		{{#if isUser}}
-		{{#if hasOrderId}}
+		{{#if hasOrder}}
 		<div class="input-field col s10 offset-s1" style="display: inline-block; float:right">
 			<h6><b>Reservation Timings</b></h6>
 			<div class="form-group">
@@ -26,7 +26,7 @@
 		<div class="col s10 offset-s1">
 			<br>
 			<ul class="tabs">
-				<li class="tab"><a style="color:black; text-align:center">Your basket is empty</a></li>
+				<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
 			</ul>
 		</div>
 		{{/if}}

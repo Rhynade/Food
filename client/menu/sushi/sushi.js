@@ -47,7 +47,9 @@ Template.sushi.helpers({
 		return Meteor.users.findOne(id).profile.role == 'User';
 	},
 	hasBasket: function(){
-		return UserSession.get('currentorderid');
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		return order.length>0;
+		// return UserSession.get('currentorderid');
 	}
 });
 

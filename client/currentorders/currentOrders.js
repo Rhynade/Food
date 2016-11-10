@@ -164,7 +164,15 @@ Template.currentOrders.events({
 			OrderItems.update({_id:x._id}, {$set:{added: true, custID: x.custID}}, {getAutoValues: false});
 		});
 
-		UserSession.set("currentorderid", null);
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		 
+		if (order.length>0){
+			var NextOrderId = order[0]._id
+			UserSession.set("currentorderid", NextOrderId);
+		} else {
+			UserSession.set("currentorderid", null);
+		}
+		
 		FlowRouter.go('confirmedOrders');
 		// var elem = document.getElementById(this._id);
 		// elem.innerHTML = "Order Placed";
@@ -201,6 +209,15 @@ Template.currentOrders.events({
 
 	'click #delete': function(){
 		Meteor.call('deleteOrder', this._id);
+
+		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
+		 
+		if (order.length>0){
+			var NextOrderId = order[0]._id
+			UserSession.set("currentorderid", NextOrderId);
+		} else {
+			UserSession.set("currentorderid", null);
+		}
 	},
 
 	'click #bin': function() {
