@@ -104,13 +104,13 @@
 		{{> afQuickField name='category' value=category type="hidden"}}
 		{{> afQuickField name='orderID' value=orderid  type="hidden"}}
 		<div class="modal-content">
-			<h6 class="modalitem" style="font-size:30px; font-weight:350">{{name}}</h6>
-			<p class="modalitem" style="font-size: 16px"><i>{{desc}}</i></p>
-			<p class="modalitem">Price: ${{price}}</p>
+			<h5 class="modalitem" style="font-size:40px;text-align:center">{{name}}</h5><hr>
+			<p class="modalitem" style="font-size: 16px;text-align:center"><i>{{desc}}</i></p>
+			<br>
 			<div class="row">
 				<div class="form-group{{#if afFieldIsInvalid name='quantity'}} has-error{{/if}}">
-					<div class="input-field col s4 m6 13" id="modalquantity">
-						Quantity
+					<div class="input-field col s12" id="modalquantity" style="font-size:20px;width:97%">
+						<label for="textarea0">Select the quantity</label>
 						{{> afFieldInput name='quantity' options=options}}
 					</div>
 				</div>
