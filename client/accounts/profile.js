@@ -49,6 +49,12 @@ Template.profilepage.onRendered(function(){
 	});
 });
 
+Template.profilepage.helpers({
+	isUser:()=>{
+		return Meteor.user().profile.role == 'User';
+	}
+})
+
 
 
 
