@@ -15,3 +15,4 @@ Template.dimSums.helpers({
 		return ImagesDimSum.find({_id: image});
 	}
 });
+

@@ -1,3 +1,7 @@
+import { Template } from 'meteor/templating';
+import introJs  from 'intro.js';
+import '/node_modules/intro.js/minified/introjs.min.css';
+
 Template.topNav.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
@@ -79,17 +83,17 @@ Template.topNav.events({
          var selectValue = document.getElementById('select').value;
          
          UserSession.set('currentorderid', selectValue);
-     },
+    },
 
-     'click #select': function(event){
+    'click #select': function(event){
      	var x = document.getElementById("select").length;
      	if(x==1){
      		var selectValue = document.getElementById('select').value;
      		UserSession.set('currentorderid', selectValue)
      	}
-     },
+    },
 
-     'click #copyBtn': function(event){
+    'click #copyBtn': function(event){
      	var clipboard = new Clipboard('.btn');
      	clipboard.on('success', function(e) {
      		alert("Copied to clipboard")
@@ -97,7 +101,16 @@ Template.topNav.events({
      		clipboard.destroy();
 
      	});
-     }
+    },
+
+	'click .intro': function(event){
+		event.preventDefault();
+		var guide = require('intro.js');
+		guide.introJs().setOption('doneLabel','Next page').start().oncomplete(function(){
+			window.location.href = '/currentOrders?multipage=true';
+		});
+	}		
+
 
  });
 

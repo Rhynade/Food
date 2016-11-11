@@ -1,14 +1,20 @@
 <template name="currentOrders">
+	<script type="text/javascript">
+      if (RegExp('multipage', 'gi').test(window.location.search)) {
+        var guide = require('intro.js');
+		guide.introJs().setOption('doneLabel','The End!').start().oncomplete(function(){
+			window.location.href = '/menu';
+		});
+      }
+    </script>
 	{{#if isUser}}
 	<div class="container">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s3"><a class="active" href="/currentOrders" style="color:#003370">Orders</a></li>
+				<li class="tab col s3"><a class="active" href="/currentOrders" data-step='5' data-intro='Your order will appear on this page! If you want to jio more friends, you can input their emails and send them an invite! Finally, remember to place your order once you are done!' style="color:#003370">Orders</a></li>
 				<li class="tab col s3"><a href="/confirmedOrders" style="color:#003370">Confirmed Orders</a></li>
 			</ul>
-
 		</div>
-
 		{{#each Order}}
 		{{#if notOver}}
 		<div class="col s12">
