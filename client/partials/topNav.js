@@ -96,6 +96,10 @@ Template.topNav.events({
      		clipboard.destroy();
 
      	});
+     	clipboard.on('error', function(e) {
+    		sweetAlert("Error \n This function only works for Safari 10+ and Google Chrome 42+")
+		});
+
      }
 
  });
