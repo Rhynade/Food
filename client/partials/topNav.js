@@ -103,7 +103,7 @@ Template.topNav.events({
      	clipboard.on('error',function(e){
      		sweetAlert("Error \n This function only works for Safari 10+ and Google Chrome 42+")
 
-     		});
+     	});
     },
 
 	'click .intro': function(event){
@@ -113,8 +113,6 @@ Template.topNav.events({
 			window.location.href = '/currentOrders?multipage=true';
 		});
 	}		
-
-
  });
 
 
