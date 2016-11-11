@@ -20,8 +20,3 @@ Template.sideNav.helpers({
 	}
 });
 
-Template.sideNav.events({
-	'click #logout': function() {
-		return Meteor.logout();
-	}
-});

@@ -4,23 +4,6 @@
 	<div class="container">
 		{{#if isUser}}
 		{{#if hasOrder}}
-		<div class="fixed-action-btn horizontal" id="navigation">
-			<a class="btn-floating btn-large white">
-				<i class="material-icons" style="color:black">navigation</i>
-			</a>
-			<ul>
-				<li class="tooltip">
-					<a id="copyBtn" class="btn btn-floating blue" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}">
-						<i class="material-icons">attach_file</i>
-					</a>
-					<span class="tooltiptext">Click and share the link with your friends!</span>
-				</li>
-				<li class="tooltip">
-					<a class="btn-floating red intro"><i class="material-icons">info</i></a>
-					<span class="tooltiptext">Click for a guide on how to use our site!</span>
-				</li>
-			</ul>
-		</div>
 		<div class="input-field col s10 offset-s1">
 			<h6><b>Reservation Timings</b></h6>
 			<div class="form-group">
@@ -43,17 +26,6 @@
 					<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
 				</ul>
 			</div>
-		</div>
-		<div class="fixed-action-btn horizontal" id="navigation">
-			<a class="btn-floating btn-large white">
-				<i class="material-icons" style="color:black">navigation</i>
-			</a>
-			<ul>
-				<li class="tooltip">
-					<a class="btn-floating red intro"><i class="material-icons">info</i></a>
-					<span class="tooltiptext">Click for a guide on how to use our site!</span>
-				</li>
-			</ul>
 		</div>
 		{{/if}}
 		{{/if}}

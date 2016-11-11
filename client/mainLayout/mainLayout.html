@@ -7,4 +7,24 @@
 			</div>
 		</main>	
 	</div>
+	<div class="fixed-action-btn horizontal" id="navigation">
+		<a class="btn-floating btn-large black" style="margin-top:4.5px">
+			<i class="large material-icons" style="color:white">launch</i>
+		</a>
+		<ul>
+			{{#if hasOrder}}
+			<li class="tooltip">
+				<a id="copyBtn" class="btn btn-floating white" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}">
+					<i class="material-icons" style="color:black">attach_file</i>
+				</a>
+				<span class="tooltiptext">Click and share the link with friends!</span>
+			</li>
+			{{/if}}
+			<li class="tooltip">
+				<a class="btn-floating white intro"><i class="material-icons" style="color:black">info</i></a>
+				<span class="tooltiptext">Click for a guide on how to nagivate through our website!</span>
+			</li>
+			<li><a class="btn-floating white"><i class="material-icons" style="color:black" id="log">lock</i></a></li>
+		</ul>
+	</div>
 </template>

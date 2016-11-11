@@ -255,8 +255,9 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
+    width: 150px;
+    top: 125%;
+    left: 50%; 
     margin-left: -60px;
 
     /* Fade in tooltip */
@@ -268,7 +269,7 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -282,3 +283,8 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
     opacity: 1;
 }
 
+#navigation {
+	top:0;
+	right:0;
+	position:absolute;
+}
