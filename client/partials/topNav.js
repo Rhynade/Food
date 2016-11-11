@@ -68,7 +68,6 @@ Template.topNav.helpers({
 	},
 
 	hasOrder: ()=>{
-		console.log("WHAT")
 		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
 		return order.length>0;
 	},
@@ -96,11 +95,15 @@ Template.topNav.events({
     'click #copyBtn': function(event){
      	var clipboard = new Clipboard('.btn');
      	clipboard.on('success', function(e) {
-     		alert("Copied to clipboard")
+     		sweetAlert("Copied to clipboard")
      		e.clearSelection();
      		clipboard.destroy();
 
      	});
+     	clipboard.on('error',function(e){
+     		sweetAlert("Error \n This function only works for Safari 10+ and Google Chrome 42+")
+
+     		});
     },
 
 	'click .intro': function(event){
