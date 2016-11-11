@@ -282,3 +282,7 @@ input[name=price], input[name=name],input[name=desc], input[name=images], input[
     opacity: 1;
 }
 
+#navigation {
+	left:0;
+}
+

@@ -1,12 +1,27 @@
 <template name="topNav">
+	<p style="float:right" data-step='1' data-intro='Welcome to openjio! This quick tutorial will nagivate you through our features!'></p>
 	<p data-step='2' data-intro="Click on the side nav bar and go to create basket. Create an order with the specified date, time and number of people" style="float:left"></p>
 	<div class="container">
 		{{#if isUser}}
 		{{#if hasOrder}}
-		<div class="input-field col s10 offset-s1" style="display: inline-block; float:right">
+		<div class="fixed-action-btn horizontal" id="navigation">
+			<a class="btn-floating btn-large white">
+				<i class="material-icons" style="color:black">navigation</i>
+			</a>
+			<ul>
+				<li class="tooltip">
+					<a id="copyBtn" class="btn btn-floating blue" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}">
+						<i class="material-icons">attach_file</i>
+					</a>
+					<span class="tooltiptext">Click and share the link with your friends!</span>
+				</li>
+				<li><a class="btn-floating red intro"><i class="material-icons">info</i></a></li>
+			</ul>
+		</div>
+		<div class="input-field col s10 offset-s1">
 			<h6><b>Reservation Timings</b></h6>
 			<div class="form-group">
-				<select id="select" style="width:60%">
+				<select id="select">
 					{{#each findOrder}}
 					{{#if match}}
 					<option value = "{{_id}}" selected="selected">Date: {{findCurrentDate}} | Time: {{findCurrentTime}}</option>
@@ -15,28 +30,24 @@
 					{{/if}}
 					{{/each}}
 				</select>
-				<span class="btn-group tooltip">
-					<button id="copyBtn" class="btn tooltip" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}" style="background-color:white" data-step='3' data-intro='The reservation date should appear on the left. Click and share the link on your clipboard to jio your friends'>
-						<i class="large material-icons" style="color:black">group add</i>
-					</button>
-					<span class="tooltiptext">Click and share the link with your friends!</span>
-				</span>
-				<button class='btn waves-effect waves-light intro' data-step='1' data-intro='Hello, welcome to openjio! This quick tutorial will show you how to use openjio!'> How to use </button>
-<!-- 				<a data-step='1' data-intro='Hello, welcome to openjio! This quick tutorial will show you how to use openjio!'></a> -->
 			</div>
 		</div>
 		{{else}}
 		<div class="col s10 offset-s1">
 			<br>
 			<div class="form-group">
-				<ul class="tabs" style="width:60%">
+				<ul class="tabs">
 					<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
 				</ul>
-				<button id="copyBtn" class="btn tooltip" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}" style="background-color:white" data-step='3' data-intro='The reservation date should appear on the left. Click and share the link on your clipboard to jio your friends' disabled>
-							<i class="large material-icons" style="color:black">group add</i>
-				</button>
-				<button class='btn waves-effect waves-light intro' data-step='1' data-intro='Hello, welcome to openjio! This quick tutorial will show you how to use openjio!'> How to use </button>
 			</div>
+		</div>
+		<div class="fixed-action-btn horizontal" id="navigation">
+			<a class="btn-floating btn-large white">
+				<i class="material-icons" style="color:black">navigation</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red intro"><i class="material-icons">info</i></a></li>
+			</ul>
 		</div>
 		{{/if}}
 		{{/if}}
