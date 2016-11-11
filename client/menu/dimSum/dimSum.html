@@ -19,9 +19,9 @@
 				<span class="card-title grey-text text-darken-4" style="font-size:18px"><center>{{name}} &nbsp; ${{price}}0</center></span>
 				<!-- {{#if isUser}} -->
 					{{#if hasBasket}}
-						<center><p data-step='4' data-intro='Click add to order for any desired item and add them to your cart!'><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} style="background-color:#FFA62E; font-size:12px">Add To Order</a></p></center>
+						<center><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} data-step='4' data-intro='Click add to order for any desired item and add them to your cart!' style="background-color:#FFA62E; font-size:12px">Add To Order</a></center>
 					{{else}}
-						<center><p data-step='4' data-intro='Click add to order for any desired item and add them to your cart!'><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} disabled="disabled" style="background-color:#FFA62E; font-size:12px">Add To Order</a></p></center>
+						<center><a class="btn-primary modal-trigger waves-effect waves-light btn" id="order" href=#{{_id}} data-step='4' data-intro='Click add to order for any desired item and add them to your cart!' disabled="disabled" style="background-color:#FFA62E; font-size:12px">Add To Order</a></center>
 					{{/if}}	
 			</div>
 			{{else}} 
@@ -50,50 +50,6 @@
 		</div>
 	</div>
 </template>
-<!-- 			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4"><center>{{name}}<i class="material-icons right">close</i></span>
-				<p>{{desc}}</p>
-				<p>{{price}}</p>
-			</div> -->
-<!-- 			<div class="card-action">
-				<a class="btn-primary modal-trigger" href=#{{_id}}>Add To Basket</a>
-			</div> -->
-<!-- 		</div>
-	</div>
-</template> -->
-
-<!-- <template name="dimSum">
-
-	<div class="col s12 m6 l3">
-
-		<div class="card">
-			<div class="card-action">
-
-				<i class="material-icons" id="edit">mode_edit</i>
-				<i class="material-icons" id="delete">delete</i>
-			</div>
-			{{#if editMode}}
-			{{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true}}
-			{{else}}
-			<div class="card-image">
-				{{#each image}}
-
-				<img src="{{this.url store='thumbsDimSum' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" />
-
-				{{/each}}
-			</div>
-			<div class="card-content">
-				<h6><b>{{name}}</b></h6>
-				<p>{{desc}}</p>
-				<p>${{price}}</p>
-			</div>
-			{{/if}}
-
-		</div>
-
-	</div>
-
-</template> -->
 
 <template name="dimSumModal">
 	<!-- Modal Trigger -->

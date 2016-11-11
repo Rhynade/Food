@@ -28,9 +28,15 @@
 		{{else}}
 		<div class="col s10 offset-s1">
 			<br>
-			<ul class="tabs">
-				<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
-			</ul>
+			<div class="form-group">
+				<ul class="tabs" style="width:60%">
+					<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
+				</ul>
+				<button id="copyBtn" class="btn tooltip" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}" style="background-color:white" data-step='3' data-intro='The reservation date should appear on the left. Click and share the link on your clipboard to jio your friends' disabled>
+							<i class="large material-icons" style="color:black">group add</i>
+				</button>
+				<button class='btn waves-effect waves-light intro' data-step='1' data-intro='Hello, welcome to openjio! This quick tutorial will show you how to use openjio!'> How to use </button>
+			</div>
 		</div>
 		{{/if}}
 		{{/if}}

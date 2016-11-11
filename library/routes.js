@@ -8,7 +8,7 @@ FlowRouter.route('/',{
 				FlowRouter.go('menu');
 			}
 			else{
-				FlowRouter.go('createbasket');
+				FlowRouter.go('menu');
 			}
 		}
 		BlazeLayout.render('HomeLayout');
@@ -58,7 +58,7 @@ if(Meteor.isClient){
 				FlowRouter.go('menu');
 			}
 			else{
-				FlowRouter.go('createbasket');
+				FlowRouter.go('menu');
 			}
 		}
 		else{
