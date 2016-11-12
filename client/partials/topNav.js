@@ -112,7 +112,24 @@ Template.topNav.events({
 		guide.introJs().setOption('doneLabel','Next page').start().oncomplete(function(){
 			window.location.href = '/currentOrders?multipage=true';
 		});
-	}		
+	}, 
+
+	'click #dimsum': function(event){
+		FlowRouter.go("/menu");
+	}, 
+
+	'click #congee': function(event){
+		FlowRouter.go("/mongkokCongee");
+	}, 
+
+	'click #sushi': function(event){
+		FlowRouter.go("/sushi");
+	
+	}, 
+
+	'click #drinks': function(event){
+		FlowRouter.go("/drinks");
+	}			
  });
 
 
