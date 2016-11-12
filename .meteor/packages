@@ -29,7 +29,7 @@ zimme:active-route
 gwendall:auth-client-callbacks
 meteortoys:allthings
 fourseven:scss
-materialize:materialize@0.97.7
+materialize:materialize
 aldeed:autoform-select2
 yogiben:autoform-modals
 email
