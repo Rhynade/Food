@@ -1,9 +1,9 @@
 Template.sushis.onCreated(function(){
 	var self = this;
-	// self.autorun(function(){
-	// 	self.subscribe('Sushi');
-	// 	self.subscribe('imagesSushi');
-	// });
+	self.autorun(function(){
+		self.subscribe('Sushi');
+		self.subscribe('imagesSushi');
+	});
 });
 
 Template.sushis.helpers({

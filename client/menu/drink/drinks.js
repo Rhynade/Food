@@ -1,9 +1,9 @@
 Template.drinks.onCreated(function(){
 	var self = this;
-	// self.autorun(function(){
-	// 	self.subscribe('Drink');
-	// 	self.subscribe('imageDrink');
-	// });
+	self.autorun(function(){
+		self.subscribe('Drink');
+		self.subscribe('imageDrink');
+	});
 });
 
 Template.drinks.helpers({

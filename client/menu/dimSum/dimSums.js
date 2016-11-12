@@ -1,9 +1,9 @@
 Template.dimSums.onCreated(function(){
 	var self = this;
-	// self.autorun(function(){
-	// 	self.subscribe('dimSums');
-	// 	self.subscribe('imagesDimSum');
-	// });
+	self.autorun(function(){
+		self.subscribe('dimSums');
+		self.subscribe('imagesDimSum');
+	});
 });
 
 Template.dimSums.helpers({

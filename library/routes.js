@@ -108,10 +108,10 @@ FlowRouter.route('/createbasket',{
 })
 //menu route - dim sum
 FlowRouter.route('/menu',{
-	subscriptions: function(params){
-		this.register('dimsum', Meteor.subscribe('dimSums'));
-		this.register('image', Meteor.subscribe('imagesDimSum'));
-	},
+	// subscriptions: function(params){
+	// 	this.register('dimsum', Meteor.subscribe('dimSums'));
+	// 	this.register('image', Meteor.subscribe('imagesDimSum'));
+	// },
 	name: "menu",
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'dimSums'}); //main-> name of template
@@ -119,10 +119,10 @@ FlowRouter.route('/menu',{
 });
 //menu route - congee
 FlowRouter.route('/mongkokCongee',{
-	subscriptions: function(params){
-		this.register('congee', Meteor.subscribe('Congee'));
-		this.register('image', Meteor.subscribe('imagesCongee'));
-	},
+	// subscriptions: function(params){
+	// 	this.register('congee', Meteor.subscribe('Congee'));
+	// 	this.register('image', Meteor.subscribe('imagesCongee'));
+	// },
 	name: "mongkokCongee",
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'congees'}); //main-> name of template
@@ -130,10 +130,10 @@ FlowRouter.route('/mongkokCongee',{
 });
 
 FlowRouter.route('/sushi',{
-	subscriptions: function(params){
-		this.register('sushi', Meteor.subscribe('Sushi'));
-		this.register('image', Meteor.subscribe('imagesSushi'));
-	},
+	// subscriptions: function(params){
+	// 	this.register('sushi', Meteor.subscribe('Sushi'));
+	// 	this.register('image', Meteor.subscribe('imagesSushi'));
+	// },
 	name: "sushi",
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'sushis'}); //main-> name of template
@@ -141,10 +141,10 @@ FlowRouter.route('/sushi',{
 });
 
 FlowRouter.route('/drinks',{
-	subscriptions: function(params){
-		this.register('drinks', Meteor.subscribe('Drink'));
-		this.register('image', Meteor.subscribe('imageDrink'));
-	},
+	// subscriptions: function(params){
+	// 	this.register('drinks', Meteor.subscribe('Drink'));
+	// 	this.register('image', Meteor.subscribe('imageDrink'));
+	// },
 	name: "drinks",
 	action(){
 		BlazeLayout.render('mainLayout', {main: 'drinks'}); //main-> name of template
