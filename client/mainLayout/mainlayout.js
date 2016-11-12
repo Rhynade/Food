@@ -1,8 +1,16 @@
+import introJs  from 'intro.js';
+import '/node_modules/intro.js/minified/introjs.min.css';
+
 Template.mainLayout.events({
 	'click #log': function() {
 		return Meteor.logout();
 	},
 	'click #copyBtn': function(event){
+
+		if (UserSession.get('currentorderid')==null){
+			sweetAlert("You do not have any reservations at the moment")
+		} else {
+
      	var clipboard = new Clipboard('.btn');
      	clipboard.on('success', function(e) {
      		sweetAlert("Copied to clipboard")
@@ -14,6 +22,7 @@ Template.mainLayout.events({
      		sweetAlert("Error \n This function only works for Safari 10+ and Google Chrome 42+")
 
      	});
+     }
     },
 	'click .intro': function(event){
 		event.preventDefault();
@@ -25,8 +34,12 @@ Template.mainLayout.events({
 });
 
 Template.mainLayout.helpers({
-	hasOrder: ()=>{
-		var order = Order.find({custID: Meteor.user()._id, confirmed:false}).fetch();
-		return order.length>0;
+	orderId: () =>{
+		return UserSession.get('currentorderid');
+	},
+	isUser: function() {
+		// console.log(Meteor.userId());
+		var id = Meteor.userId();
+		return Meteor.users.findOne(id).profile.role == 'User';
 	}
 });

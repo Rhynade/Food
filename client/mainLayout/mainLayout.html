@@ -1,4 +1,6 @@
 <template name="mainLayout">
+<!-- 	<p data-step='2' data-intro="Click on the side nav bar and go to create basket. Create an order with the specified date, time and number of people" style="float:left; margin-left:10px"></p> -->
+	
 	{{> sideNav}}
 	<div class="home-background">
 		<main class="main-layout">
@@ -7,24 +9,33 @@
 			</div>
 		</main>	
 	</div>
-	<div class="fixed-action-btn horizontal" id="navigation">
-		<a class="btn-floating btn-large black" style="margin-top:4.5px">
+	<!-- <div class="fixed-action-btn horizontal" id="navigation"> -->
+<!-- 		<a class="btn-floating btn-large black" style="margin-top:4.5px">
 			<i class="large material-icons" style="color:white">launch</i>
-		</a>
-		<ul>
-			{{#if hasOrder}}
+		</a> -->
+		<ul id="navigation">
+			{{#if isUser}}
+				<!-- {{#if orderId}} -->
+				<li class="tooltip">
+					<a id="copyBtn" class="btn btn-floating white" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}" style="margin-right:20px">
+						<i class="material-icons" style="color:black" data-step='5' data-intro='Click and share the link on your clipboard to jio your friends!'>attach_file</i>
+					</a>
+					<span class="tooltiptext">Click and share the link with friends!</span>
+				</li>
+				<!-- {{/if}} -->
 			<li class="tooltip">
-				<a id="copyBtn" class="btn btn-floating white" data-clipboard-text="https://openjio.herokuapp.com/{{orderId}}">
-					<i class="material-icons" style="color:black">attach_file</i>
-				</a>
-				<span class="tooltiptext">Click and share the link with friends!</span>
-			</li>
-			{{/if}}
-			<li class="tooltip">
-				<a class="btn-floating white intro"><i class="material-icons" style="color:black">info</i></a>
+				<a class="btn-floating white intro" style="margin-right:20px"><i class="material-icons" style="color:black"  data-step='1' data-intro='Welcome to openjio! This quick tutorial will nagivate you through our features!'>info</i></a>
 				<span class="tooltiptext">Click for a guide on how to nagivate through our website!</span>
 			</li>
-			<li><a class="btn-floating white"><i class="material-icons" style="color:black" id="log">lock</i></a></li>
+			<li class="tooltip">
+				<a class="btn-floating white" style="margin-right:30px"><i class="material-icons" style="color:black" id="log">lock</i></a>
+				<span class="tooltiptext" style="width: 90px">Logout</span>
+			</li>
+			{{else}}
+			<li class="tooltip">
+				<a class="btn-floating white" style="margin-right:30px"><i class="material-icons" style="color:black" id="log">lock</i></a>
+				<span class="tooltiptext" style="width: 90px">Logout</span>
+			</li>
+			{{/if}}
 		</ul>
-	</div>
 </template>

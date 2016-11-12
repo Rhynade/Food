@@ -1,5 +1,5 @@
 <template name="topNav">
-	<p style="float:right" data-step='1' data-intro='Welcome to openjio! This quick tutorial will nagivate you through our features!'></p>
+	<!-- <p data-step='1' style="float:right" data-intro='Welcome to openjio! This quick tutorial will nagivate you through our features!'></p> -->
 	<p data-step='2' data-intro="Click on the side nav bar and go to create basket. Create an order with the specified date, time and number of people" style="float:left"></p>
 	<div class="container">
 		{{#if isUser}}
@@ -7,7 +7,7 @@
 		<div class="input-field col s10 offset-s1">
 			<h6><b>Reservation Timings</b></h6>
 			<div class="form-group">
-				<select id="select">
+				<select id="select" data-step='3' data-intro='The reservation date should appear here'>
 					{{#each findOrder}}
 					{{#if match}}
 					<option value = "{{_id}}" selected="selected">Date: {{findCurrentDate}} | Time: {{findCurrentTime}}</option>
@@ -23,7 +23,7 @@
 			<br>
 			<div class="form-group">
 				<ul class="tabs">
-					<li class="tab"><a style="color:black; text-align:center">You have no reservations</a></li>
+					<li class="tab"><a style="color:black; text-align:center" data-step='3' data-intro='The reservation date should appear here'>You have no reservations</a></li>
 				</ul>
 			</div>
 		</div>
