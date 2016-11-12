@@ -76,6 +76,17 @@ Template.topNav.helpers({
 	}
 });
 
+
+// Template.topNav.onRendered(function(){
+// 	$(document).ready(function(){
+// 		$('ul.tabs').tabs();
+// 	});
+// 	$(document).ready(function(){
+// 		$('ul.tabs').tabs('select_tab', 'tab_id');
+// 	});
+
+// });
+
 Template.topNav.events({
 	'change select': function(event){
          // var selectValue = event.target.value;
