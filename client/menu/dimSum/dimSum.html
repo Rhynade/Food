@@ -1,6 +1,6 @@
 <template name="dimSum">
+	{{#if subscriptionsReady}}
 	<div class="col s12 m6 l3">
-
 		<div class="card small truncate hoverable">
 <!-- 			{{#if editMode}}
 
@@ -44,11 +44,14 @@
 						<a class="btn-primary waves-effect waves-light btn" id="edit" style="background-color:orange; font-size:12px">Edit</a>
 					</center>
 				</span> -->
-				
-			
 			{{/if}}
 		</div>
 	</div>
+	{{else}}
+	<div class="progress">
+		<div class="indeterminate"></div>
+	</div>
+	{{/if}}
 </template>
 
 <template name="dimSumModal">

@@ -1,7 +1,12 @@
 Template.dimSum.onRendered(function(){
 	if (UserSession.get("currentorderid")!=null){
 		this.$(".modal-trigger").leanModal();
-	}
+	};
+	this.autorun(() => {
+		if (this.subscriptionsReady()) {
+			Session.set("subscriptionsReady",true);
+		}
+	});
 });
 
 Template.dimSumModal.onCreated(function(){
@@ -68,6 +73,9 @@ Template.dimSum.helpers({
 		// return order.length>0;
 		
 		return UserSession.get('currentorderid');
+	},
+	subscriptionsReady: function() {
+		return Session.get("subscriptionsReady");
 	}
 });
 
