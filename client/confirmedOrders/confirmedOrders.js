@@ -157,3 +157,14 @@ Template.confirmedOrders.helpers({
 	}
 });
 
+
+Template.confirmedOrders.events({
+	'click #current': function(event){
+		FlowRouter.go('/currentOrders')
+	}, 
+
+	'click #confirmed': function(event){
+		FlowRouter.go('/confirmedOrders')
+	}
+})
+

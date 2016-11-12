@@ -9,8 +9,6 @@ Template.reservations.onCreated(function(){
 		self.subscribe('Sushi');
 		self.subscribe('Drink');
 	});
-
-	Session.set('view', 'summary');
 });
 
 Template.reservations.helpers({

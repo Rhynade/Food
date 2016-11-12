@@ -11,8 +11,8 @@
 	<div class="container">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s3"><a class="active" href="/currentOrders" data-step='6' data-intro='Your order will appear on this page! If you want to jio more friends, you can input their emails and send them an invite! Your friends can now add items to the same order as you! Finally, remember to place your order once your friends and you are done!' style="color:#003370">Orders</a></li>
-				<li class="tab col s3"><a href="/confirmedOrders" style="color:#003370">Confirmed Orders</a></li>
+				<li class="tab col s3"><a id="current" class="active" href="/currentOrders" data-step='6' data-intro='Your order will appear on this page! If you want to jio more friends, you can input their emails and send them an invite! Your friends can now add items to the same order as you! Finally, remember to place your order once your friends and you are done!' style="color:#003370">Orders</a></li>
+				<li class="tab col s3"><a id="confirmed" href="/confirmedOrders" style="color:#003370">Confirmed Orders</a></li>
 			</ul>
 		</div>
 		{{#each Order}}

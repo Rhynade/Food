@@ -250,5 +250,13 @@ Template.currentOrders.events({
 
 	'click #bin': function() {
 		Meteor.call('deleteItem', this._id);
+	},
+
+	'click #current': function(event){
+		FlowRouter.go('/currentOrders')
+	}, 
+
+	'click #confirmed': function(event){
+		FlowRouter.go('/confirmedOrders')
 	}
 });
