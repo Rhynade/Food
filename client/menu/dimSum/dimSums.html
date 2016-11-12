@@ -1,4 +1,5 @@
 <template name="dimSums">
+	{{#if Template.subscriptionsReady}}
 	{{> topNav}}
 	<section class="dimSum">
 		<div class="row" id="menurow">
@@ -8,4 +9,5 @@
 			{{/each}}
 		</div>
 	</section>
+	{{/if}}
 </template>

@@ -1,10 +1,7 @@
 <template name="dimSum">
+{{#if Template.subscriptionsReady}}
 	<div class="col s12 m6 l3">
 		<div class="card small truncate hoverable">
-<!-- 			{{#if editMode}}
-
-				{{> quickForm collection="DimSums" id=updateDimSumId type="update" doc=this autosave=true }}
-			{{/if}}	 -->
 			<div class="card-image">
 				{{#each image}}
 
@@ -46,6 +43,7 @@
 			{{/if}}
 		</div>
 	</div>
+{{/if}}
 </template>
 
 <template name="dimSumModal">

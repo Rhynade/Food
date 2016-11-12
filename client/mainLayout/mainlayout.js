@@ -26,10 +26,11 @@ Template.mainLayout.events({
     },
 	'click .intro': function(event){
 		var route = FlowRouter.current().path
-		
-		if(route != '/menu' || route != '/drinks' || route != '/mongkokCongee' || route != '/sushi'){
-			FlowRouter.go('/menu')
-		}
+
+		if(route != '/menu' && route != '/drinks' && route != '/mongkokCongee' && route != '/sushi'){
+			FlowRouter.go('/menu');
+		} 
+
 		event.preventDefault();
 		var guide = require('intro.js');
 		guide.introJs().setOption('doneLabel','Next page').start().oncomplete(function(){
